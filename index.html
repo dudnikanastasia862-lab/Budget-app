@@ -6,7 +6,7 @@
 <title>Budget</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-button,input,select{-webkit-appearance:none;border-radius:0;font-family:Georgia,serif}
+button,input,select,a{-webkit-appearance:none;border-radius:0;font-family:Georgia,serif}
 body{font-family:Georgia,serif;min-height:100vh;padding:12px}
 #R{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100}
 .L{position:absolute;top:0;left:0;width:50%;height:100%;background:#0a0a0a;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px)}
@@ -52,7 +52,7 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .tg{display:flex;margin-bottom:12px}
 .tB{flex:1;padding:10px;cursor:pointer;font-size:10px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .tB:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
-.tB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 30%,#e8dcc8 70%,#d4c5a9 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important;text-shadow:0 1px 1px rgba(255,255,255,0.5)}
+.tB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 30%,#e8dcc8 70%,#d4c5a9 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important;animation:none!important;text-shadow:0 1px 1px rgba(255,255,255,0.5)}
 .fG{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 .fG .fl{grid-column:1/-1}
 .fl2{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
@@ -85,6 +85,8 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .bdIN{font-size:9px}
 .bdIV{font-size:13px;font-weight:600}
 .bdE{text-align:center;padding:10px;font-style:italic;opacity:0.6}
+.donateBtn{display:block;text-align:center;text-decoration:none;margin-top:24px;padding:14px;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all 0.1s}
+.donateBtn:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
 body.chl{background:#0a0a0a!important;color:#fff!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.15) 18px,rgba(255,255,255,0.15) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.15) 18px,rgba(255,255,255,0.15) 19px)!important}
 body.chl header{background:transparent!important;color:#fff!important}
 body.chl .logo,body.chl .balL,body.chl .balV{color:#fff!important}
@@ -101,6 +103,7 @@ body.chl .bdIn{background:#e8dcc8!important;color:#000!important;border:1px soli
 body.chl .bdCol{background:#e8dcc8!important;border:1px solid #000!important}
 body.chl .bdIt{background:#e8dcc8!important;border:1px solid #000!important}
 body.chl .bdE{color:#666!important}
+body.chl .donateBtn{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid #fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important;animation:bp 3s infinite}
 @keyframes bp{0%,100%{border-color:#fff;box-shadow:0 0 5px rgba(255,255,255,0.3)}50%{border-color:rgba(255,255,255,0.5);box-shadow:0 0 15px rgba(255,255,255,0.6)}}
 body.arm{background:linear-gradient(135deg,#4a4036,#3a322a)!important;color:#fff!important}
 body.arm header{background:transparent!important;color:#fff!important}
@@ -119,6 +122,7 @@ body.arm .bdIn{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;colo
 body.arm .bdCol{background:rgba(255,255,255,0.5)!important;border:1px solid #d4c5a9!important}
 body.arm .bdIt{background:rgba(255,255,255,0.7)!important;border:1px solid #d4c5a9!important}
 body.arm .bdE{color:#8b7355!important}
+body.arm .donateBtn{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.3)!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3)!important}
 .pearl{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#d4c5a9);box-shadow:0 0 8px rgba(255,255,255,0.6);animation:pf 2.5s forwards}
 @keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.3)}}
 .bronze{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,#ffd700,#b8864e,transparent);box-shadow:0 0 8px #d4a574;animation:bf 2s forwards}
@@ -230,6 +234,10 @@ body.arm .bdE{color:#8b7355!important}
 </div>
 <div class="msn" id="mB"></div>
 <div class="emp" id="eB" style="display:none">Пока пусто</div>
+
+<!-- КНОПКА ДОНАТА -->
+<a href="https://t.tb.ru/pm_short/8w4E4HcUWrp" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
+
 </div>
 <script>
 const EC=['Еда','Одежда','Кафе','Красота','Салоны','Дом','Транспорт','Развлечения','Здоровье','Обучение','Путешествия','Подарки','Подписки','Другое'];
