@@ -21,7 +21,7 @@ body{font-family:Georgia,serif;min-height:100vh;padding:12px}
 .B{flex:1;max-width:170px;padding:18px;font-size:14px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 8px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .B:active{transform:translateY(2px);box-shadow:0 2px 4px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2)}
 .Bf{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%);border:2px solid rgba(255,255,255,0.6);color:#fff}
-.Bf.s{background:linear-gradient(180deg,#fff 0%,#e8e8e8 100%);color:#000;border-color:#fff}
+.Bf.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%);color:#000;border-color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)}
 .Bm{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%);border:2px solid rgba(255,255,255,0.3);color:#fff}
 .Bm.s{box-shadow:0 0 20px rgba(212,165,116,0.6),0 4px 8px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.4)}
 .Go{width:100%;max-width:300px;padding:18px;background:linear-gradient(180deg,#3a3a3a 0%,#1a1a1a 100%);border:2px solid rgba(255,255,255,0.4);color:#fff;font-size:14px;letter-spacing:6px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 8px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
@@ -52,12 +52,13 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .tg{display:flex;margin-bottom:12px}
 .tB{flex:1;padding:10px;cursor:pointer;font-size:10px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .tB:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
-.tB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 30%,#e8dcc8 70%,#d4c5a9 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important;animation:none!important;text-shadow:0 1px 1px rgba(255,255,255,0.5)}
+.tB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important;text-shadow:0 1px 1px rgba(255,255,255,0.5)}
 .fG{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
 .fG .fl{grid-column:1/-1}
 .fl2{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
 .fB{padding:6px 12px;cursor:pointer;font-size:10px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .fB:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
+.fB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
 .msn{column-count:2;column-gap:10px}
 .tx{position:relative}
 .txT{display:flex;align-items:center;gap:8px;margin-bottom:8px}
@@ -87,42 +88,65 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .bdE{text-align:center;padding:10px;font-style:italic;opacity:0.6}
 .donateBtn{display:block;text-align:center;text-decoration:none;margin-top:24px;padding:14px;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all 0.1s}
 .donateBtn:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
-body.chl{background:#0a0a0a!important;color:#fff!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.15) 18px,rgba(255,255,255,0.15) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.15) 18px,rgba(255,255,255,0.15) 19px)!important}
-body.chl header{background:transparent!important;color:#fff!important}
-body.chl .logo,body.chl .balL,body.chl .balV{color:#fff!important}
-body.chl .bO,body.chl .bR{color:#fff!important;animation:bp 2s infinite}
-body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.4) 18px,rgba(255,255,255,0.4) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.4) 18px,rgba(255,255,255,0.4) 19px)!important}
-body.chl .sT,body.chl .cL,body.chl .sL,body.chl .txC,body.chl label{color:#000!important}
-body.chl .cV,body.chl .sV,body.chl .txA{color:#000!important}
-body.chl .bS,body.chl .bA{color:#fff!important;animation:bp 2s infinite}
-body.chl .tB,body.chl .fB{color:#fff!important;animation:bp 2s infinite}
-body.chl .tB.s,body.chl .fB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 30%,#e8dcc8 70%,#d4c5a9 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important;animation:none!important;text-shadow:0 1px 1px rgba(255,255,255,0.5)}
-body.chl .cd,body.chl input,body.chl select{border:1px solid #000!important;color:#000!important;background:#e8dcc8!important}
-body.chl .txDl,body.chl .bdT{color:#fff!important;animation:bp 2s infinite}
-body.chl .bdIn{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.4) 18px,rgba(255,255,255,0.4) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.4) 18px,rgba(255,255,255,0.4) 19px)!important}
+.repBtn{display:block;width:100%;padding:16px;font-size:14px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-top:20px;transition:all 0.1s}
+.repBtn:active{transform:translateY(2px)}
+.repHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.repMonth{font-size:16px;letter-spacing:2px;text-transform:uppercase;flex:1;text-align:center}
+.repArrow{padding:8px 14px;cursor:pointer;font-size:16px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
+.repArrow:active{transform:translateY(2px)}
+.repGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.repCard{padding:12px;text-align:center}
+.repCL{font-size:9px;letter-spacing:1px;margin-bottom:6px}
+.repCV{font-size:18px;font-weight:600}
+.topCat{margin-top:12px}
+.topCatT{font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(128,128,128,0.3)}
+.topItem{margin-bottom:10px}
+.topItemH{display:flex;justify-content:space-between;margin-bottom:4px}
+.topItemN{font-size:10px;letter-spacing:1px}
+.topItemV{font-size:11px;font-weight:600}
+.topBar{height:6px;background:rgba(128,128,128,0.2);overflow:hidden}
+.topBarF{height:100%;transition:width 0.5s}
+.repEmpty{text-align:center;padding:30px;font-style:italic;opacity:0.6}
+body.chl{background:#f5f0e8!important;color:#000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.4) 18px,rgba(255,255,255,0.4) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.4) 18px,rgba(255,255,255,0.4) 19px)!important}
+body.chl header{background:transparent!important;color:#000!important}
+body.chl .logo,body.chl .balL,body.chl .balV{color:#000!important}
+body.chl .bO,body.chl .bR{color:#fff!important}
+body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important}
+body.chl .sT,body.chl .cL,body.chl .sL,body.chl .txC,body.chl label,body.chl .repCL,body.chl .repMonth,body.chl .topCatT,body.chl .topItemN{color:#000!important}
+body.chl .cV,body.chl .sV,body.chl .txA,body.chl .repCV,body.chl .topItemV{color:#000!important}
+body.chl .bS,body.chl .bA{color:#fff!important}
+body.chl .tB,body.chl .fB,body.chl .repArrow{color:#fff!important}
+body.chl .tB.s,body.chl .fB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
+body.chl .cd,body.chl input,body.chl select,body.chl .repCard{border:1px solid #000!important;color:#000!important;background:#e8dcc8!important}
+body.chl .txDl,body.chl .bdT{color:#fff!important}
+body.chl .bdIn{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important}
 body.chl .bdCol{background:#e8dcc8!important;border:1px solid #000!important}
 body.chl .bdIt{background:#e8dcc8!important;border:1px solid #000!important}
-body.chl .bdE{color:#666!important}
-body.chl .donateBtn{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid #fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important;animation:bp 3s infinite}
-@keyframes bp{0%,100%{border-color:#fff;box-shadow:0 0 5px rgba(255,255,255,0.3)}50%{border-color:rgba(255,255,255,0.5);box-shadow:0 0 15px rgba(255,255,255,0.6)}}
+body.chl .bdE,body.chl .repEmpty{color:#666!important}
+body.chl .donateBtn{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid #fff!important}
+body.chl .repBtn{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
+body.chl .topBarF{background:#000!important}
 body.arm{background:linear-gradient(135deg,#4a4036,#3a322a)!important;color:#fff!important}
 body.arm header{background:transparent!important;color:#fff!important}
 body.arm .logo,body.arm .balL,body.arm .balV{color:#fff!important}
 body.arm .bO,body.arm .bR{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!important;border:none!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3)!important}
 body.arm .bud,body.arm .frm,body.arm .st,body.arm .tx{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
-body.arm .sT,body.arm .cL,body.arm .sL,body.arm .txC,body.arm label{color:#3a2e24!important}
-body.arm .cV,body.arm .sV,body.arm .txA{color:#3a2e24!important}
+body.arm .sT,body.arm .cL,body.arm .sL,body.arm .txC,body.arm label,body.arm .repCL,body.arm .repMonth,body.arm .topCatT,body.arm .topItemN{color:#3a2e24!important}
+body.arm .cV,body.arm .sV,body.arm .txA,body.arm .repCV,body.arm .topItemV{color:#3a2e24!important}
 body.arm .bS,body.arm .bA{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!important;color:#fff!important;border:none!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3)!important}
 body.arm .tB,body.arm .fB{background:transparent!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
 body.arm .tB.s,body.arm .fB.s{background:linear-gradient(180deg,#d4a574,#b8864e)!important;color:#fff!important}
-body.arm .cd,body.arm input,body.arm select{border-color:#d4c5a9!important;color:#3a2e24!important;background:rgba(255,255,255,0.7)!important}
+body.arm .cd,body.arm input,body.arm select,body.arm .repCard{border-color:#d4c5a9!important;color:#3a2e24!important;background:rgba(255,255,255,0.7)!important}
 body.arm .txDl{border:1px solid #d4c5a9!important;color:#8b7355!important;background:transparent!important}
 body.arm .bdT{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
 body.arm .bdIn{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
 body.arm .bdCol{background:rgba(255,255,255,0.5)!important;border:1px solid #d4c5a9!important}
 body.arm .bdIt{background:rgba(255,255,255,0.7)!important;border:1px solid #d4c5a9!important}
-body.arm .bdE{color:#8b7355!important}
+body.arm .bdE,body.arm .repEmpty{color:#8b7355!important}
 body.arm .donateBtn{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.3)!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3)!important}
+body.arm .repBtn{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!important;color:#fff!important;border:none!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3)!important}
+body.arm .repArrow{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!important;border:none!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.3)!important}
+body.arm .topBarF{background:linear-gradient(90deg,#d4a574,#8b6914)!important}
 .pearl{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#d4c5a9);box-shadow:0 0 8px rgba(255,255,255,0.6);animation:pf 2.5s forwards}
 @keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.3)}}
 .bronze{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,#ffd700,#b8864e,transparent);box-shadow:0 0 8px #d4a574;animation:bf 2s forwards}
@@ -135,20 +159,9 @@ body.arm .donateBtn{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!i
 <div class="R"></div>
 <svg class="C" viewBox="0 0 100 100">
 <defs>
-<radialGradient id="p1" cx="35%" cy="30%">
-<stop offset="0%" stop-color="#ffffff"/>
-<stop offset="40%" stop-color="#f8f4ec"/>
-<stop offset="100%" stop-color="#c9b896"/>
-</radialGradient>
-<radialGradient id="p2" cx="40%" cy="35%">
-<stop offset="0%" stop-color="#fffef8"/>
-<stop offset="50%" stop-color="#ede4d3"/>
-<stop offset="100%" stop-color="#b8a88a"/>
-</radialGradient>
-<radialGradient id="pc" cx="50%" cy="50%">
-<stop offset="0%" stop-color="#fff8dc"/>
-<stop offset="100%" stop-color="#d4c5a9"/>
-</radialGradient>
+<radialGradient id="p1" cx="35%" cy="30%"><stop offset="0%" stop-color="#ffffff"/><stop offset="40%" stop-color="#f8f4ec"/><stop offset="100%" stop-color="#c9b896"/></radialGradient>
+<radialGradient id="p2" cx="40%" cy="35%"><stop offset="0%" stop-color="#fffef8"/><stop offset="50%" stop-color="#ede4d3"/><stop offset="100%" stop-color="#b8a88a"/></radialGradient>
+<radialGradient id="pc" cx="50%" cy="50%"><stop offset="0%" stop-color="#fff8dc"/><stop offset="100%" stop-color="#d4c5a9"/></radialGradient>
 <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-opacity="0.4"/></filter>
 </defs>
 <ellipse cx="50" cy="28" rx="16" ry="20" fill="url(#p1)" filter="url(#sh)"/>
@@ -176,7 +189,7 @@ body.arm .donateBtn{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!i
 <header>
 <button class="bO" id="oB">Выйти</button>
 <div class="logo">Budget</div>
-<div style="display:flex;align-items:center;gap:10px">
+<div style="display:flex;align-items:center;gap:8px">
 <div class="bal"><div class="balL">Ваш баланс</div><div class="balV" id="bV">0 ₽</div></div>
 <button class="bR" id="rB">Сброс</button>
 </div>
@@ -234,22 +247,51 @@ body.arm .donateBtn{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!i
 </div>
 <div class="msn" id="mB"></div>
 <div class="emp" id="eB" style="display:none">Пока пусто</div>
-
-<!-- КНОПКА ДОНАТА -->
+<button class="repBtn" id="repBtn">ОТЧЕТ</button>
 <a href="https://t.tb.ru/pm_short/8w4E4HcUWrp" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
-
+</div>
+<div id="repScr" style="display:none">
+<header>
+<button class="bO" id="backBtn">← Назад</button>
+<div class="logo">ОТЧЕТ</div>
+<div style="width:80px"></div>
+</header>
+<div class="bud">
+<div class="repHead">
+<button class="repArrow" id="prevM">◀</button>
+<div class="repMonth" id="repMonth"></div>
+<button class="repArrow" id="nextM">▶</button>
+</div>
+<div class="repGrid">
+<div class="repCard"><div class="repCL">Доходы</div><div class="repCV" id="rInc">0 ₽</div></div>
+<div class="repCard"><div class="repCL">Расходы</div><div class="repCV" id="rExp">0 ₽</div></div>
+<div class="repCard"><div class="repCL">Баланс</div><div class="repCV" id="rBal">0 ₽</div></div>
+<div class="repCard"><div class="repCL">В день</div><div class="repCV" id="rDay">0 ₽</div></div>
+</div>
+<div class="topCat">
+<div class="topCatT">Топ расходов по категориям</div>
+<div id="topCats"></div>
+</div>
+</div>
+<a href="https://t.tb.ru/pm_short/8w4E4HcUWrp" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
 </div>
 <script>
 const EC=['Еда','Одежда','Кафе','Красота','Салоны','Дом','Транспорт','Развлечения','Здоровье','Обучение','Путешествия','Подарки','Подписки','Другое'];
 const IC=['Зарплата','Фриланс','Подарки','Инвестиции','Аренда','Кэшбэк','Другое'];
+const MN=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 let tx=[],bud={c:0,d:0,s:false},gen=null,nm='',cT='expense',cF='all';
+let repDate=new Date();
 const $=id=>document.getElementById(id);
 $('bF').onclick=function(){$('bF').classList.add('s');$('bM').classList.remove('s');gen='female';ck()};
 $('bM').onclick=function(){$('bM').classList.add('s');$('bF').classList.remove('s');gen='male';ck()};
 $('nI').oninput=ck;
 function ck(){$('gB').disabled=!($('nI').value.trim()&&gen)}
 $('gB').onclick=function(){nm=$('nI').value.trim();if(!nm||!gen)return;localStorage.setItem('bu',JSON.stringify({n:nm,g:gen}));op()};
-$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);tx=[];bud={c:0,d:0,s:false};$('A').style.display='none';$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true};
+$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);tx=[];bud={c:0,d:0,s:false};$('A').style.display='none';$('repScr').style.display='none';$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true};
+$('repBtn').onclick=function(){$('A').style.display='none';$('repScr').style.display='block';repDate=new Date();renderReport()};
+$('backBtn').onclick=function(){$('repScr').style.display='none';$('A').style.display='block'};
+$('prevM').onclick=function(){repDate.setMonth(repDate.getMonth()-1);renderReport()};
+$('nextM').onclick=function(){repDate.setMonth(repDate.getMonth()+1);renderReport()};
 function op(){$('R').style.display='none';$('A').style.display='block';document.body.className=gen==='female'?'chl':'arm';ld();fc();rn();rb()}
 function ld(){const sv=localStorage.getItem('bu');if(sv){const u=JSON.parse(sv);nm=u.n;gen=u.g}try{const s1=localStorage.getItem('bt'+gen);if(s1)tx=JSON.parse(s1);const s2=localStorage.getItem('bb'+gen);if(s2)bud=JSON.parse(s2)}catch(e){}}
 const sv2=localStorage.getItem('bu');if(sv2){const u=JSON.parse(sv2);nm=u.n;gen=u.g;op()}
@@ -262,6 +304,26 @@ $('fA').onclick=function(){sf('all')};
 $('fI').onclick=function(){sf('income')};
 $('fE').onclick=function(){sf('expense')};
 function sf(f){$('fA').classList.remove('s');$('fI').classList.remove('s');$('fE').classList.remove('s');if(f==='all')$('fA').classList.add('s');if(f==='income')$('fI').classList.add('s');if(f==='expense')$('fE').classList.add('s');cF=f;rn()}
+function renderReport(){
+const y=repDate.getFullYear();
+const m=repDate.getMonth();
+$('repMonth').textContent=MN[m]+' '+y;
+const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return d.getFullYear()===y&&d.getMonth()===m});
+const inc=mt.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
+const exp=mt.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
+const bal=inc-exp;
+const daysInMonth=new Date(y,m+1,0).getDate();
+const today=Math.min(new Date().getDate(),daysInMonth);
+const perDay=exp>0?Math.round(exp/(m===new Date().getMonth()&&y===new Date().getFullYear()?today:daysInMonth)):0;
+$('rInc').textContent=fm(inc);
+$('rExp').textContent=fm(exp);
+$('rBal').textContent=(bal<0?'-':'')+fm(Math.abs(bal));
+$('rDay').textContent=fm(perDay)+' ₽';
+const ce={};mt.filter(t=>t.t==='expense').forEach(t=>{ce[t.c]=(ce[t.c]||0)+t.a});
+const sorted=Object.entries(ce).sort((a,b)=>b[1]-a[1]).slice(0,3);
+const maxV=sorted.length>0?sorted[0][1]:1;
+$('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов за этот месяц</div>':sorted.map(([c,v])=>'<div class="topItem"><div class="topItemH"><span class="topItemN">'+c+'</span><span class="topItemV">'+fm(v)+'</span></div><div class="topBar"><div class="topBarF" style="width:'+(v/maxV*100)+'%"></div></div></div>').join('');
+}
 function rb(){const now=new Date();const y=now.getFullYear();const m=now.getMonth()+1;const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return d.getFullYear()===y&&d.getMonth()+1===m});const ce={},ci={};mt.forEach(t=>{if(t.t==='expense')ce[t.c]=(ce[t.c]||0)+t.a;else ci[t.c]=(ci[t.c]||0)+t.a});$('eC').innerHTML=Object.keys(ce).length===0?'<div class="bdE">Нет расходов</div>':Object.entries(ce).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">-'+fm(t)+'</span></div>').join('');$('iC2').innerHTML=Object.keys(ci).length===0?'<div class="bdE">Нет доходов</div>':Object.entries(ci).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">+'+fm(t)+'</span></div>').join('')}
 function sh(el){const r=el.getBoundingClientRect();const x=r.left+r.width/2;const y=r.top+r.height/2;if(gen==='female'){for(let i=0;i<40;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+8;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/40;const d=Math.random()*200+100;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}}else{for(let i=0;i<60;i++){const p=document.createElement('div');p.className='bronze';const sz=Math.random()*6+3;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/60;const d=Math.random()*250+150;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2000)}}}
 function fc(){const s=$('cS');const c=cT==='expense'?EC:IC;s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('')}
@@ -273,3 +335,4 @@ $('tF').onsubmit=function(e){e.preventDefault();const a=parseFloat($('aI').value
 </script>
 </body>
 </html>
+
