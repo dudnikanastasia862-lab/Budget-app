@@ -7,7 +7,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 button,input,select,a{-webkit-appearance:none;border-radius:0;font-family:Georgia,serif}
-body{font-family:Georgia,serif;min-height:100vh;padding:12px}
+body{font-family:Georgia,serif;min-height:100vh;padding:12px;padding-bottom:80px}
 #R{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100}
 .L{position:absolute;top:0;left:0;width:50%;height:100%;background:#0a0a0a;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px)}
 .R{position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,#5a4f45,#4a4036)}
@@ -34,7 +34,7 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .balV{font-size:20px;font-weight:600}
 .bO,.bR{padding:6px 12px;font-size:10px;cursor:pointer;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .bO:active,.bR:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
-.bud,.frm,.st,.tx{padding:15px;margin-bottom:12px}
+.bud,.frm,.st,.tx,.ab{padding:15px;margin-bottom:12px}
 .bH{margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(128,128,128,0.3)}
 .sT{font-size:18px;letter-spacing:2px;text-transform:uppercase}
 .g3{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px;margin-bottom:12px}
@@ -88,8 +88,6 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .bdE{text-align:center;padding:10px;font-style:italic;opacity:0.6}
 .donateBtn{display:block;text-align:center;text-decoration:none;margin-top:24px;padding:14px;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all 0.1s}
 .donateBtn:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
-.repBtn{display:block;width:100%;padding:16px;font-size:14px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-top:20px;transition:all 0.1s}
-.repBtn:active{transform:translateY(2px)}
 .repHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .repMonth{font-size:16px;letter-spacing:2px;text-transform:uppercase;flex:1;text-align:center}
 .repArrow{padding:8px 14px;cursor:pointer;font-size:16px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
@@ -107,12 +105,18 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .topBar{height:6px;background:rgba(128,128,128,0.2);overflow:hidden}
 .topBarF{height:100%;transition:width 0.5s}
 .repEmpty{text-align:center;padding:30px;font-style:italic;opacity:0.6}
+.abT{text-align:center;margin-bottom:20px}
+.abTx{line-height:1.6;margin-bottom:12px}
+.tabBar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;align-items:center;padding:8px 0;z-index:1000;background:inherit}
+.tabItem{display:flex;flex-direction:column;align-items:center;cursor:pointer;flex:1}
+.tabIcon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:4px;transition:all 0.2s}
+.tabLabel{font-size:9px;letter-spacing:0.5px}
 body.chl{background:#f5f0e8!important;color:#000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 25px,rgba(255,255,255,0.7) 25px,rgba(255,255,255,0.9) 26px,rgba(180,180,180,0.3) 26px,rgba(180,180,180,0.3) 28px),repeating-linear-gradient(-45deg,transparent,transparent 25px,rgba(255,255,255,0.7) 25px,rgba(255,255,255,0.9) 26px,rgba(180,180,180,0.3) 26px,rgba(180,180,180,0.3) 28px)!important;box-shadow:inset 0 0 60px rgba(0,0,0,0.12)!important}
 body.chl header{background:transparent!important;color:#000!important}
 body.chl .logo,body.chl .balL,body.chl .balV{color:#000!important}
 body.chl .bO,body.chl .bR{color:#fff!important}
-body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1)!important}
-body.chl .sT,body.chl .cL,body.chl .sL,body.chl .txC,body.chl label,body.chl .repCL,body.chl .repMonth,body.chl .topCatT,body.chl .topItemN{color:#000!important}
+body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx,body.chl .ab{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1)!important}
+body.chl .sT,body.chl .cL,body.chl .sL,body.chl .txC,body.chl label,body.chl .repCL,body.chl .repMonth,body.chl .topCatT,body.chl .topItemN,body.chl .abTx{color:#000!important}
 body.chl .cV,body.chl .sV,body.chl .txA,body.chl .repCV,body.chl .topItemV{color:#000!important}
 body.chl .bS,body.chl .bA{color:#fff!important}
 body.chl .tB,body.chl .fB,body.chl .repArrow{color:#fff!important}
@@ -124,14 +128,20 @@ body.chl .bdCol{background:#e8dcc8!important;border:1px solid #000!important}
 body.chl .bdIt{background:#e8dcc8!important;border:1px solid #000!important}
 body.chl .bdE,body.chl .repEmpty{color:#666!important}
 body.chl .donateBtn{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid #fff!important}
-body.chl .repBtn{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
 body.chl .topBarF{background:#000!important}
+body.chl .tabBar{background:#0a0a0a!important;border-top:1px solid rgba(255,255,255,0.2)!important}
+body.chl .tabIcon{border:2px solid rgba(255,255,255,0.6)!important;background:transparent!important}
+body.chl .tabIcon svg{fill:#fff!important}
+body.chl .tabLabel{color:rgba(255,255,255,0.7)!important}
+body.chl .tabItem.active .tabIcon{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;border-color:#fff!important}
+body.chl .tabItem.active .tabIcon svg{fill:#000!important}
+body.chl .tabItem.active .tabLabel{color:#fff!important;font-weight:600}
 body.arm{background:linear-gradient(135deg,#4a4036,#3a322a)!important;color:#fff!important}
 body.arm header{background:transparent!important;color:#fff!important}
 body.arm .logo,body.arm .balL,body.arm .balV{color:#fff!important}
 body.arm .bO,body.arm .bR{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;border:1px solid #6b4f10!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
-body.arm .bud,body.arm .frm,body.arm .st,body.arm .tx{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
-body.arm .sT,body.arm .cL,body.arm .sL,body.arm .txC,body.arm label,body.arm .repCL,body.arm .repMonth,body.arm .topCatT,body.arm .topItemN{color:#3a2e24!important}
+body.arm .bud,body.arm .frm,body.arm .st,body.arm .tx,body.arm .ab{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
+body.arm .sT,body.arm .cL,body.arm .sL,body.arm .txC,body.arm label,body.arm .repCL,body.arm .repMonth,body.arm .topCatT,body.arm .topItemN,body.arm .abTx{color:#3a2e24!important}
 body.arm .cV,body.arm .sV,body.arm .txA,body.arm .repCV,body.arm .topItemV{color:#3a2e24!important}
 body.arm .bS,body.arm .bA{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 20%,#b8864e 50%,#8b6914 80%,#6b4f10 100%)!important;color:#fff!important;border:1px solid #6b4f10!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
 body.arm .bS:active,body.arm .bA:active{box-shadow:0 2px 4px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.3) inset,0 -1px 2px rgba(0,0,0,0.3) inset!important;transform:translateY(2px)}
@@ -145,10 +155,15 @@ body.arm .bdCol{background:rgba(255,255,255,0.5)!important;border:1px solid #d4c
 body.arm .bdIt{background:rgba(255,255,255,0.7)!important;border:1px solid #d4c5a9!important}
 body.arm .bdE,body.arm .repEmpty{color:#8b7355!important}
 body.arm .donateBtn{background:linear-gradient(180deg,#e8d5b7 0%,#c9a87c 50%,#a8845c 100%)!important;color:#3a2e24!important;border:1px solid #8b6914!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.3) inset!important;text-shadow:0 1px 0 rgba(255,255,255,0.3)!important}
-body.arm .repBtn{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;color:#fff!important;border:1px solid #6b4f10!important;box-shadow:0 6px 12px rgba(0,0,0,0.5),0 2px 4px rgba(255,255,255,0.4) inset,0 -3px 6px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important;letter-spacing:4px!important}
-body.arm .repBtn:active{box-shadow:0 3px 6px rgba(0,0,0,0.5),0 1px 2px rgba(255,255,255,0.3) inset,0 -1px 3px rgba(0,0,0,0.3) inset!important;transform:translateY(2px)}
 body.arm .repArrow{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;border:1px solid #6b4f10!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
 body.arm .topBarF{background:linear-gradient(90deg,#f4e4c1,#d4a574,#b8864e,#8b6914)!important;box-shadow:0 1px 2px rgba(255,255,255,0.3) inset}
+body.arm .tabBar{background:#3a322a!important;border-top:1px solid rgba(212,165,116,0.3)!important}
+body.arm .tabIcon{border:2px solid rgba(212,165,116,0.6)!important;background:transparent!important}
+body.arm .tabIcon svg{fill:#d4a574!important}
+body.arm .tabLabel{color:rgba(212,165,116,0.7)!important}
+body.arm .tabItem.active .tabIcon{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;border-color:#b8864e!important;box-shadow:0 2px 4px rgba(0,0,0,0.3),0 1px 2px rgba(255,255,255,0.4) inset!important}
+body.arm .tabItem.active .tabIcon svg{fill:#3a2e24!important}
+body.arm .tabItem.active .tabLabel{color:#d4a574!important;font-weight:600}
 .pearl{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#d4c5a9);box-shadow:0 0 8px rgba(255,255,255,0.6);animation:pf 2.5s forwards}
 @keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.3)}}
 .bronze{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,#ffd700,#b8864e,transparent);box-shadow:0 0 8px #d4a574;animation:bf 2s forwards}
@@ -249,18 +264,17 @@ body.arm .topBarF{background:linear-gradient(90deg,#f4e4c1,#d4a574,#b8864e,#8b69
 </div>
 <div class="msn" id="mB"></div>
 <div class="emp" id="eB" style="display:none">Пока пусто</div>
-<button class="repBtn" id="repBtn">ОТЧЕТ</button>
 <a href="https://t.tb.ru/pm_short/8w4E4HcUWrp" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
 </div>
 <div id="repScr" style="display:none">
 <header>
-<button class="bO" id="backBtn">← Назад</button>
+<div style="width:80px"></div>
 <div class="logo">ОТЧЕТ</div>
 <div style="width:80px"></div>
 </header>
 <div class="bud">
 <div class="repHead">
-<button class="repArrow" id="prevM">◀</button>
+<button class="repArrow" id="prevM"></button>
 <div class="repMonth" id="repMonth"></div>
 <button class="repArrow" id="nextM">▶</button>
 </div>
@@ -275,13 +289,77 @@ body.arm .topBarF{background:linear-gradient(90deg,#f4e4c1,#d4a574,#b8864e,#8b69
 <div id="topCats"></div>
 </div>
 </div>
+</div>
+<div id="listScr" style="display:none">
+<header>
+<div style="width:80px"></div>
+<div class="logo">СПИСОК</div>
+<div style="width:80px"></div>
+</header>
+<div class="fl2">
+<button class="fB s" id="fA2">Все</button>
+<button class="fB" id="fI2">Доходы</button>
+<button class="fB" id="fE2">Расходы</button>
+</div>
+<div class="msn" id="mB2"></div>
+<div class="emp" id="eB2" style="display:none">Пока пусто</div>
+</div>
+<div id="aboutScr" style="display:none">
+<header>
+<div style="width:80px"></div>
+<div class="logo">О НАС</div>
+<div style="width:80px"></div>
+</header>
+<div class="ab">
+<div class="abT">
+<div class="sT">Budget App</div>
+<div style="font-size:11px;letter-spacing:2px;margin-top:8px">Версия 1.0</div>
+</div>
+<div class="abTx">
+<strong>Создано с любовью</strong><br>
+Приложение для учёта личных финансов в элегантном стиле.
+</div>
+<div class="abTx">
+<strong>Функции:</strong><br>
+• Учёт доходов и расходов<br>
+• Разделение на наличные и безналичные<br>
+• Ежемесячные отчёты<br>
+• Две темы оформления
+</div>
 <a href="https://t.tb.ru/pm_short/8w4E4HcUWrp" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
+</div>
+</div>
+<div class="tabBar">
+<div class="tabItem" data-page="repScr">
+<div class="tabIcon">
+<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+</div>
+<div class="tabLabel">Отчет</div>
+</div>
+<div class="tabItem active" data-page="A">
+<div class="tabIcon">
+<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+</div>
+<div class="tabLabel">Главная</div>
+</div>
+<div class="tabItem" data-page="listScr">
+<div class="tabIcon">
+<svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+</div>
+<div class="tabLabel">Список</div>
+</div>
+<div class="tabItem" data-page="aboutScr">
+<div class="tabIcon">
+<svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+</div>
+<div class="tabLabel">О нас</div>
+</div>
 </div>
 <script>
 const EC=['Еда','Одежда','Кафе','Красота','Салоны','Дом','Транспорт','Развлечения','Здоровье','Обучение','Путешествия','Подарки','Подписки','Другое'];
 const IC=['Зарплата','Фриланс','Подарки','Инвестиции','Аренда','Кэшбэк','Другое'];
 const MN=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-let tx=[],bud={c:0,d:0,s:false},gen=null,nm='',cT='expense',cF='all';
+let tx=[],bud={c:0,d:0,s:false},gen=null,nm='',cT='expense',cF='all',cF2='all';
 let repDate=new Date();
 const $=id=>document.getElementById(id);
 $('bF').onclick=function(){$('bF').classList.add('s');$('bM').classList.remove('s');gen='female';ck()};
@@ -289,11 +367,10 @@ $('bM').onclick=function(){$('bM').classList.add('s');$('bF').classList.remove('
 $('nI').oninput=ck;
 function ck(){$('gB').disabled=!($('nI').value.trim()&&gen)}
 $('gB').onclick=function(){nm=$('nI').value.trim();if(!nm||!gen)return;localStorage.setItem('bu',JSON.stringify({n:nm,g:gen}));op()};
-$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);tx=[];bud={c:0,d:0,s:false};$('A').style.display='none';$('repScr').style.display='none';$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true};
-$('repBtn').onclick=function(){$('A').style.display='none';$('repScr').style.display='block';repDate=new Date();renderReport()};
-$('backBtn').onclick=function(){$('repScr').style.display='none';$('A').style.display='block'};
-$('prevM').onclick=function(){repDate.setMonth(repDate.getMonth()-1);renderReport()};
-$('nextM').onclick=function(){repDate.setMonth(repDate.getMonth()+1);renderReport()};
+$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);tx=[];bud={c:0,d:0,s:false};hideAll();$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true};
+function hideAll(){$('A').style.display='none';$('repScr').style.display='none';$('listScr').style.display='none';$('aboutScr').style.display='none'}
+function showPage(id){hideAll();$(id).style.display='block';if(id==='repScr'){repDate=new Date();renderReport()}if(id==='listScr'){renderList()}}
+document.querySelectorAll('.tabItem').forEach(item=>{item.onclick=function(){document.querySelectorAll('.tabItem').forEach(i=>i.classList.remove('active'));this.classList.add('active');showPage(this.dataset.page)}});
 function op(){$('R').style.display='none';$('A').style.display='block';document.body.className=gen==='female'?'chl':'arm';ld();fc();rn();rb()}
 function ld(){const sv=localStorage.getItem('bu');if(sv){const u=JSON.parse(sv);nm=u.n;gen=u.g}try{const s1=localStorage.getItem('bt'+gen);if(s1)tx=JSON.parse(s1);const s2=localStorage.getItem('bb'+gen);if(s2)bud=JSON.parse(s2)}catch(e){}}
 const sv2=localStorage.getItem('bu');if(sv2){const u=JSON.parse(sv2);nm=u.n;gen=u.g;op()}
@@ -305,27 +382,15 @@ $('tI').onclick=function(){$('tI').classList.add('s');$('tE').classList.remove('
 $('fA').onclick=function(){sf('all')};
 $('fI').onclick=function(){sf('income')};
 $('fE').onclick=function(){sf('expense')};
+$('fA2').onclick=function(){sf2('all')};
+$('fI2').onclick=function(){sf2('income')};
+$('fE2').onclick=function(){sf2('expense')};
 function sf(f){$('fA').classList.remove('s');$('fI').classList.remove('s');$('fE').classList.remove('s');if(f==='all')$('fA').classList.add('s');if(f==='income')$('fI').classList.add('s');if(f==='expense')$('fE').classList.add('s');cF=f;rn()}
-function renderReport(){
-const y=repDate.getFullYear();
-const m=repDate.getMonth();
-$('repMonth').textContent=MN[m]+' '+y;
-const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return d.getFullYear()===y&&d.getMonth()===m});
-const inc=mt.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
-const exp=mt.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
-const bal=inc-exp;
-const daysInMonth=new Date(y,m+1,0).getDate();
-const today=Math.min(new Date().getDate(),daysInMonth);
-const perDay=exp>0?Math.round(exp/(m===new Date().getMonth()&&y===new Date().getFullYear()?today:daysInMonth)):0;
-$('rInc').textContent=fm(inc);
-$('rExp').textContent=fm(exp);
-$('rBal').textContent=(bal<0?'-':'')+fm(Math.abs(bal));
-$('rDay').textContent=fm(perDay)+' ₽';
-const ce={};mt.filter(t=>t.t==='expense').forEach(t=>{ce[t.c]=(ce[t.c]||0)+t.a});
-const sorted=Object.entries(ce).sort((a,b)=>b[1]-a[1]).slice(0,3);
-const maxV=sorted.length>0?sorted[0][1]:1;
-$('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов за этот месяц</div>':sorted.map(([c,v])=>'<div class="topItem"><div class="topItemH"><span class="topItemN">'+c+'</span><span class="topItemV">'+fm(v)+'</span></div><div class="topBar"><div class="topBarF" style="width:'+(v/maxV*100)+'%"></div></div></div>').join('');
-}
+function sf2(f){$('fA2').classList.remove('s');$('fI2').classList.remove('s');$('fE2').classList.remove('s');if(f==='all')$('fA2').classList.add('s');if(f==='income')$('fI2').classList.add('s');if(f==='expense')$('fE2').classList.add('s');cF2=f;renderList()}
+$('prevM').onclick=function(){repDate.setMonth(repDate.getMonth()-1);renderReport()};
+$('nextM').onclick=function(){repDate.setMonth(repDate.getMonth()+1);renderReport()};
+function renderReport(){const y=repDate.getFullYear();const m=repDate.getMonth();$('repMonth').textContent=MN[m]+' '+y;const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return d.getFullYear()===y&&d.getMonth()===m});const inc=mt.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);const exp=mt.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);const bal=inc-exp;const daysInMonth=new Date(y,m+1,0).getDate();const today=Math.min(new Date().getDate(),daysInMonth);const perDay=exp>0?Math.round(exp/(m===new Date().getMonth()&&y===new Date().getFullYear()?today:daysInMonth)):0;$('rInc').textContent=fm(inc);$('rExp').textContent=fm(exp);$('rBal').textContent=(bal<0?'-':'')+fm(Math.abs(bal));$('rDay').textContent=fm(perDay)+' ₽';const ce={};mt.filter(t=>t.t==='expense').forEach(t=>{ce[t.c]=(ce[t.c]||0)+t.a});const sorted=Object.entries(ce).sort((a,b)=>b[1]-a[1]).slice(0,3);const maxV=sorted.length>0?sorted[0][1]:1;$('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов за этот месяц</div>':sorted.map(([c,v])=>'<div class="topItem"><div class="topItemH"><span class="topItemN">'+c+'</span><span class="topItemV">'+fm(v)+'</span></div><div class="topBar"><div class="topBarF" style="width:'+(v/maxV*100)+'%"></div></div></div>').join('')}
+function renderList(){const f=cF2==='all'?tx:tx.filter(t=>t.t===cF2);const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});const m=$('mB2'),e=$('eB2');if(s.length===0){m.innerHTML='';e.style.display='block'}else{e.style.display='none';m.innerHTML=s.map(t=>'<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div class="txI"><div class="txC">'+t.c+'</div><div class="txD">'+(t.dsc||'—')+'</div></div></div><div class="txB"><div><div class="txA">'+(t.t==='income'?'+':'−')+fm(t.a)+'</div><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div></div><div class="txD2">'+fd(t.d)+'</div></div></div>').join('');document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}renderList();rb()}})}}
 function rb(){const now=new Date();const y=now.getFullYear();const m=now.getMonth()+1;const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return d.getFullYear()===y&&d.getMonth()+1===m});const ce={},ci={};mt.forEach(t=>{if(t.t==='expense')ce[t.c]=(ce[t.c]||0)+t.a;else ci[t.c]=(ci[t.c]||0)+t.a});$('eC').innerHTML=Object.keys(ce).length===0?'<div class="bdE">Нет расходов</div>':Object.entries(ce).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">-'+fm(t)+'</span></div>').join('');$('iC2').innerHTML=Object.keys(ci).length===0?'<div class="bdE">Нет доходов</div>':Object.entries(ci).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">+'+fm(t)+'</span></div>').join('')}
 function sh(el){const r=el.getBoundingClientRect();const x=r.left+r.width/2;const y=r.top+r.height/2;if(gen==='female'){for(let i=0;i<40;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+8;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/40;const d=Math.random()*200+100;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}}else{for(let i=0;i<60;i++){const p=document.createElement('div');p.className='bronze';const sz=Math.random()*6+3;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/60;const d=Math.random()*250+150;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2000)}}}
 function fc(){const s=$('cS');const c=cT==='expense'?EC:IC;s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('')}
@@ -334,15 +399,7 @@ function fd(d){const p=d.split('-');return new Date(parseInt(p[0]),parseInt(p[1]
 function rn(){const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);const cb=bud.c+ci-ce,db=bud.d+di-de,tb=cb+db;$('iV').textContent=fm(inc);$('eV').textContent=fm(exp);$('cV').textContent=fm(cb);$('dV').textContent=fm(db);$('tV').textContent=fm(tb);const b=$('bV');b.textContent=(tb<0?'-':'')+fm(Math.abs(tb));$('bB').style.display=bud.s?'none':'block';$('iC').value=bud.c||'';$('iD').value=bud.d||'';const f=cF==='all'?tx:tx.filter(t=>t.t===cF);const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});const m=$('mB'),e=$('eB');if(s.length===0){m.innerHTML='';e.style.display='block'}else{e.style.display='none';m.innerHTML=s.map(t=>'<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div class="txI"><div class="txC">'+t.c+'</div><div class="txD">'+(t.dsc||'—')+'</div></div></div><div class="txB"><div><div class="txA">'+(t.t==='income'?'+':'−')+fm(t.a)+'</div><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div></div><div class="txD2">'+fd(t.d)+'</div></div></div>').join('');document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}})}}
 $('dI').valueAsDate=new Date();
 $('tF').onsubmit=function(e){e.preventDefault();const a=parseFloat($('aI').value);if(!a||a<=0)return;tx.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:cT,c:$('cS').value,a,p:$('pS').value,d:$('dI').value,dsc:$('dS').value.trim()});try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb();e.target.reset();$('dI').valueAsDate=new Date();fc();sh(e.target.querySelector('.bA'))};
-
-// УМНЫЙ СКРИПТ: сброс зума после закрытия клавиатуры
-document.addEventListener('focusout',function(){
-  setTimeout(function(){
-    window.scrollTo(0,0);
-    document.body.scrollTop=0;
-    document.documentElement.scrollTop=0;
-  },100);
-});
+document.addEventListener('focusout',function(){setTimeout(function(){window.scrollTo(0,0);document.body.scrollTop=0;document.documentElement.scrollTop=0},100)});
 </script>
 </body>
 </html>
