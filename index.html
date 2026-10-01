@@ -325,7 +325,7 @@ body.arm .customCheck svg{fill:#8b6914!important}
 </div>
 <div class="msn" id="mB"></div>
 <div class="emp" id="eB" style="display:none">Пока пусто</div>
-<a href="https://t.tb.ru/pm_short/8w4E4HcUWrp" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
+<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
 </div>
 
 <div id="repScr" style="display:none">
@@ -351,15 +351,24 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <div class="bud">
 <div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div>
-<form class="todoAdd" onsubmit="event.preventDefault();addTodo('day')"><input type="text" id="todoInputDay" placeholder="Что купить..." required><button type="submit">+</button></form></div>
+<div class="todoAdd">
+<input type="text" id="todoInputDay" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('day')}">
+<button onclick="addTodo('day')">+</button>
+</div></div>
 
 <div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div>
-<form class="todoAdd" onsubmit="event.preventDefault();addTodo('month')"><input type="text" id="todoInputMonth" placeholder="Что купить..." required><button type="submit">+</button></form></div>
+<div class="todoAdd">
+<input type="text" id="todoInputMonth" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('month')}">
+<button onclick="addTodo('month')">+</button>
+</div></div>
 
 <div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div>
-<form class="todoAdd" onsubmit="event.preventDefault();addTodo('year')"><input type="text" id="todoInputYear" placeholder="Что купить..." required><button type="submit">+</button></form></div>
+<div class="todoAdd">
+<input type="text" id="todoInputYear" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('year')}">
+<button onclick="addTodo('year')">+</button>
+</div></div>
 </div>
 </div>
 
@@ -458,6 +467,7 @@ function addTodo(type){
   todos.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), text:text, checked:false, type:type, period:getCurrentPeriod(type)});
   saveTodos();
   input.value='';
+  input.blur();
   renderTodos(type);
 }
 
