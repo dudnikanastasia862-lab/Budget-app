@@ -43,7 +43,7 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .bud,.frm,.st,.tx,.ab{padding:15px;margin-bottom:12px}
 .bH{margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(128,128,128,0.3)}
 .sT{font-size:18px;letter-spacing:2px;text-transform:uppercase}
-.g3{display:grid!important;grid-template-columns:1fr 1fr 1fr 1fr!important;gap:8px;margin-bottom:12px}
+.g3{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px;margin-bottom:12px}
 .cd{padding:8px;text-align:center}
 .cL{font-size:8px;letter-spacing:1px;margin-bottom:6px}
 .cV{font-size:16px;font-weight:600}
@@ -197,10 +197,11 @@ body.arm .customCheck svg{fill:#8b6914!important}
 @keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.3)}}
 .bronze{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,#ffd700,#b8864e,transparent);box-shadow:0 0 8px #d4a574;animation:bf 2s forwards}
 @keyframes bf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.2)}}
-.totalBox{padding:12px;margin-bottom:12px;display:flex;justify-content:space-around;text-align:center}
+.totalBox{padding:12px;margin-bottom:12px;display:flex;justify-content:space-around;text-align:center;border:1px solid currentColor}
 .totalBox div{flex:1}
 .totalBox .tL{font-size:9px;letter-spacing:1px;margin-bottom:4px}
 .totalBox .tV{font-size:18px;font-weight:600}
+.totalBox .divider{border-left:1px solid currentColor;flex:0}
 </style>
 </head>
 <body>
@@ -251,7 +252,6 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <div class="cd"><div class="cL">Наличные</div><div class="cV" id="cV">0 ₽</div></div>
 <div class="cd"><div class="cL">Безналичные</div><div class="cV" id="dV">0 ₽</div></div>
 <div class="cd"><div class="cL">Резерв</div><div class="cV" id="rV">0 ₽</div></div>
-<div class="cd"><div class="cL">Доступно</div><div class="cV" id="tV">0 ₽</div><div class="cL" id="tVRes" style="margin-top:4px;font-size:7px;opacity:0.7">Всего: 0 ₽</div></div>
 </div>
 <div id="bB">
 <div class="bI">
@@ -288,9 +288,9 @@ body.arm .customCheck svg{fill:#8b6914!important}
 </div>
 </div>
 </div>
-<div class="totalBox" id="totalBox">
+<div class="totalBox">
 <div><div class="tL">Всего</div><div class="tV" id="totAll">0 ₽</div></div>
-<div style="border-left:1px solid currentColor"></div>
+<div class="divider"></div>
 <div><div class="tL">Всего с резервом</div><div class="tV" id="totRes">0 ₽</div></div>
 </div>
 </div>
@@ -351,15 +351,15 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <div class="bud">
 <div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div>
-<div class="todoAdd"><input type="text" id="todoInputDay" placeholder="Что купить..." onkeypress="handleEnter(event,'day')"><button onclick="addTodo('day')">+</button></div></div>
+<form class="todoAdd" onsubmit="event.preventDefault();addTodo('day')"><input type="text" id="todoInputDay" placeholder="Что купить..." required><button type="submit">+</button></form></div>
 
 <div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div>
-<div class="todoAdd"><input type="text" id="todoInputMonth" placeholder="Что купить..." onkeypress="handleEnter(event,'month')"><button onclick="addTodo('month')">+</button></div></div>
+<form class="todoAdd" onsubmit="event.preventDefault();addTodo('month')"><input type="text" id="todoInputMonth" placeholder="Что купить..." required><button type="submit">+</button></form></div>
 
 <div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div>
-<div class="todoAdd"><input type="text" id="todoInputYear" placeholder="Что купить..." onkeypress="handleEnter(event,'year')"><button onclick="addTodo('year')">+</button></div></div>
+<form class="todoAdd" onsubmit="event.preventDefault();addTodo('year')"><input type="text" id="todoInputYear" placeholder="Что купить..." required><button type="submit">+</button></form></div>
 </div>
 </div>
 
@@ -461,13 +461,6 @@ function addTodo(type){
   renderTodos(type);
 }
 
-function handleEnter(event,type){
-  if(event.key==='Enter'){
-    event.preventDefault();
-    addTodo(type);
-  }
-}
-
 function toggleCheck(id,event){
   const t=todos.find(x=>x.id===id);
   if(t){
@@ -555,7 +548,6 @@ function applyRes(){
   const amt=parseFloat($('resAmt').value);
   const src=$('resSrc').value;
   if(!amt||amt<=0){alert('Введите сумму');return;}
-  
   const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
   const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
   const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
@@ -564,7 +556,6 @@ function applyRes(){
   const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
   const cb=bud.c+ci-ce;
   const db=bud.d+di-de;
-  
   if(resMode==='add'){
     const available=src==='cash'?cb:db;
     if(amt>available){alert('Недостаточно средств');return;}
@@ -575,7 +566,6 @@ function applyRes(){
     bud.r-=amt;
     if(src==='cash') bud.c+=amt; else bud.d+=amt;
   }
-  
   try{localStorage.setItem('bb'+gen,JSON.stringify(bud))}catch(e){}
   $('resForm').style.display='none';
   $('resAmt').value='';
@@ -589,8 +579,6 @@ function emitCamelliaParticles(){
   const rect=cam.getBoundingClientRect();
   const cx=rect.left+rect.width/2;
   const cy=rect.top+rect.height/2;
-  
-  // На стартовом экране — летят ОБА типа частиц интенсивно
   if(!gen){
     for(let i=0;i<6;i++){
       const p=document.createElement('div');
@@ -618,8 +606,6 @@ function emitCamelliaParticles(){
     }
     return;
   }
-  
-  // После выбора пола — только соответствующий тип
   if(gen==='female'){
     for(let i=0;i<8;i++){
       const p=document.createElement('div');
@@ -693,8 +679,6 @@ function rn(){
   $('cV').textContent=fm(cb);
   $('dV').textContent=fm(db);
   $('rV').textContent=fm(bud.r);
-  $('tV').textContent=fm(tb);
-  $('tVRes').textContent='Всего: '+fm(tbRes);
   $('totAll').textContent=fm(tb);
   $('totRes').textContent=fm(tbRes);
   $('resCur').textContent=fm(bud.r);
@@ -718,7 +702,6 @@ $('dI').valueAsDate=new Date();
 $('tF').onsubmit=function(e){e.preventDefault();const a=parseFloat($('aI').value);if(!a||a<=0)return;tx.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:cT,c:$('cS').value,a,p:$('pS').value,d:$('dI').value,dsc:$('dS').value.trim()});try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb();e.target.reset();$('dI').valueAsDate=new Date();fc();sh(e.target.querySelector('.bA'))};
 document.addEventListener('focusout',function(){setTimeout(function(){window.scrollTo(0,0);document.body.scrollTop=0;document.documentElement.scrollTop=0},100)});
 
-// Частицы из камелии каждые 0.5 сек
 camelliaInterval=setInterval(emitCamelliaParticles,500);
 </script>
 </body>
