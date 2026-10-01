@@ -17,7 +17,7 @@ body{font-family:Georgia,serif;min-height:100vh;padding:12px;padding-bottom:80px
 .L{position:absolute;top:0;left:0;width:50%;height:100%;background:#0a0a0a;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px)}
 .R{position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,#5a4f45,#4a4036)}
 .R::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:#b8864e;transform:translateY(-50%)}
-.C{position:absolute;top:8%;right:12%;width:70px;height:70px;z-index:5;filter:drop-shadow(0 3px 6px rgba(0,0,0,0.5));transform-origin:50px 50px;animation:spin 25s linear infinite}
+.C{position:absolute;top:8%;right:12%;width:70px;height:70px;z-index:5;filter:drop-shadow(0 3px 6px rgba(0,0,0,0.5));transform-origin:50px 50px;animation:spin 10s linear infinite}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .X{position:relative;z-index:10;text-align:center;width:100%;max-width:400px;padding:0 20px}
 .T{font-size:48px;color:#fff;letter-spacing:10px;margin-bottom:60px}
@@ -197,6 +197,10 @@ body.arm .customCheck svg{fill:#8b6914!important}
 @keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.3)}}
 .bronze{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,#ffd700,#b8864e,transparent);box-shadow:0 0 8px #d4a574;animation:bf 2s forwards}
 @keyframes bf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.2)}}
+.totalBox{padding:12px;margin-bottom:12px;display:flex;justify-content:space-around;text-align:center}
+.totalBox div{flex:1}
+.totalBox .tL{font-size:9px;letter-spacing:1px;margin-bottom:4px}
+.totalBox .tV{font-size:18px;font-weight:600}
 </style>
 </head>
 <body>
@@ -283,6 +287,11 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <button class="bS" onclick="applyRes()">Применить</button>
 </div>
 </div>
+</div>
+<div class="totalBox" id="totalBox">
+<div><div class="tL">Всего</div><div class="tV" id="totAll">0 ₽</div></div>
+<div style="border-left:1px solid currentColor"></div>
+<div><div class="tL">Всего с резервом</div><div class="tV" id="totRes">0 ₽</div></div>
 </div>
 </div>
 <div class="sts">
@@ -581,27 +590,57 @@ function emitCamelliaParticles(){
   const cx=rect.left+rect.width/2;
   const cy=rect.top+rect.height/2;
   
-  if(gen==='female'){
-    for(let i=0;i<3;i++){
+  // На стартовом экране — летят ОБА типа частиц интенсивно
+  if(!gen){
+    for(let i=0;i<6;i++){
       const p=document.createElement('div');
       p.className='pearl';
-      const sz=Math.random()*10+6;
+      const sz=Math.random()*12+6;
       p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
       const a=Math.random()*Math.PI*2;
-      const d=Math.random()*150+80;
+      const d=Math.random()*180+80;
+      p.style.setProperty('--tx',Math.cos(a)*d+'px');
+      p.style.setProperty('--ty',Math.sin(a)*d+'px');
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),2500);
+    }
+    for(let i=0;i<8;i++){
+      const p=document.createElement('div');
+      p.className='bronze';
+      const sz=Math.random()*6+3;
+      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
+      const a=Math.random()*Math.PI*2;
+      const d=Math.random()*200+100;
+      p.style.setProperty('--tx',Math.cos(a)*d+'px');
+      p.style.setProperty('--ty',Math.sin(a)*d+'px');
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),2000);
+    }
+    return;
+  }
+  
+  // После выбора пола — только соответствующий тип
+  if(gen==='female'){
+    for(let i=0;i<8;i++){
+      const p=document.createElement('div');
+      p.className='pearl';
+      const sz=Math.random()*12+6;
+      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
+      const a=Math.random()*Math.PI*2;
+      const d=Math.random()*180+80;
       p.style.setProperty('--tx',Math.cos(a)*d+'px');
       p.style.setProperty('--ty',Math.sin(a)*d+'px');
       document.body.appendChild(p);
       setTimeout(()=>p.remove(),2500);
     }
   }else{
-    for(let i=0;i<4;i++){
+    for(let i=0;i<10;i++){
       const p=document.createElement('div');
       p.className='bronze';
-      const sz=Math.random()*5+3;
+      const sz=Math.random()*6+3;
       p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
       const a=Math.random()*Math.PI*2;
-      const d=Math.random()*180+100;
+      const d=Math.random()*200+100;
       p.style.setProperty('--tx',Math.cos(a)*d+'px');
       p.style.setProperty('--ty',Math.sin(a)*d+'px');
       document.body.appendChild(p);
@@ -615,12 +654,12 @@ $('bM').onclick=function(){$('bM').classList.add('s');$('bF').classList.remove('
 $('nI').oninput=ck;
 function ck(){$('gB').disabled=!($('nI').value.trim()&&gen)}
 $('gB').onclick=function(){nm=$('nI').value.trim();if(!nm||!gen)return;localStorage.setItem('bu',JSON.stringify({n:nm,g:gen}));op()};
-$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);localStorage.removeItem('todo_'+gen);tx=[];todos=[];bud={c:0,d:0,r:0,s:false};hideAll();$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true;if(camelliaInterval){clearInterval(camelliaInterval);camelliaInterval=null;}};
+$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);localStorage.removeItem('todo_'+gen);tx=[];todos=[];bud={c:0,d:0,r:0,s:false};hideAll();$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true};
 function hideAll(){$('A').style.display='none';$('repScr').style.display='none';$('listScr').style.display='none';$('aboutScr').style.display='none'}
 function showPage(id){hideAll();$(id).style.display='block';if(id==='repScr'){repDate=new Date();renderReport()}if(id==='listScr'){rolloverTodos();renderTodos('day');renderTodos('month');renderTodos('year')}}
 document.querySelectorAll('.tabItem').forEach(item=>{item.onclick=function(){document.querySelectorAll('.tabItem').forEach(i=>i.classList.remove('active'));this.classList.add('active');showPage(this.dataset.page)}});
 function op(){$('R').style.display='none';$('A').style.display='block';document.body.className=gen==='female'?'chl':'arm';ld();fc();rn();rb()}
-function ld(){const sv=localStorage.getItem('bu');if(sv){const u=JSON.parse(sv);nm=u.n;gen=u.g}try{const s1=localStorage.getItem('bt'+gen);if(s1)tx=JSON.parse(s1);const s2=localStorage.getItem('bb'+gen);if(s2)bud=JSON.parse(s2);loadTodos()}catch(e){}}
+function ld(){const sv=localStorage.getItem('bu');if(sv){const u=JSON.parse(sv);nm=u.n;gen=u.g}try{const s1=localStorage.getItem('bt'+gen);if(s1)tx=JSON.parse(s1);const s2=localStorage.getItem('bb'+gen);if(s2){bud=JSON.parse(s2);if(typeof bud.r!=='number')bud.r=0;}loadTodos()}catch(e){}}
 const sv2=localStorage.getItem('bu');if(sv2){const u=JSON.parse(sv2);nm=u.n;gen=u.g;op()}
 $('sB').onclick=function(){bud={c:parseFloat($('iC').value)||0,d:parseFloat($('iD').value)||0,r:parseFloat($('iR').value)||0,s:true};try{localStorage.setItem('bb'+gen,JSON.stringify(bud))}catch(e){}sh(this);rn();rb()};
 $('rB').onclick=function(){if(!confirm('Сбросить?'))return;tx=[];todos=[];bud={c:0,d:0,r:0,s:false};try{localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);localStorage.removeItem('todo_'+gen)}catch(e){}$('bB').style.display='block';$('iC').value='';$('iD').value='';$('iR').value='';rn();rb();alert('Очищено')};
@@ -638,13 +677,49 @@ function sh(el){const r=el.getBoundingClientRect();const x=r.left+r.width/2;cons
 function fc(){const s=$('cS');const c=cT==='expense'?EC:IC;s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('')}
 function fm(n){return new Intl.NumberFormat('ru-RU').format(n)+' ₽'}
 function fd(d){const p=d.split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).toLocaleDateString('ru-RU',{day:'numeric',month:'short'})}
-function rn(){const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);const cb=bud.c+ci-ce,db=bud.d+di-de,tb=cb+db,tbRes=tb+bud.r;$('iV').textContent=fm(inc);$('eV').textContent=fm(exp);$('cV').textContent=fm(cb);$('dV').textContent=fm(db);$('rV').textContent=fm(bud.r);$('tV').textContent=fm(tb);$('tVRes').textContent='Всего: '+fm(tbRes);$('resCur').textContent=fm(bud.r);const b=$('bV');b.textContent=(tbRes<0?'-':'')+fm(Math.abs(tbRes));$('bB').style.display=bud.s?'none':'block';$('iC').value=bud.c||'';$('iD').value=bud.d||'';$('iR').value=bud.r||'';const f=cF==='all'?tx:tx.filter(t=>t.t===cF);const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});const m=$('mB'),e=$('eB');if(s.length===0){m.innerHTML='';e.style.display='block'}else{e.style.display='none';m.innerHTML=s.map(t=>'<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div class="txI"><div class="txC">'+t.c+'</div><div class="txD">'+(t.dsc||'—')+'</div></div></div><div class="txB"><div><div class="txA">'+(t.t==='income'?'+':'−')+fm(t.a)+'</div><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div></div><div class="txD2">'+fd(t.d)+'</div></div></div>').join('');document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}})}}
+function rn(){
+  const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
+  const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
+  const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
+  const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
+  const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);
+  const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
+  const cb=bud.c+ci-ce;
+  const db=bud.d+di-de;
+  const tb=cb+db;
+  const tbRes=tb+bud.r;
+  $('iV').textContent=fm(inc);
+  $('eV').textContent=fm(exp);
+  $('cV').textContent=fm(cb);
+  $('dV').textContent=fm(db);
+  $('rV').textContent=fm(bud.r);
+  $('tV').textContent=fm(tb);
+  $('tVRes').textContent='Всего: '+fm(tbRes);
+  $('totAll').textContent=fm(tb);
+  $('totRes').textContent=fm(tbRes);
+  $('resCur').textContent=fm(bud.r);
+  const b=$('bV');
+  b.textContent=(tbRes<0?'-':'')+fm(Math.abs(tbRes));
+  $('bB').style.display=bud.s?'none':'block';
+  $('iC').value=bud.c||'';
+  $('iD').value=bud.d||'';
+  $('iR').value=bud.r||'';
+  const f=cF==='all'?tx:tx.filter(t=>t.t===cF);
+  const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});
+  const m=$('mB'),e=$('eB');
+  if(s.length===0){m.innerHTML='';e.style.display='block'}
+  else{
+    e.style.display='none';
+    m.innerHTML=s.map(t=>'<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div class="txI"><div class="txC">'+t.c+'</div><div class="txD">'+(t.dsc||'—')+'</div></div></div><div class="txB"><div><div class="txA">'+(t.t==='income'?'+':'−')+fm(t.a)+'</div><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div></div><div class="txD2">'+fd(t.d)+'</div></div></div>').join('');
+    document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}});
+  }
+}
 $('dI').valueAsDate=new Date();
 $('tF').onsubmit=function(e){e.preventDefault();const a=parseFloat($('aI').value);if(!a||a<=0)return;tx.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:cT,c:$('cS').value,a,p:$('pS').value,d:$('dI').value,dsc:$('dS').value.trim()});try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb();e.target.reset();$('dI').valueAsDate=new Date();fc();sh(e.target.querySelector('.bA'))};
 document.addEventListener('focusout',function(){setTimeout(function(){window.scrollTo(0,0);document.body.scrollTop=0;document.documentElement.scrollTop=0},100)});
 
-// Частицы из камелии каждые 0.8 сек
-camelliaInterval=setInterval(emitCamelliaParticles,800);
+// Частицы из камелии каждые 0.5 сек
+camelliaInterval=setInterval(emitCamelliaParticles,500);
 </script>
 </body>
 </html>
