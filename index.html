@@ -90,8 +90,9 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .donateBtn:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
 .repHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .repMonth{font-size:16px;letter-spacing:2px;text-transform:uppercase;flex:1;text-align:center}
-.repArrow{padding:8px 14px;cursor:pointer;font-size:16px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
+.repArrow{padding:8px 14px;cursor:pointer;font-size:16px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s;display:flex;align-items:center;justify-content:center}
 .repArrow:active{transform:translateY(2px)}
+.repArrow svg{width:16px;height:16px;fill:currentColor}
 .repGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .repCard{padding:12px;text-align:center}
 .repCL{font-size:9px;letter-spacing:1px;margin-bottom:6px}
@@ -109,12 +110,14 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .maxBtn{display:inline-block;width:100%;padding:14px;text-align:center;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all 0.1s;margin-top:10px}
 .maxBtn:active{transform:translateY(2px)}
 .todoItem{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:8px;border:1px solid currentColor}
-.todoCheck{width:20px;height:20px;cursor:pointer;accent-color:inherit}
+.customCheck{width:20px;height:20px;min-width:20px;border:2px solid currentColor;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.customCheck svg{width:14px;height:14px;fill:currentColor;opacity:0;transition:opacity 0.2s}
+.customCheck.checked svg{opacity:1}
 .todoText{flex:1;background:transparent;border:none;color:inherit;font-family:inherit;font-size:13px;padding:4px}
 .todoText.checked{text-decoration:line-through;opacity:0.5}
 .todoDel{background:transparent;border:none;color:inherit;cursor:pointer;font-size:16px;padding:0 4px}
 .todoAdd{display:flex;gap:8px;margin-top:10px}
-.todoAdd input{flex:1;padding:8px;font-size:13px;border:1px solid currentColor;background:transparent;color:inherit}
+.todoAdd input{flex:1;padding:8px;font-size:13px;border:2px solid currentColor;background:rgba(255,255,255,0.1);color:inherit}
 .todoAdd button{padding:8px 16px;cursor:pointer;font-size:16px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .todoAdd button:active{transform:translateY(2px)}
 .tabBar{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;align-items:center;padding:8px 0;z-index:1000;background:inherit;border-top:1px solid rgba(128,128,128,0.2)}
@@ -151,6 +154,9 @@ body.chl .topBarF{background:#000!important}
 body.chl .tabBar{background:#0a0a0a!important;border-top:1px solid rgba(255,255,255,0.2)!important}
 body.chl .tabIcon{border-color:rgba(255,255,255,0.6)!important;color:#fff!important}
 body.chl .tabLabel{color:rgba(255,255,255,0.7)!important}
+body.chl .todoAdd input{border-color:#000!important;background:rgba(255,255,255,0.5)!important}
+body.chl .customCheck{border-color:#000!important}
+body.chl .customCheck svg{fill:#000!important}
 
 body.arm{background:linear-gradient(135deg,#4a4036,#3a322a)!important;color:#fff!important}
 body.arm header{background:transparent!important;color:#fff!important}
@@ -177,6 +183,9 @@ body.arm .topBarF{background:linear-gradient(90deg,#f4e4c1,#d4a574,#b8864e,#8b69
 body.arm .tabBar{background:#3a322a!important;border-top:1px solid rgba(212,165,116,0.3)!important}
 body.arm .tabIcon{border-color:rgba(212,165,116,0.6)!important;color:#d4a574!important}
 body.arm .tabLabel{color:rgba(212,165,116,0.7)!important}
+body.arm .todoAdd input{border-color:#8b6914!important;background:rgba(255,255,255,0.5)!important}
+body.arm .customCheck{border-color:#8b6914!important}
+body.arm .customCheck svg{fill:#8b6914!important}
 .pearl{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#d4c5a9);box-shadow:0 0 8px rgba(255,255,255,0.6);animation:pf 2.5s forwards}
 @keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.3)}}
 .bronze{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,#ffd700,#b8864e,transparent);box-shadow:0 0 8px #d4a574;animation:bf 2s forwards}
@@ -278,9 +287,9 @@ body.arm .tabLabel{color:rgba(212,165,116,0.7)!important}
 <header><div style="width:80px"></div><div class="logo">ОТЧЕТ</div><div style="width:80px"></div></header>
 <div class="bud">
 <div class="repHead">
-<button class="repArrow" id="prevM">◀</button>
+<button class="repArrow" id="prevM"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button>
 <div class="repMonth" id="repMonth"></div>
-<button class="repArrow" id="nextM">▶</button>
+<button class="repArrow" id="nextM"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button>
 </div>
 <div class="repGrid">
 <div class="repCard"><div class="repCL">Доходы</div><div class="repCV" id="rInc">0 ₽</div></div>
@@ -386,8 +395,10 @@ function renderTodos(type){
   if(items.length===0){container.innerHTML='<div class="todoEmpty">Список пуст</div>';return;}
   container.innerHTML=items.map(t=>`
     <div class="todoItem">
-      <input type="checkbox" class="todoCheck" ${t.checked?'checked':''} onchange="toggleCheck('${t.id}')">
-      <input type="text" class="todoText ${t.checked?'checked':''}" value="${t.text}" readonly>
+      <div class="customCheck ${t.checked?'checked':''}" onclick="toggleCheck('${t.id}',event)">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" stroke-width="3"/></svg>
+      </div>
+      <div class="todoText ${t.checked?'checked':''}">${t.text}</div>
       <button class="todoDel" onclick="deleteTodo('${t.id}')">×</button>
     </div>
   `).join('');
@@ -403,9 +414,49 @@ function addTodo(type){
   renderTodos(type);
 }
 
-function toggleCheck(id){
+function toggleCheck(id,event){
   const t=todos.find(x=>x.id===id);
-  if(t){t.checked=!t.checked;saveTodos();renderTodos(t.type);}
+  if(t){
+    t.checked=!t.checked;
+    saveTodos();
+    renderTodos(t.type);
+    if(t.checked){
+      const rect=event.currentTarget.getBoundingClientRect();
+      const x=rect.left+rect.width/2;
+      const y=rect.top+rect.height/2;
+      shAt(x,y);
+    }
+  }
+}
+
+function shAt(x,y){
+  if(gen==='female'){
+    for(let i=0;i<40;i++){
+      const p=document.createElement('div');
+      p.className='pearl';
+      const sz=Math.random()*12+8;
+      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px';
+      const a=(Math.PI*2*i)/40;
+      const d=Math.random()*200+100;
+      p.style.setProperty('--tx',Math.cos(a)*d+'px');
+      p.style.setProperty('--ty',Math.sin(a)*d+'px');
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),2500);
+    }
+  }else{
+    for(let i=0;i<60;i++){
+      const p=document.createElement('div');
+      p.className='bronze';
+      const sz=Math.random()*6+3;
+      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px';
+      const a=(Math.PI*2*i)/60;
+      const d=Math.random()*250+150;
+      p.style.setProperty('--tx',Math.cos(a)*d+'px');
+      p.style.setProperty('--ty',Math.sin(a)*d+'px');
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),2000);
+    }
+  }
 }
 
 function deleteTodo(id){
@@ -454,7 +505,7 @@ $('prevM').onclick=function(){repDate.setMonth(repDate.getMonth()-1);renderRepor
 $('nextM').onclick=function(){repDate.setMonth(repDate.getMonth()+1);renderReport()};
 function renderReport(){const y=repDate.getFullYear();const m=repDate.getMonth();$('repMonth').textContent=MN[m]+' '+y;const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return d.getFullYear()===y&&d.getMonth()===m});const inc=mt.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);const exp=mt.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);const bal=inc-exp;const daysInMonth=new Date(y,m+1,0).getDate();const today=Math.min(new Date().getDate(),daysInMonth);const perDay=exp>0?Math.round(exp/(m===new Date().getMonth()&&y===new Date().getFullYear()?today:daysInMonth)):0;$('rInc').textContent=fm(inc);$('rExp').textContent=fm(exp);$('rBal').textContent=(bal<0?'-':'')+fm(Math.abs(bal));$('rDay').textContent=fm(perDay)+' ₽';const ce={};mt.filter(t=>t.t==='expense').forEach(t=>{ce[t.c]=(ce[t.c]||0)+t.a});const sorted=Object.entries(ce).sort((a,b)=>b[1]-a[1]).slice(0,3);const maxV=sorted.length>0?sorted[0][1]:1;$('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов за этот месяц</div>':sorted.map(([c,v])=>'<div class="topItem"><div class="topItemH"><span class="topItemN">'+c+'</span><span class="topItemV">'+fm(v)+'</span></div><div class="topBar"><div class="topBarF" style="width:'+(v/maxV*100)+'%"></div></div></div>').join('')}
 function rb(){const now=new Date();const y=now.getFullYear();const m=now.getMonth()+1;const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));return d.getFullYear()===y&&d.getMonth()+1===m});const ce={},ci={};mt.forEach(t=>{if(t.t==='expense')ce[t.c]=(ce[t.c]||0)+t.a;else ci[t.c]=(ci[t.c]||0)+t.a});$('eC').innerHTML=Object.keys(ce).length===0?'<div class="bdE">Нет расходов</div>':Object.entries(ce).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">-'+fm(t)+'</span></div>').join('');$('iC2').innerHTML=Object.keys(ci).length===0?'<div class="bdE">Нет доходов</div>':Object.entries(ci).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">+'+fm(t)+'</span></div>').join('')}
-function sh(el){const r=el.getBoundingClientRect();const x=r.left+r.width/2;const y=r.top+r.height/2;if(gen==='female'){for(let i=0;i<40;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+8;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/40;const d=Math.random()*200+100;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}}else{for(let i=0;i<60;i++){const p=document.createElement('div');p.className='bronze';const sz=Math.random()*6+3;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/60;const d=Math.random()*250+150;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2000)}}}
+function sh(el){const r=el.getBoundingClientRect();const x=r.left+r.width/2;const y=r.top+r.height/2;if(gen==='female'){for(let i=0;i<60;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+8;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/60;const d=Math.random()*200+100;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}}else{for(let i=0;i<90;i++){const p=document.createElement('div');p.className='bronze';const sz=Math.random()*6+3;p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';const a=(Math.PI*2*i)/90;const d=Math.random()*250+150;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2000)}}}
 function fc(){const s=$('cS');const c=cT==='expense'?EC:IC;s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('')}
 function fm(n){return new Intl.NumberFormat('ru-RU').format(n)+' ₽'}
 function fd(d){const p=d.split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).toLocaleDateString('ru-RU',{day:'numeric',month:'short'})}
