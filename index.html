@@ -65,17 +65,15 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .fB{padding:6px 12px;cursor:pointer;font-size:10px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .fB:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .fB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
-.msn{column-count:2;column-gap:10px}
-.tx{position:relative}
-.txT{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.txI{flex:1}
-.txC{font-size:8px;margin-bottom:2px}
-.txD{font-size:12px;font-style:italic}
-.txB{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid rgba(128,128,128,0.3)}
-.txA{font-size:16px;font-weight:600}
-.txP,.txD2{font-size:9px}
-.txP{font-size:8px;text-transform:uppercase}
-.txDl{position:absolute;top:6px;right:6px;width:22px;height:22px;cursor:pointer;font-size:14px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
+.tx{position:relative;padding:10px 12px;margin-bottom:6px;border:1px solid currentColor}
+.txT{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.txC{font-size:13px;font-weight:600}
+.txD{font-size:11px;font-style:italic;opacity:0.8;margin-left:6px}
+.txB{display:flex;justify-content:space-between;align-items:center}
+.txA{font-size:15px;font-weight:600}
+.txP{font-size:9px;text-transform:uppercase;opacity:0.7}
+.txD2{font-size:10px;opacity:0.7}
+.txDl{position:absolute;top:6px;right:6px;width:22px;height:22px;cursor:pointer;font-size:14px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s;display:flex;align-items:center;justify-content:center}
 .txDl:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .emp{text-align:center;padding:30px;font-style:italic}
 .bdT,.todoHead,.abHead{width:100%;padding:12px;cursor:pointer;font-size:11px;letter-spacing:1px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;margin-bottom:8px;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
@@ -202,6 +200,7 @@ body.arm .customCheck svg{fill:#8b6914!important}
 .totalBox .tL{font-size:9px;letter-spacing:1px;margin-bottom:4px}
 .totalBox .tV{font-size:18px;font-weight:600}
 .totalBox .divider{border-left:1px solid currentColor;flex:0}
+.listTotal{padding:10px 12px;margin-top:8px;border-top:2px solid currentColor;text-align:right;font-size:14px;font-weight:600;letter-spacing:1px}
 </style>
 </head>
 <body>
@@ -323,8 +322,9 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <button class="fB" id="fI">Доходы</button>
 <button class="fB" id="fE">Расходы</button>
 </div>
-<div class="msn" id="mB"></div>
+<div id="mB"></div>
 <div class="emp" id="eB" style="display:none">Пока пусто</div>
+<div id="listTotal" class="listTotal" style="display:none"></div>
 <a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
 </div>
 
@@ -700,11 +700,22 @@ function rn(){
   $('iR').value=bud.r||'';
   const f=cF==='all'?tx:tx.filter(t=>t.t===cF);
   const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});
-  const m=$('mB'),e=$('eB');
-  if(s.length===0){m.innerHTML='';e.style.display='block'}
-  else{
+  const m=$('mB'),e=$('eB'),tot=$('listTotal');
+  if(s.length===0){
+    m.innerHTML='';
+    e.style.display='block';
+    tot.style.display='none';
+  }else{
     e.style.display='none';
-    m.innerHTML=s.map(t=>'<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div class="txI"><div class="txC">'+t.c+'</div><div class="txD">'+(t.dsc||'—')+'</div></div></div><div class="txB"><div><div class="txA">'+(t.t==='income'?'+':'−')+fm(t.a)+'</div><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div></div><div class="txD2">'+fd(t.d)+'</div></div></div>').join('');
+    let totalSum=0;
+    m.innerHTML=s.map(t=>{
+      if(t.t==='expense') totalSum+=t.a; else totalSum-=t.a;
+      const sign=t.t==='income'?'+':'−';
+      return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">'+sign+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
+    }).join('');
+    const sign=totalSum<0?'−':'+';
+    tot.style.display='block';
+    tot.textContent='Итого: '+sign+fm(Math.abs(totalSum));
     document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}});
   }
 }
