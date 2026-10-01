@@ -44,9 +44,9 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .bH{margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(128,128,128,0.3)}
 .sT{font-size:18px;letter-spacing:2px;text-transform:uppercase}
 .g3{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px;margin-bottom:12px}
-.cd{padding:8px;text-align:center}
-.cL{font-size:8px;letter-spacing:1px;margin-bottom:6px}
-.cV{font-size:16px;font-weight:600}
+.cd{padding:12px;text-align:center;min-height:80px;display:flex;flex-direction:column;justify-content:center}
+.cL{font-size:9px;letter-spacing:1px;margin-bottom:6px}
+.cV{font-size:18px;font-weight:600}
 .bI{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
 .bI label,label{display:block;font-size:9px;margin-bottom:4px}
 .bI input,input,select{width:100%;padding:8px;font-size:13px}
@@ -65,15 +65,18 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .fB{padding:6px 12px;cursor:pointer;font-size:10px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .fB:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .fB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
-.tx{position:relative;padding:10px 12px;margin-bottom:6px;border:1px solid currentColor}
-.txT{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
-.txC{font-size:13px;font-weight:600}
-.txD{font-size:11px;font-style:italic;opacity:0.8;margin-left:6px}
+.recordsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.recordsCol{padding:10px;border:1px solid currentColor}
+.recordsColTitle{font-size:11px;text-transform:uppercase;text-align:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(128,128,128,0.3);letter-spacing:1px}
+.tx{position:relative;padding:8px 10px;margin-bottom:6px;border:1px solid currentColor}
+.txT{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
+.txC{font-size:12px;font-weight:600}
+.txD{font-size:10px;font-style:italic;opacity:0.8;margin-left:4px}
+.txA{font-size:14px;font-weight:600}
 .txB{display:flex;justify-content:space-between;align-items:center}
-.txA{font-size:15px;font-weight:600}
-.txP{font-size:9px;text-transform:uppercase;opacity:0.7}
-.txD2{font-size:10px;opacity:0.7}
-.txDl{position:absolute;top:6px;right:6px;width:22px;height:22px;cursor:pointer;font-size:14px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s;display:flex;align-items:center;justify-content:center}
+.txP{font-size:8px;text-transform:uppercase;opacity:0.7}
+.txD2{font-size:9px;opacity:0.7}
+.txDl{position:absolute;top:4px;right:4px;width:20px;height:20px;cursor:pointer;font-size:12px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s;display:flex;align-items:center;justify-content:center}
 .txDl:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .emp{text-align:center;padding:30px;font-style:italic}
 .bdT,.todoHead,.abHead{width:100%;padding:12px;cursor:pointer;font-size:11px;letter-spacing:1px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;margin-bottom:8px;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
@@ -89,7 +92,7 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .bdIt{padding:6px;margin-bottom:4px;display:flex;justify-content:space-between}
 .bdIN{font-size:9px}
 .bdIV{font-size:13px;font-weight:600}
-.bdE,.repEmpty,.todoEmpty{text-align:center;padding:15px;font-style:italic;opacity:0.6;font-size:12px}
+.bdE,.repEmpty,.todoEmpty,.recordsEmpty{text-align:center;padding:15px;font-style:italic;opacity:0.6;font-size:11px}
 .donateBtn{display:block;text-align:center;text-decoration:none;margin-top:24px;padding:14px;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all 0.1s}
 .donateBtn:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
 .repHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
@@ -141,8 +144,8 @@ body.chl{background:#f5f0e8!important;color:#000!important;background-image:repe
 body.chl header{background:transparent!important;color:#000!important}
 body.chl .logo,body.chl .balL,body.chl .balV{color:#000!important}
 body.chl .bO,body.chl .bR{color:#fff!important}
-body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx,body.chl .ab{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1)!important}
-body.chl .sT,body.chl .cL,body.chl .sL,body.chl .txC,body.chl label,body.chl .repCL,body.chl .repMonth,body.chl .topCatT,body.chl .topItemN,body.chl .abTx{color:#000!important}
+body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx,body.chl .ab,body.chl .recordsCol{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1)!important}
+body.chl .sT,body.chl .cL,body.chl .sL,body.chl .txC,body.chl label,body.chl .repCL,body.chl .repMonth,body.chl .topCatT,body.chl .topItemN,body.chl .abTx,body.chl .recordsColTitle{color:#000!important}
 body.chl .cV,body.chl .sV,body.chl .txA,body.chl .repCV,body.chl .topItemV{color:#000!important}
 body.chl .bS,body.chl .bA{color:#fff!important}
 body.chl .tB,body.chl .fB,body.chl .repArrow,body.chl .todoAdd button{color:#fff!important}
@@ -152,7 +155,7 @@ body.chl .txDl,body.chl .bdT,body.chl .todoHead,body.chl .abHead{color:#fff!impo
 body.chl .bdIn,body.chl .todoIn{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15)!important}
 body.chl .bdCol{background:#e8dcc8!important;border:1px solid #000!important}
 body.chl .bdIt{background:#e8dcc8!important;border:1px solid #000!important}
-body.chl .bdE,body.chl .repEmpty,body.chl .todoEmpty{color:#666!important}
+body.chl .bdE,body.chl .repEmpty,body.chl .todoEmpty,body.chl .recordsEmpty{color:#666!important}
 body.chl .donateBtn{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid #fff!important}
 body.chl .maxBtn{background:#000!important;color:#fff!important;border:2px solid #fff!important}
 body.chl .topBarF{background:#000!important}
@@ -167,8 +170,8 @@ body.arm{background:linear-gradient(135deg,#4a4036,#3a322a)!important;color:#fff
 body.arm header{background:transparent!important;color:#fff!important}
 body.arm .logo,body.arm .balL,body.arm .balV{color:#fff!important}
 body.arm .bO,body.arm .bR{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;border:1px solid #6b4f10!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
-body.arm .bud,body.arm .frm,body.arm .st,body.arm .tx,body.arm .ab{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
-body.arm .sT,body.arm .cL,body.arm .sL,body.arm .txC,body.arm label,body.arm .repCL,body.arm .repMonth,body.arm .topCatT,body.arm .topItemN,body.arm .abTx{color:#3a2e24!important}
+body.arm .bud,body.arm .frm,body.arm .st,body.arm .tx,body.arm .ab,body.arm .recordsCol{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
+body.arm .sT,body.arm .cL,body.arm .sL,body.arm .txC,body.arm label,body.arm .repCL,body.arm .repMonth,body.arm .topCatT,body.arm .topItemN,body.arm .abTx,body.arm .recordsColTitle{color:#3a2e24!important}
 body.arm .cV,body.arm .sV,body.arm .txA,body.arm .repCV,body.arm .topItemV{color:#3a2e24!important}
 body.arm .bS,body.arm .bA{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 20%,#b8864e 50%,#8b6914 80%,#6b4f10 100%)!important;color:#fff!important;border:1px solid #6b4f10!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
 body.arm .bS:active,body.arm .bA:active{box-shadow:0 2px 4px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.3) inset,0 -1px 2px rgba(0,0,0,0.3) inset!important;transform:translateY(2px)}
@@ -180,7 +183,7 @@ body.arm .bdT,body.arm .todoHead,body.arm .abHead{background:linear-gradient(135
 body.arm .bdIn,body.arm .todoIn{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
 body.arm .bdCol{background:rgba(255,255,255,0.5)!important;border:1px solid #d4c5a9!important}
 body.arm .bdIt{background:rgba(255,255,255,0.7)!important;border:1px solid #d4c5a9!important}
-body.arm .bdE,body.arm .repEmpty,body.arm .todoEmpty{color:#8b7355!important}
+body.arm .bdE,body.arm .repEmpty,body.arm .todoEmpty,body.arm .recordsEmpty{color:#8b7355!important}
 body.arm .donateBtn{background:linear-gradient(180deg,#e8d5b7 0%,#c9a87c 50%,#a8845c 100%)!important;color:#3a2e24!important;border:1px solid #8b6914!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.3) inset!important;text-shadow:0 1px 0 rgba(255,255,255,0.3)!important}
 body.arm .maxBtn{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;color:#fff!important;border:1px solid #6b4f10!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
 body.arm .repArrow{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;border:1px solid #6b4f10!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
@@ -200,7 +203,7 @@ body.arm .customCheck svg{fill:#8b6914!important}
 .totalBox .tL{font-size:9px;letter-spacing:1px;margin-bottom:4px}
 .totalBox .tV{font-size:18px;font-weight:600}
 .totalBox .divider{border-left:1px solid currentColor;flex:0}
-.listTotal{padding:10px 12px;margin-top:8px;border-top:2px solid currentColor;text-align:right;font-size:14px;font-weight:600;letter-spacing:1px}
+.recordsTotal{padding:8px 10px;margin-top:8px;border-top:2px solid currentColor;text-align:right;font-size:13px;font-weight:600;letter-spacing:1px}
 </style>
 </head>
 <body>
@@ -322,10 +325,19 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <button class="fB" id="fI">Доходы</button>
 <button class="fB" id="fE">Расходы</button>
 </div>
-<div id="mB"></div>
-<div class="emp" id="eB" style="display:none">Пока пусто</div>
-<div id="listTotal" class="listTotal" style="display:none"></div>
-<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
+<div class="recordsGrid" id="recordsGrid">
+<div class="recordsCol" id="expCol">
+<div class="recordsColTitle">Расходы</div>
+<div id="expList"></div>
+<div class="recordsTotal" id="expTotal" style="display:none"></div>
+</div>
+<div class="recordsCol" id="incCol">
+<div class="recordsColTitle">Доходы</div>
+<div id="incList"></div>
+<div class="recordsTotal" id="incTotal" style="display:none"></div>
+</div>
+</div>
+<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания </a>
 </div>
 
 <div id="repScr" style="display:none">
@@ -698,26 +710,41 @@ function rn(){
   $('iC').value=bud.c||'';
   $('iD').value=bud.d||'';
   $('iR').value=bud.r||'';
+  
   const f=cF==='all'?tx:tx.filter(t=>t.t===cF);
   const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});
-  const m=$('mB'),e=$('eB'),tot=$('listTotal');
-  if(s.length===0){
-    m.innerHTML='';
-    e.style.display='block';
-    tot.style.display='none';
+  
+  const expList=$('expList'),incList=$('incList'),expTotal=$('expTotal'),incTotal=$('incTotal');
+  const expenses=s.filter(t=>t.t==='expense');
+  const incomes=s.filter(t=>t.t==='income');
+  
+  let expSum=0,incSum=0;
+  
+  if(expenses.length===0){
+    expList.innerHTML='<div class="recordsEmpty">Нет расходов</div>';
+    expTotal.style.display='none';
   }else{
-    e.style.display='none';
-    let totalSum=0;
-    m.innerHTML=s.map(t=>{
-      if(t.t==='expense') totalSum+=t.a; else totalSum-=t.a;
-      const sign=t.t==='income'?'+':'−';
-      return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">'+sign+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
+    expList.innerHTML=expenses.map(t=>{
+      expSum+=t.a;
+      return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">−'+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
     }).join('');
-    const sign=totalSum<0?'−':'+';
-    tot.style.display='block';
-    tot.textContent='Итого: '+sign+fm(Math.abs(totalSum));
-    document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}});
+    expTotal.style.display='block';
+    expTotal.textContent=fm(expSum);
   }
+  
+  if(incomes.length===0){
+    incList.innerHTML='<div class="recordsEmpty">Нет доходов</div>';
+    incTotal.style.display='none';
+  }else{
+    incList.innerHTML=incomes.map(t=>{
+      incSum+=t.a;
+      return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">+'+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
+    }).join('');
+    incTotal.style.display='block';
+    incTotal.textContent=fm(incSum);
+  }
+  
+  document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}});
 }
 $('dI').valueAsDate=new Date();
 $('tF').onsubmit=function(e){e.preventDefault();const a=parseFloat($('aI').value);if(!a||a<=0)return;tx.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:cT,c:$('cS').value,a,p:$('pS').value,d:$('dI').value,dsc:$('dS').value.trim()});try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb();e.target.reset();$('dI').valueAsDate=new Date();fc();sh(e.target.querySelector('.bA'))};
