@@ -37,11 +37,11 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .bud,.frm,.st,.tx,.ab{padding:15px;margin-bottom:12px}
 .bH{margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(128,128,128,0.3)}
 .sT{font-size:18px;letter-spacing:2px;text-transform:uppercase}
-.g3{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px;margin-bottom:12px}
+.g3{display:grid!important;grid-template-columns:1fr 1fr 1fr 1fr!important;gap:8px;margin-bottom:12px}
 .cd{padding:8px;text-align:center}
 .cL{font-size:8px;letter-spacing:1px;margin-bottom:6px}
 .cV{font-size:16px;font-weight:600}
-.bI{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.bI{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
 .bI label,label{display:block;font-size:9px;margin-bottom:4px}
 .bI input,input,select{width:100%;padding:8px;font-size:13px}
 .bS,.bA{margin-top:12px;width:100%;padding:10px;cursor:pointer;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
@@ -239,14 +239,43 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <div class="g3">
 <div class="cd"><div class="cL">Наличные</div><div class="cV" id="cV">0 ₽</div></div>
 <div class="cd"><div class="cL">Безналичные</div><div class="cV" id="dV">0 ₽</div></div>
-<div class="cd"><div class="cL">Всего</div><div class="cV" id="tV">0 ₽</div></div>
+<div class="cd"><div class="cL">Резерв</div><div class="cV" id="rV">0 ₽</div></div>
+<div class="cd"><div class="cL">Доступно</div><div class="cV" id="tV">0 ₽</div><div class="cL" id="tVRes" style="margin-top:4px;font-size:7px;opacity:0.7">Всего: 0 ₽</div></div>
 </div>
 <div id="bB">
 <div class="bI">
 <div><label>Начальный баланс наличных</label><input type="number" id="iC" placeholder="0"></div>
 <div><label>Начальный баланс карты</label><input type="number" id="iD" placeholder="0"></div>
+<div><label>Начальный резерв</label><input type="number" id="iR" placeholder="0"></div>
 </div>
 <button class="bS" id="sB">Сохранить</button>
+</div>
+<div class="bdT" id="resT"><span>Управление резервом</span><span class="ar">▼</span></div>
+<div class="bdC" id="resC">
+<div class="bdIn" style="padding:12px">
+<div style="text-align:center;margin-bottom:12px">
+<div style="font-size:9px;letter-spacing:1px">Текущий резерв</div>
+<div style="font-size:20px;font-weight:600" id="resCur">0 ₽</div>
+</div>
+<div class="tg" style="margin-bottom:10px">
+<button class="tB s" id="resAddBtn" onclick="setResMode('add')">Пополнить</button>
+<button class="tB" id="resSubBtn" onclick="setResMode('sub')">Снять</button>
+</div>
+<div id="resForm" style="display:none">
+<div style="margin-bottom:8px">
+<label>Сумма</label>
+<input type="number" id="resAmt" placeholder="0" min="0">
+</div>
+<div style="margin-bottom:10px">
+<label id="resSrcLabel">Источник</label>
+<select id="resSrc">
+<option value="cash">Наличные</option>
+<option value="card">Безналичные</option>
+</select>
+</div>
+<button class="bS" onclick="applyRes()">Применить</button>
+</div>
+</div>
 </div>
 </div>
 <div class="sts">
@@ -306,15 +335,15 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <div class="bud">
 <div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div>
-<div class="todoAdd"><input type="text" id="todoInputDay" placeholder="Что купить..."><button onclick="addTodo('day')">+</button></div></div>
+<div class="todoAdd"><input type="text" id="todoInputDay" placeholder="Что купить..." onkeypress="handleEnter(event,'day')"><button onclick="addTodo('day')">+</button></div></div>
 
 <div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div>
-<div class="todoAdd"><input type="text" id="todoInputMonth" placeholder="Что купить..."><button onclick="addTodo('month')">+</button></div></div>
+<div class="todoAdd"><input type="text" id="todoInputMonth" placeholder="Что купить..." onkeypress="handleEnter(event,'month')"><button onclick="addTodo('month')">+</button></div></div>
 
 <div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div>
 <div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div>
-<div class="todoAdd"><input type="text" id="todoInputYear" placeholder="Что купить..."><button onclick="addTodo('year')">+</button></div></div>
+<div class="todoAdd"><input type="text" id="todoInputYear" placeholder="Что купить..." onkeypress="handleEnter(event,'year')"><button onclick="addTodo('year')">+</button></div></div>
 </div>
 </div>
 
@@ -360,8 +389,9 @@ body.arm .customCheck svg{fill:#8b6914!important}
 const EC=['Еда','Одежда','Кафе','Красота','Салоны','Дом','Транспорт','Развлечения','Здоровье','Обучение','Путешествия','Подарки','Подписки','Связь','Бытовая химия','Другое'];
 const IC=['Зарплата','Фриланс','Подарки','Инвестиции','Аренда','Кэшбэк','Другое'];
 const MN=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-let tx=[],bud={c:0,d:0,s:false},todos=[],gen=null,nm='',cT='expense',cF='all';
+let tx=[],bud={c:0,d:0,r:0,s:false},todos=[],gen=null,nm='',cT='expense',cF='all';
 let repDate=new Date();
+let resMode='add';
 const $=id=>document.getElementById(id);
 
 function getCurrentPeriod(type){
@@ -412,6 +442,13 @@ function addTodo(type){
   saveTodos();
   input.value='';
   renderTodos(type);
+}
+
+function handleEnter(event,type){
+  if(event.key==='Enter'){
+    event.preventDefault();
+    addTodo(type);
+  }
 }
 
 function toggleCheck(id,event){
@@ -482,21 +519,69 @@ function toggleAb(section){
   body.classList.toggle('o');
 }
 
+function setResMode(mode){
+  resMode=mode;
+  if(mode==='add'){
+    $('resAddBtn').classList.add('s');
+    $('resSubBtn').classList.remove('s');
+    $('resSrcLabel').textContent='Источник';
+  }else{
+    $('resSubBtn').classList.add('s');
+    $('resAddBtn').classList.remove('s');
+    $('resSrcLabel').textContent='Куда вернуть';
+  }
+  $('resForm').style.display='block';
+  $('resAmt').value='';
+}
+
+function applyRes(){
+  const amt=parseFloat($('resAmt').value);
+  const src=$('resSrc').value;
+  if(!amt||amt<=0){alert('Введите сумму');return;}
+  
+  const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
+  const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
+  const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
+  const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
+  const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);
+  const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
+  const cb=bud.c+ci-ce;
+  const db=bud.d+di-de;
+  
+  if(resMode==='add'){
+    const available=src==='cash'?cb:db;
+    if(amt>available){alert('Недостаточно средств');return;}
+    bud.r+=amt;
+    if(src==='cash') bud.c-=amt; else bud.d-=amt;
+  }else{
+    if(amt>bud.r){alert('В резерве недостаточно средств');return;}
+    bud.r-=amt;
+    if(src==='cash') bud.c+=amt; else bud.d+=amt;
+  }
+  
+  try{localStorage.setItem('bb'+gen,JSON.stringify(bud))}catch(e){}
+  $('resForm').style.display='none';
+  $('resAmt').value='';
+  sh($('resT'));
+  rn();
+}
+
 $('bF').onclick=function(){$('bF').classList.add('s');$('bM').classList.remove('s');gen='female';ck()};
 $('bM').onclick=function(){$('bM').classList.add('s');$('bF').classList.remove('s');gen='male';ck()};
 $('nI').oninput=ck;
 function ck(){$('gB').disabled=!($('nI').value.trim()&&gen)}
 $('gB').onclick=function(){nm=$('nI').value.trim();if(!nm||!gen)return;localStorage.setItem('bu',JSON.stringify({n:nm,g:gen}));op()};
-$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);localStorage.removeItem('todo_'+gen);tx=[];todos=[];bud={c:0,d:0,s:false};hideAll();$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true};
+$('oB').onclick=function(){if(!confirm('Выйти?'))return;localStorage.removeItem('bu');localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);localStorage.removeItem('todo_'+gen);tx=[];todos=[];bud={c:0,d:0,r:0,s:false};hideAll();$('R').style.display='flex';$('nI').value='';$('bF').classList.remove('s');$('bM').classList.remove('s');gen=null;nm='';document.body.className='';$('gB').disabled=true};
 function hideAll(){$('A').style.display='none';$('repScr').style.display='none';$('listScr').style.display='none';$('aboutScr').style.display='none'}
 function showPage(id){hideAll();$(id).style.display='block';if(id==='repScr'){repDate=new Date();renderReport()}if(id==='listScr'){rolloverTodos();renderTodos('day');renderTodos('month');renderTodos('year')}}
 document.querySelectorAll('.tabItem').forEach(item=>{item.onclick=function(){document.querySelectorAll('.tabItem').forEach(i=>i.classList.remove('active'));this.classList.add('active');showPage(this.dataset.page)}});
 function op(){$('R').style.display='none';$('A').style.display='block';document.body.className=gen==='female'?'chl':'arm';ld();fc();rn();rb()}
 function ld(){const sv=localStorage.getItem('bu');if(sv){const u=JSON.parse(sv);nm=u.n;gen=u.g}try{const s1=localStorage.getItem('bt'+gen);if(s1)tx=JSON.parse(s1);const s2=localStorage.getItem('bb'+gen);if(s2)bud=JSON.parse(s2);loadTodos()}catch(e){}}
 const sv2=localStorage.getItem('bu');if(sv2){const u=JSON.parse(sv2);nm=u.n;gen=u.g;op()}
-$('sB').onclick=function(){bud={c:parseFloat($('iC').value)||0,d:parseFloat($('iD').value)||0,s:true};try{localStorage.setItem('bb'+gen,JSON.stringify(bud))}catch(e){}sh(this);rn();rb()};
-$('rB').onclick=function(){if(!confirm('Сбросить?'))return;tx=[];todos=[];bud={c:0,d:0,s:false};try{localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);localStorage.removeItem('todo_'+gen)}catch(e){}$('bB').style.display='block';$('iC').value='';$('iD').value='';rn();rb();alert('Очищено')};
+$('sB').onclick=function(){bud={c:parseFloat($('iC').value)||0,d:parseFloat($('iD').value)||0,r:parseFloat($('iR').value)||0,s:true};try{localStorage.setItem('bb'+gen,JSON.stringify(bud))}catch(e){}sh(this);rn();rb()};
+$('rB').onclick=function(){if(!confirm('Сбросить?'))return;tx=[];todos=[];bud={c:0,d:0,r:0,s:false};try{localStorage.removeItem('bt'+gen);localStorage.removeItem('bb'+gen);localStorage.removeItem('todo_'+gen)}catch(e){}$('bB').style.display='block';$('iC').value='';$('iD').value='';$('iR').value='';rn();rb();alert('Очищено')};
 $('bT').onclick=function(){this.classList.toggle('o');$('bC').classList.toggle('o')};
+$('resT').onclick=function(){this.classList.toggle('o');$('resC').classList.toggle('o')};
 $('tE').onclick=function(){$('tE').classList.add('s');$('tI').classList.remove('s');cT='expense';fc()};
 $('tI').onclick=function(){$('tI').classList.add('s');$('tE').classList.remove('s');cT='income';fc()};
 $('fA').onclick=function(){sf('all')};$('fI').onclick=function(){sf('income')};$('fE').onclick=function(){sf('expense')};
@@ -509,7 +594,7 @@ function sh(el){const r=el.getBoundingClientRect();const x=r.left+r.width/2;cons
 function fc(){const s=$('cS');const c=cT==='expense'?EC:IC;s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('')}
 function fm(n){return new Intl.NumberFormat('ru-RU').format(n)+' ₽'}
 function fd(d){const p=d.split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).toLocaleDateString('ru-RU',{day:'numeric',month:'short'})}
-function rn(){const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);const cb=bud.c+ci-ce,db=bud.d+di-de,tb=cb+db;$('iV').textContent=fm(inc);$('eV').textContent=fm(exp);$('cV').textContent=fm(cb);$('dV').textContent=fm(db);$('tV').textContent=fm(tb);const b=$('bV');b.textContent=(tb<0?'-':'')+fm(Math.abs(tb));$('bB').style.display=bud.s?'none':'block';$('iC').value=bud.c||'';$('iD').value=bud.d||'';const f=cF==='all'?tx:tx.filter(t=>t.t===cF);const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});const m=$('mB'),e=$('eB');if(s.length===0){m.innerHTML='';e.style.display='block'}else{e.style.display='none';m.innerHTML=s.map(t=>'<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div class="txI"><div class="txC">'+t.c+'</div><div class="txD">'+(t.dsc||'—')+'</div></div></div><div class="txB"><div><div class="txA">'+(t.t==='income'?'+':'−')+fm(t.a)+'</div><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div></div><div class="txD2">'+fd(t.d)+'</div></div></div>').join('');document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}})}}
+function rn(){const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);const cb=bud.c+ci-ce,db=bud.d+di-de,tb=cb+db,tbRes=tb+bud.r;$('iV').textContent=fm(inc);$('eV').textContent=fm(exp);$('cV').textContent=fm(cb);$('dV').textContent=fm(db);$('rV').textContent=fm(bud.r);$('tV').textContent=fm(tb);$('tVRes').textContent='Всего: '+fm(tbRes);$('resCur').textContent=fm(bud.r);const b=$('bV');b.textContent=(tbRes<0?'-':'')+fm(Math.abs(tbRes));$('bB').style.display=bud.s?'none':'block';$('iC').value=bud.c||'';$('iD').value=bud.d||'';$('iR').value=bud.r||'';const f=cF==='all'?tx:tx.filter(t=>t.t===cF);const s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))});const m=$('mB'),e=$('eB');if(s.length===0){m.innerHTML='';e.style.display='block'}else{e.style.display='none';m.innerHTML=s.map(t=>'<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div class="txI"><div class="txC">'+t.c+'</div><div class="txD">'+(t.dsc||'—')+'</div></div></div><div class="txB"><div><div class="txA">'+(t.t==='income'?'+':'−')+fm(t.a)+'</div><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div></div><div class="txD2">'+fd(t.d)+'</div></div></div>').join('');document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb()}})}}
 $('dI').valueAsDate=new Date();
 $('tF').onsubmit=function(e){e.preventDefault();const a=parseFloat($('aI').value);if(!a||a<=0)return;tx.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:cT,c:$('cS').value,a,p:$('pS').value,d:$('dI').value,dsc:$('dS').value.trim()});try{localStorage.setItem('bt'+gen,JSON.stringify(tx))}catch(e){}rn();rb();e.target.reset();$('dI').valueAsDate=new Date();fc();sh(e.target.querySelector('.bA'))};
 document.addEventListener('focusout',function(){setTimeout(function(){window.scrollTo(0,0);document.body.scrollTop=0;document.documentElement.scrollTop=0},100)});
