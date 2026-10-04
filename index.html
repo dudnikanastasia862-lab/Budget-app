@@ -505,7 +505,8 @@ async function addTodo(type){
   const input=$('todoInput'+type.charAt(0).toUpperCase()+type.slice(1));
   const text=input.value.trim();
   if(!text) return;
-  todos.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), text:text, checked:false, type:type, period:getCurrentPeriod(type)});
+  const newTodo={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), text:text, checked:false, type:type, period:getCurrentPeriod(type)};
+  todos.push(newTodo);
   await saveTodos();
   input.value='';
   input.blur();
@@ -678,7 +679,7 @@ $('gB').onclick=async function(){
   nm=$('nI').value.trim();
   if(!nm||!gen)return;
   try{
-    await setDoc(userRef, {nm, gen, bud, todos, tx: []}, {merge:true});
+    await setDoc(userRef, {nm, gen, bud, todos: []}, {merge:true});
     localStorage.setItem('budget_user_info', JSON.stringify({nm, gen}));
   }catch(e){console.error('Error saving user:',e);}
   op();
@@ -697,7 +698,12 @@ function showPage(id){
   hideAll();
   $(id).style.display='block';
   if(id==='repScr'){repDate=new Date();renderReport()}
-  if(id==='listScr'){rolloverTodos();renderTodos('day');renderTodos('month');renderTodos('year')}
+  if(id==='listScr'){
+    rolloverTodos();
+    renderTodos('day');
+    renderTodos('month');
+    renderTodos('year');
+  }
 }
 document.querySelectorAll('.tabItem').forEach(item=>{
   item.onclick=function(){
@@ -725,7 +731,11 @@ async function ld(){
         localStorage.setItem('budget_user_info', JSON.stringify({nm, gen}));
       }
       if(userData.bud) bud = userData.bud;
-      if(userData.todos) todos = userData.todos;
+      if(userData.todos && Array.isArray(userData.todos)) {
+        todos = userData.todos;
+      } else {
+        todos = [];
+      }
     }
     const txSnapshot = await getDocs(txRef);
     tx = [];
@@ -941,7 +951,16 @@ if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./service-worker.js');
 }
 
-// ИНИЦИАЛИЗАЦИЯ: Сначала читаем из кэша, чтобы не мелькал экран регистрации
+// ВАЖНО: Делаем все функции доступными из HTML (onclick="...")
+window.toggleTodo = toggleTodo;
+window.toggleAb = toggleAb;
+window.addTodo = addTodo;
+window.toggleCheck = toggleCheck;
+window.deleteTodo = deleteTodo;
+window.setResMode = setResMode;
+window.applyRes = applyRes;
+
+// Инициализация
 const cachedInfo = localStorage.getItem('budget_user_info');
 if(cachedInfo) {
     const info = JSON.parse(cachedInfo);
@@ -950,11 +969,15 @@ if(cachedInfo) {
 }
 
 (async ()=>{
-  await ld(); // Загружаем актуальные данные из облака
+  await ld();
   if(nm && gen) {
-      op(); // Если пользователь зарегистрирован, сразу показываем приложение
+      op();
+      rolloverTodos();
+      renderTodos('day');
+      renderTodos('month');
+      renderTodos('year');
   } else {
-      $('R').style.display = 'flex'; // Иначе показываем экран регистрации
+      $('R').style.display = 'flex';
       $('A').style.display = 'none';
   }
 })();
