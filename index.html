@@ -13,7 +13,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 button,input,select,a{-webkit-appearance:none;border-radius:0;font-family:Georgia,serif}
 body{font-family:Georgia,serif;min-height:100vh;padding:12px;padding-bottom:80px}
-#R{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100}
+#R{position:fixed;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:100}
 .L{position:absolute;top:0;left:0;width:50%;height:100%;background:#0a0a0a;background-image:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px),repeating-linear-gradient(-45deg,transparent,transparent 18px,rgba(255,255,255,0.08) 18px,rgba(255,255,255,0.08) 19px)}
 .R{position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,#5a4f45,#4a4036)}
 .R::before{content:'';position:absolute;top:50%;left:0;right:0;height:3px;background:#b8864e;transform:translateY(-50%)}
@@ -427,9 +427,8 @@ body.arm .customCheck svg{fill:#8b6914!important}
 
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, where, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, where, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-// Твой Firebase конфиг
 const firebaseConfig = {
   apiKey: "AIzaSyBzzbsIq-ercysxRQl1wEFHWVKPOgAkd38",
   authDomain: "budget-app-82758.firebaseapp.com",
@@ -439,31 +438,22 @@ const firebaseConfig = {
   appId: "1:414241966369:web:301d44330ed8c233531660"
 };
 
-// Инициализация Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Генерация уникального ID пользователя
-function generateUserId(){
-  return 'user_'+Math.random().toString(36).substr(2,9)+'_'+Date.now().toString(36);
-}
-
-// Получение или создание userId
-let userId=localStorage.getItem('budget_user_id');
+let userId = localStorage.getItem('budget_user_id');
 if(!userId){
-  userId=generateUserId();
-  localStorage.setItem('budget_user_id',userId);
+  userId = 'user_'+Math.random().toString(36).substr(2,9)+'_'+Date.now().toString(36);
+  localStorage.setItem('budget_user_id', userId);
 }
 
-// Коллекции Firestore
-const userRef=doc(db,'users',userId);
-const txRef=collection(userRef,'transactions');
-const todosRef=collection(userRef,'todos');
+const userRef = doc(db, 'users', userId);
+const txRef = collection(userRef, 'transactions');
 
 const EC=['Еда','Одежда','Кафе','Красота','Салоны','Дом','Транспорт','Развлечения','Здоровье','Обучение','Путешествия','Подарки','Подписки','Связь','Бытовая химия','Другое'];
 const IC=['Зарплата','Фриланс','Подарки','Инвестиции','Аренда','Кэшбэк','Другое'];
 const MN=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-let tx=[],bud={c:0,d:0,r:0,s:false},todos=[],gen=null,nm='',cT='expense',cF='all';
+let tx=[], bud={c:0,d:0,r:0,s:false}, todos=[], gen=null, nm='', cT='expense', cF='all';
 let repDate=new Date();
 let resMode='add';
 let camelliaInterval=null;
@@ -491,17 +481,8 @@ function rolloverTodos(){
 }
 
 async function saveTodos(){
-  try{
-    await setDoc(userRef,{todos}, {merge:true});
-  }catch(e){console.error('Error saving todos:',e);}
-}
-
-async function loadTodos(){
-  try{
-    const docSnap=await getDocs(todosRef);
-    todos=[];
-    docSnap.forEach(doc=>{todos.push(doc.data());});
-  }catch(e){console.error('Error loading todos:',e);}
+  try{ await setDoc(userRef, {todos}, {merge:true}); }
+  catch(e){ console.error('Error saving todos:', e); }
 }
 
 function renderTodos(type){
@@ -625,9 +606,9 @@ async function applyRes(){
   const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);
   const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
   const cb=bud.c+ci-ce;
-  const db=bud.d+di-de;
+  const db2=bud.d+di-de;
   if(resMode==='add'){
-    const available=src==='cash'?cb:db;
+    const available=src==='cash'?cb:db2;
     if(amt>available){alert('Недостаточно средств');return;}
     bud.r+=amt;
     if(src==='cash') bud.c-=amt; else bud.d-=amt;
@@ -636,9 +617,8 @@ async function applyRes(){
     bud.r-=amt;
     if(src==='cash') bud.c+=amt; else bud.d+=amt;
   }
-  try{
-    await setDoc(userRef,{bud}, {merge:true});
-  }catch(e){console.error('Error saving budget:',e);}
+  try{ await setDoc(userRef, {bud}, {merge:true}); }
+  catch(e){ console.error('Error saving budget:', e); }
   $('resForm').style.display='none';
   $('resAmt').value='';
   sh($('resT'));
@@ -653,39 +633,23 @@ function emitCamelliaParticles(){
   const cy=rect.top+rect.height/2;
   if(!gen){
     for(let i=0;i<6;i++){
-      const p=document.createElement('div');
-      p.className='pearl';
+      const p=document.createElement('div'); p.className='pearl';
       const sz=Math.random()*12+6;
       p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
-      const a=Math.random()*Math.PI*2;
-      const d=Math.random()*180+80;
+      const a=Math.random()*Math.PI*2, d=Math.random()*180+80;
       p.style.setProperty('--tx',Math.cos(a)*d+'px');
       p.style.setProperty('--ty',Math.sin(a)*d+'px');
       document.body.appendChild(p);
       setTimeout(()=>p.remove(),2500);
     }
-    for(let i=0;i<8;i++){
-      const p=document.createElement('div');
-      p.className='bronze';
-      const sz=Math.random()*6+3;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
-      const a=Math.random()*Math.PI*2;
-      const d=Math.random()*200+100;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2000);
-    }
     return;
   }
   if(gen==='female'){
     for(let i=0;i<8;i++){
-      const p=document.createElement('div');
-      p.className='pearl';
+      const p=document.createElement('div'); p.className='pearl';
       const sz=Math.random()*12+6;
       p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
-      const a=Math.random()*Math.PI*2;
-      const d=Math.random()*180+80;
+      const a=Math.random()*Math.PI*2, d=Math.random()*180+80;
       p.style.setProperty('--tx',Math.cos(a)*d+'px');
       p.style.setProperty('--ty',Math.sin(a)*d+'px');
       document.body.appendChild(p);
@@ -693,12 +657,10 @@ function emitCamelliaParticles(){
     }
   }else{
     for(let i=0;i<10;i++){
-      const p=document.createElement('div');
-      p.className='bronze';
+      const p=document.createElement('div'); p.className='bronze';
       const sz=Math.random()*6+3;
       p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
-      const a=Math.random()*Math.PI*2;
-      const d=Math.random()*200+100;
+      const a=Math.random()*Math.PI*2, d=Math.random()*200+100;
       p.style.setProperty('--tx',Math.cos(a)*d+'px');
       p.style.setProperty('--ty',Math.sin(a)*d+'px');
       document.body.appendChild(p);
@@ -711,90 +673,110 @@ $('bF').onclick=function(){$('bF').classList.add('s');$('bM').classList.remove('
 $('bM').onclick=function(){$('bM').classList.add('s');$('bF').classList.remove('s');gen='male';ck()};
 $('nI').oninput=ck;
 function ck(){$('gB').disabled=!($('nI').value.trim()&&gen)}
+
 $('gB').onclick=async function(){
   nm=$('nI').value.trim();
   if(!nm||!gen)return;
   try{
-    await setDoc(userRef,{nm,gen}, {merge:true});
+    await setDoc(userRef, {nm, gen, bud, todos, tx: []}, {merge:true});
+    localStorage.setItem('budget_user_info', JSON.stringify({nm, gen}));
   }catch(e){console.error('Error saving user:',e);}
-  op()
+  op();
 };
+
 $('oB').onclick=async function(){
-  if(!confirm('Выйти?'))return;
-  try{
-    await deleteDoc(userRef);
-  }catch(e){console.error('Error deleting user:',e);}
+  if(!confirm('Выйти? Все данные будут удалены из облака.'))return;
+  try{ await deleteDoc(userRef); }catch(e){console.error('Error deleting user:',e);}
   localStorage.removeItem('budget_user_id');
-  tx=[];todos=[];bud={c:0,d:0,r:0,s:false};
-  hideAll();
-  $('R').style.display='flex';
-  $('nI').value='';
-  $('bF').classList.remove('s');
-  $('bM').classList.remove('s');
-  gen=null;nm='';
-  document.body.className='';
-  $('gB').disabled=true;
+  localStorage.removeItem('budget_user_info');
+  location.reload();
 };
+
 function hideAll(){$('A').style.display='none';$('repScr').style.display='none';$('listScr').style.display='none';$('aboutScr').style.display='none'}
-function showPage(id){hideAll();$(id).style.display='block';if(id==='repScr'){repDate=new Date();renderReport()}if(id==='listScr'){rolloverTodos();renderTodos('day');renderTodos('month');renderTodos('year')}}
-document.querySelectorAll('.tabItem').forEach(item=>{item.onclick=function(){document.querySelectorAll('.tabItem').forEach(i=>i.classList.remove('active'));this.classList.add('active');showPage(this.dataset.page)}});
-function op(){$('R').style.display='none';$('A').style.display='block';document.body.className=gen==='female'?'chl':'arm';ld();fc();rn();rb()}
+function showPage(id){
+  hideAll();
+  $(id).style.display='block';
+  if(id==='repScr'){repDate=new Date();renderReport()}
+  if(id==='listScr'){rolloverTodos();renderTodos('day');renderTodos('month');renderTodos('year')}
+}
+document.querySelectorAll('.tabItem').forEach(item=>{
+  item.onclick=function(){
+    document.querySelectorAll('.tabItem').forEach(i=>i.classList.remove('active'));
+    this.classList.add('active');
+    showPage(this.dataset.page);
+  }
+});
+
+function op(){
+  $('R').style.display='none';
+  $('A').style.display='block';
+  document.body.className=gen==='female'?'chl':'arm';
+  fc();rn();rb();
+}
 
 async function ld(){
   try{
-    const userDoc=await getDocs(query(collection(db,'users'),where('__name__','==',userId)));
-    if(!userDoc.empty){
-      const userData=userDoc.docs[0].data();
-      if(userData.nm){nm=userData.nm;gen=userData.g;}
-      if(userData.bud){bud=userData.bud;}
-      if(userData.todos){todos=userData.todos;}
+    const userDoc = await getDoc(userRef);
+    if(userDoc.exists()){
+      const userData = userDoc.data();
+      if(userData.nm) { 
+        nm = userData.nm; 
+        gen = userData.gen; 
+        localStorage.setItem('budget_user_info', JSON.stringify({nm, gen}));
+      }
+      if(userData.bud) bud = userData.bud;
+      if(userData.todos) todos = userData.todos;
     }
-    
-    const txSnapshot=await getDocs(txRef);
-    tx=[];
-    txSnapshot.forEach(doc=>{tx.push(doc.data());});
-    
-    await loadTodos();
-  }catch(e){console.error('Error loading data:',e);}
+    const txSnapshot = await getDocs(txRef);
+    tx = [];
+    txSnapshot.forEach(d => { tx.push(d.data()); });
+  }catch(e){ console.error('Error loading data:', e); }
 }
 
 $('sB').onclick=async function(){
-  bud={c:parseFloat($('iC').value)||0,d:parseFloat($('iD').value)||0,r:parseFloat($('iR').value)||0,s:true};
-  try{
-    await setDoc(userRef,{bud}, {merge:true});
-  }catch(e){console.error('Error saving budget:',e);}
-  sh(this);rn();rb()
+  bud={c:parseFloat($('iC').value)||0, d:parseFloat($('iD').value)||0, r:parseFloat($('iR').value)||0, s:true};
+  try{ await setDoc(userRef, {bud}, {merge:true}); }
+  catch(e){ console.error('Error saving budget:', e); }
+  sh(this); rn(); rb();
 };
 
 $('rB').onclick=async function(){
-  if(!confirm('Сбросить?'))return;
-  tx=[];todos=[];bud={c:0,d:0,r:0,s:false};
-  try{
-    await setDoc(userRef,{bud,tx:[],todos:[]}, {merge:true});
-  }catch(e){console.error('Error resetting:',e);}
+  if(!confirm('Сбросить все данные?'))return;
+  tx=[]; todos=[]; bud={c:0,d:0,r:0,s:false};
+  try{ await setDoc(userRef, {bud, todos, tx: []}, {merge:true}); }
+  catch(e){ console.error('Error resetting:', e); }
   $('bB').style.display='block';
-  $('iC').value='';$('iD').value='';$('iR').value='';
-  rn();rb();
-  alert('Очищено')
+  $('iC').value=''; $('iD').value=''; $('iR').value='';
+  rn(); rb();
+  alert('Очищено');
 };
 
 $('bT').onclick=function(){this.classList.toggle('o');$('bC').classList.toggle('o')};
 $('resT').onclick=function(){this.classList.toggle('o');$('resC').classList.toggle('o')};
 $('tE').onclick=function(){$('tE').classList.add('s');$('tI').classList.remove('s');cT='expense';fc()};
 $('tI').onclick=function(){$('tI').classList.add('s');$('tE').classList.remove('s');cT='income';fc()};
-$('fA').onclick=function(){sf('all')};$('fI').onclick=function(){sf('income')};$('fE').onclick=function(){sf('expense')};
-function sf(f){$('fA').classList.remove('s');$('fI').classList.remove('s');$('fE').classList.remove('s');if(f==='all')$('fA').classList.add('s');if(f==='income')$('fI').classList.add('s');if(f==='expense')$('fE').classList.add('s');cF=f;rn()}
+$('fA').onclick=function(){sf('all')};
+$('fI').onclick=function(){sf('income')};
+$('fE').onclick=function(){sf('expense')};
+
+function sf(f){
+  $('fA').classList.remove('s');$('fI').classList.remove('s');$('fE').classList.remove('s');
+  if(f==='all')$('fA').classList.add('s');
+  if(f==='income')$('fI').classList.add('s');
+  if(f==='expense')$('fE').classList.add('s');
+  cF=f; rn();
+}
+
 $('prevM').onclick=function(){repDate.setMonth(repDate.getMonth()-1);renderReport()};
 $('nextM').onclick=function(){repDate.setMonth(repDate.getMonth()+1);renderReport()};
 
 function renderReport(){
-  const y=repDate.getFullYear();
-  const m=repDate.getMonth();
+  const y=repDate.getFullYear(), m=repDate.getMonth();
   $('repMonth').textContent=MN[m]+' '+y;
   const mt=tx.filter(t=>{
     const p=t.d.split('-');
     const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));
-    return d.getFullYear()===y&&d.getMonth()===m
+    return d.getFullYear()===y && d.getMonth()===m;
   });
   const inc=mt.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
   const exp=mt.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
@@ -810,70 +792,61 @@ function renderReport(){
   mt.filter(t=>t.t==='expense').forEach(t=>{ce[t.c]=(ce[t.c]||0)+t.a});
   const sorted=Object.entries(ce).sort((a,b)=>b[1]-a[1]).slice(0,3);
   const maxV=sorted.length>0?sorted[0][1]:1;
-  $('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов за этот месяц</div>':sorted.map(([c,v])=>'<div class="topItem"><div class="topItemH"><span class="topItemN">'+c+'</span><span class="topItemV">'+fm(v)+'</span></div><div class="topBar"><div class="topBarF" style="width:'+(v/maxV*100)+'%"></div></div></div>').join('')
+  $('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов за этот месяц</div>':sorted.map(([c,v])=>'<div class="topItem"><div class="topItemH"><span class="topItemN">'+c+'</span><span class="topItemV">'+fm(v)+'</span></div><div class="topBar"><div class="topBarF" style="width:'+(v/maxV*100)+'%"></div></div></div>').join('');
 }
 
 function rb(){
-  const now=new Date();
-  const y=now.getFullYear();
-  const m=now.getMonth()+1;
+  const now=new Date(), y=now.getFullYear(), m=now.getMonth()+1;
   const mt=tx.filter(t=>{
     const p=t.d.split('-');
     const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));
-    return d.getFullYear()===y&&d.getMonth()+1===m
+    return d.getFullYear()===y && d.getMonth()+1===m;
   });
-  const ce={},ci={};
+  const ce={}, ci={};
   mt.forEach(t=>{
-    if(t.t==='expense')ce[t.c]=(ce[t.c]||0)+t.a;
-    else ci[t.c]=(ci[t.c]||0)+t.a
+    if(t.t==='expense') ce[t.c]=(ce[t.c]||0)+t.a;
+    else ci[t.c]=(ci[t.c]||0)+t.a;
   });
   $('eC').innerHTML=Object.keys(ce).length===0?'<div class="bdE">Нет расходов</div>':Object.entries(ce).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">-'+fm(t)+'</span></div>').join('');
-  $('iC2').innerHTML=Object.keys(ci).length===0?'<div class="bdE">Нет доходов</div>':Object.entries(ci).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">+'+fm(t)+'</span></div>').join('')
+  $('iC2').innerHTML=Object.keys(ci).length===0?'<div class="bdE">Нет доходов</div>':Object.entries(ci).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">+'+fm(t)+'</span></div>').join('');
 }
 
 function sh(el){
-  const r=el.getBoundingClientRect();
-  const x=r.left+r.width/2;
-  const y=r.top+r.height/2;
+  const r=el.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2;
   if(gen==='female'){
     for(let i=0;i<60;i++){
-      const p=document.createElement('div');
-      p.className='pearl';
+      const p=document.createElement('div'); p.className='pearl';
       const sz=Math.random()*12+8;
       p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';
-      const a=(Math.PI*2*i)/60;
-      const d=Math.random()*200+100;
+      const a=(Math.PI*2*i)/60, d=Math.random()*200+100;
       p.style.setProperty('--tx',Math.cos(a)*d+'px');
       p.style.setProperty('--ty',Math.sin(a)*d+'px');
       document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2500)
+      setTimeout(()=>p.remove(),2500);
     }
   }else{
     for(let i=0;i<90;i++){
-      const p=document.createElement('div');
-      p.className='bronze';
+      const p=document.createElement('div'); p.className='bronze';
       const sz=Math.random()*6+3;
       p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';
-      const a=(Math.PI*2*i)/90;
-      const d=Math.random()*250+150;
+      const a=(Math.PI*2*i)/90, d=Math.random()*250+150;
       p.style.setProperty('--tx',Math.cos(a)*d+'px');
       p.style.setProperty('--ty',Math.sin(a)*d+'px');
       document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2000)
+      setTimeout(()=>p.remove(),2000);
     }
   }
 }
 
 function fc(){
-  const s=$('cS');
-  const c=cT==='expense'?EC:IC;
-  s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('')
+  const s=$('cS'), c=cT==='expense'?EC:IC;
+  s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('');
 }
 
 function fm(n){return new Intl.NumberFormat('ru-RU').format(n)+' ₽'}
 function fd(d){
   const p=d.split('-');
-  return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).toLocaleDateString('ru-RU',{day:'numeric',month:'short'})
+  return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});
 }
 
 async function rn(){
@@ -883,59 +856,43 @@ async function rn(){
   const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
   const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);
   const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
-  const cb=bud.c+ci-ce;
-  const db=bud.d+di-de;
-  const tb=cb+db;
-  const tbRes=tb+bud.r;
-  $('iV').textContent=fm(inc);
-  $('eV').textContent=fm(exp);
-  $('cV').textContent=fm(cb);
-  $('dV').textContent=fm(db);
-  $('rV').textContent=fm(bud.r);
-  $('totAll').textContent=fm(tb);
-  $('totRes').textContent=fm(tbRes);
-  $('resCur').textContent=fm(bud.r);
-  const b=$('bV');
-  b.textContent=(tbRes<0?'-':'')+fm(Math.abs(tbRes));
+  const cb=bud.c+ci-ce, db2=bud.d+di-de;
+  const tb=cb+db2, tbRes=tb+bud.r;
+  
+  $('iV').textContent=fm(inc); $('eV').textContent=fm(exp);
+  $('cV').textContent=fm(cb); $('dV').textContent=fm(db2);
+  $('rV').textContent=fm(bud.r); $('totAll').textContent=fm(tb);
+  $('totRes').textContent=fm(tbRes); $('resCur').textContent=fm(bud.r);
+  const b=$('bV'); b.textContent=(tbRes<0?'-':'')+fm(Math.abs(tbRes));
   $('bB').style.display=bud.s?'none':'block';
-  $('iC').value=bud.c||'';
-  $('iD').value=bud.d||'';
-  $('iR').value=bud.r||'';
+  $('iC').value=bud.c||''; $('iD').value=bud.d||''; $('iR').value=bud.r||'';
   
   const f=cF==='all'?tx:tx.filter(t=>t.t===cF);
   const s=[...f].sort((a,b)=>{
-    const pa=a.d.split('-'),pb=b.d.split('-');
-    return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]))
+    const pa=a.d.split('-'), pb=b.d.split('-');
+    return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]));
   });
   
-  const expList=$('expList'),incList=$('incList'),expTotal=$('expTotal'),incTotal=$('incTotal');
-  const expenses=s.filter(t=>t.t==='expense');
-  const incomes=s.filter(t=>t.t==='income');
+  const expList=$('expList'), incList=$('incList'), expTotal=$('expTotal'), incTotal=$('incTotal');
+  const expenses=s.filter(t=>t.t==='expense'), incomes=s.filter(t=>t.t==='income');
+  let expSum=0, incSum=0;
   
-  let expSum=0,incSum=0;
-  
-  if(expenses.length===0){
-    expList.innerHTML='<div class="recordsEmpty">Нет расходов</div>';
-    expTotal.style.display='none';
-  }else{
+  if(expenses.length===0){ expList.innerHTML='<div class="recordsEmpty">Нет расходов</div>'; expTotal.style.display='none'; }
+  else{
     expList.innerHTML=expenses.map(t=>{
       expSum+=t.a;
       return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">−'+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
     }).join('');
-    expTotal.style.display='block';
-    expTotal.textContent=fm(expSum);
+    expTotal.style.display='block'; expTotal.textContent=fm(expSum);
   }
   
-  if(incomes.length===0){
-    incList.innerHTML='<div class="recordsEmpty">Нет доходов</div>';
-    incTotal.style.display='none';
-  }else{
+  if(incomes.length===0){ incList.innerHTML='<div class="recordsEmpty">Нет доходов</div>'; incTotal.style.display='none'; }
+  else{
     incList.innerHTML=incomes.map(t=>{
       incSum+=t.a;
       return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">+'+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+(t.p==='cash'?'Наличные':'Безналичные')+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
     }).join('');
-    incTotal.style.display='block';
-    incTotal.textContent=fm(incSum);
+    incTotal.style.display='block'; incTotal.textContent=fm(incSum);
   }
   
   document.querySelectorAll('.txDl').forEach(btn=>{
@@ -946,13 +903,11 @@ async function rn(){
       try{
         const txDocs=await getDocs(txRef);
         txDocs.forEach(async d=>{
-          if(d.data().id===btn.dataset.id){
-            await deleteDoc(d.ref);
-          }
+          if(d.data().id===btn.dataset.id) await deleteDoc(d.ref);
         });
       }catch(e){console.error('Error deleting:',e);}
-      rn();rb()
-    }
+      rn(); rb();
+    };
   });
 }
 
@@ -961,37 +916,47 @@ $('tF').onsubmit=async function(e){
   e.preventDefault();
   const a=parseFloat($('aI').value);
   if(!a||a<=0)return;
-  const newTx={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:cT,c:$('cS').value,a,p:$('pS').value,d:$('dI').value,dsc:$('dS').value.trim()};
+  const newTx={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), t:cT, c:$('cS').value, a, p:$('pS').value, d:$('dI').value, dsc:$('dS').value.trim()};
   tx.push(newTx);
-  try{
-    await addDoc(txRef,newTx);
-  }catch(e){console.error('Error adding transaction:',e);}
-  rn();rb();
+  try{ await addDoc(txRef, newTx); }
+  catch(e){ console.error('Error adding transaction:', e); }
+  rn(); rb();
   e.target.reset();
   $('dI').valueAsDate=new Date();
   fc();
-  sh(e.target.querySelector('.bA'))
+  sh(e.target.querySelector('.bA'));
 };
 
 document.addEventListener('focusout',function(){
   setTimeout(function(){
     window.scrollTo(0,0);
     document.body.scrollTop=0;
-    document.documentElement.scrollTop=0
-  },100)
+    document.documentElement.scrollTop=0;
+  },100);
 });
 
 camelliaInterval=setInterval(emitCamelliaParticles,500);
 
-// Запуск приложения
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./service-worker.js');
 }
 
-// Инициализация
+// ИНИЦИАЛИЗАЦИЯ: Сначала читаем из кэша, чтобы не мелькал экран регистрации
+const cachedInfo = localStorage.getItem('budget_user_info');
+if(cachedInfo) {
+    const info = JSON.parse(cachedInfo);
+    nm = info.nm;
+    gen = info.gen;
+}
+
 (async ()=>{
-  await ld();
-  op();
+  await ld(); // Загружаем актуальные данные из облака
+  if(nm && gen) {
+      op(); // Если пользователь зарегистрирован, сразу показываем приложение
+  } else {
+      $('R').style.display = 'flex'; // Иначе показываем экран регистрации
+      $('A').style.display = 'none';
+  }
 })();
 </script>
 </body>
