@@ -309,7 +309,6 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <button class="tB" id="tTr">Перевод</button>
 </div>
 
-<!-- Форма расхода/дохода -->
 <form id="tF">
 <div class="fG">
 <div><label>Категория</label><select id="cS" required></select></div>
@@ -321,7 +320,6 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <button type="submit" class="bA" id="addBtn">Добавить</button>
 </form>
 
-<!-- Форма перевода -->
 <form id="trF" style="display:none">
 <div class="fG">
 <div><label>Откуда</label><select id="trFrom"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div>
@@ -354,7 +352,7 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <div class="recordsTotal" id="incTotal" style="display:none"></div>
 </div>
 </div>
-<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания </a>
+<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
 </div>
 
 <div id="repScr" style="display:none">
@@ -400,7 +398,7 @@ body.arm .customCheck svg{fill:#8b6914!important}
 <button onclick="addTodo('year')">+</button>
 </div></div>
 </div>
-<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
+<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания </a>
 </div>
 
 <div id="aboutScr" style="display:none">
@@ -458,7 +456,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Офлайн-режим Firebase
 enableIndexedDbPersistence(db).catch(err => {
   if (err.code === 'failed-precondition') {
     console.log('Persistence failed: multiple tabs open');
@@ -790,7 +787,6 @@ $('rB').onclick=async function(){
 $('bT').onclick=function(){this.classList.toggle('o');$('bC').classList.toggle('o')};
 $('resT').onclick=function(){this.classList.toggle('o');$('resC').classList.toggle('o')};
 
-// Переключение между Расход / Доход / Перевод
 $('tE').onclick=function(){
   $('tE').classList.add('s');
   $('tI').classList.remove('s');
@@ -817,7 +813,6 @@ $('tTr').onclick=function(){
   $('trF').style.display='block';
 };
 
-// Автоподстройка "Куда" при выборе "Откуда"
 $('trFrom').onchange=function(){
   const from=$('trFrom').value;
   $('trTo').value = from==='cash' ? 'card' : 'cash';
@@ -1001,7 +996,6 @@ $('tF').onsubmit=async function(e){
   sh(e.target.querySelector('.bA'));
 };
 
-// Обработка формы перевода
 $('trF').onsubmit=async function(e){
   e.preventDefault();
   const amt=parseFloat($('trAmt').value);
@@ -1012,7 +1006,6 @@ $('trF').onsubmit=async function(e){
   if(!amt||amt<=0){alert('Введите сумму');return;}
   if(from===to){alert('Откуда и Куда должны быть разными');return;}
   
-  // Проверяем, достаточно ли средств
   const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
   const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
   const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
@@ -1028,7 +1021,6 @@ $('trF').onsubmit=async function(e){
     return;
   }
   
-  // Обновляем баланс
   if(from==='cash'){
     bud.c -= amt;
     bud.d += amt;
@@ -1037,7 +1029,6 @@ $('trF').onsubmit=async function(e){
     bud.c += amt;
   }
   
-  // Создаём запись о переводе
   const newTx={
     id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),
     t:'transfer',
@@ -1057,7 +1048,6 @@ $('trF').onsubmit=async function(e){
     ]);
   }catch(e){ console.error('Error transfer:', e); }
   
-  // Сброс формы
   $('trAmt').value='';
   $('trDsc').value='';
   sh(e.target.querySelector('.bA'));
@@ -1075,10 +1065,33 @@ document.addEventListener('focusout',function(){
 camelliaInterval=setInterval(emitCamelliaParticles,500);
 
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('./service-worker.js');
+  navigator.serviceWorker.register('./service-worker.js').then(registration => {
+    // ПРИНУДИТЕЛЬНАЯ ПРОВЕРКА ОБНОВЛЕНИЙ
+    // При каждом запуске проверяем, есть ли новая версия
+    registration.update();
+    
+    // Если найден новый Service Worker — активируем его
+    registration.addEventListener('updatefound', () => {
+      const newWorker = registration.installing;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          // Новая версия готова — перезагружаем страницу
+          if (confirm('Доступно обновление приложения. Перезагрузить?')) {
+            window.location.reload();
+          }
+        }
+      });
+    });
+    
+    // Если Service Worker изменился во время работы — перезагружаем
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      window.location.reload();
+    });
+  }).catch(err => {
+    console.log('SW registration failed:', err);
+  });
 }
 
-// ВАЖНО: Делаем все функции доступными из HTML (onclick="...")
 window.toggleTodo = toggleTodo;
 window.toggleAb = toggleAb;
 window.addTodo = addTodo;
@@ -1087,7 +1100,6 @@ window.deleteTodo = deleteTodo;
 window.setResMode = setResMode;
 window.applyRes = applyRes;
 
-// Инициализация
 const cachedInfo = localStorage.getItem('budget_user_info');
 if(cachedInfo) {
     const info = JSON.parse(cachedInfo);
