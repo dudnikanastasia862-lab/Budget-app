@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Budget</title>
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%230a0a0a'/%3E%3Ctext x='256' y='340' font-family='Georgia' font-size='260' font-weight='bold' fill='%23d4a574' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%230a0a0a'/%3E%3Ctext x='256' y='350' font-family='Georgia,serif' font-size='280' font-weight='bold' fill='%23d4a574' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Budget">
 <meta name="theme-color" content="#0a0a0a">
@@ -251,7 +251,7 @@ body.arm .deleteModalBox{background:#3a322a!important;color:#fff!important;borde
 
 <div id="goalsScr" style="display:none"><header><div style="width:80px"></div><div class="logo">ЦЕЛИ</div><div style="width:80px"></div></header><div class="bud" id="goalsContainer"><div class="goalsEmpty" id="goalsEmpty">Нет целей. Нажмите + чтобы добавить!</div><div id="goalsList"></div><button class="addGoalBtn" onclick="addGoal()">+</button></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
-<div id="aboutScr" style="display:none"><header><div style="width:80px"></div><div class="logo">О НАС</div><div style="width:80px"></div></header><div class="ab"><div class="abHead" onclick="toggleAb('rules')"><span>Правила использования</span><span class="ar">▼</span></div><div class="abBody" id="abBodyRules"><div class="abIn" style="padding:15px"><p class="abTx">1. Приложение предназначено для личного учёта финансов и составления списков покупок.</p><p class="abTx">2. <strong>Конфиденциальность:</strong> все ваши данные хранятся исключительно в памяти вашего устройства и в вашем личном облаке. Мы не собираем, не видим и не передаем вашу информацию третьим лицам.</p><p class="abTx">3. <strong>Безопасность:</strong> при очистке данных браузера или нажатии кнопки "Сброс" вся история будет безвозвратно удалена. Используйте функцию резервного копирования для подстраховки.</p><p class="abTx">4. Разработчик не несет финансовой ответственности за решения, принятые на основе данных приложения.</p></div></div><div class="abHead" onclick="toggleAb('backup')"><span>Резервное копирование</span><span class="ar">▼</span></div><div class="abBody" id="abBodyBackup"><div class="abIn" style="padding:15px;text-align:center"><p class="abTx">Ваши данные автоматически копируются в облако после каждого изменения.<br>Если данные потерялись — нажмите «Восстановить» ниже.</p><button class="backupBtn save" onclick="createBackup()">💾 Создать резервную копию</button><button class="backupBtn restore" onclick="restoreBackup()">📂 Восстановить из копии</button></div></div><div class="abHead" onclick="toggleAb('contact')"><span>Связаться с разработчиком</span><span class="ar">▼</span></div><div class="abBody" id="abBodyContact"><div class="abIn" style="padding:15px;text-align:center"><p class="abTx">Есть идеи, предложения или вы нашли ошибку?<br>Напишите мне напрямую, я всегда рада обратной связи!</p><a href="https://max.ru/u/f9LHodD0cOJVkjxehingWZYuo9MRvWNmgBpfDLFbdtqqq6BJn_60eiONJIM" target="_blank" class="maxBtn">Написать в Макс</a></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания </a></div>
+<div id="aboutScr" style="display:none"><header><div style="width:80px"></div><div class="logo">О НАС</div><div style="width:80px"></div></header><div class="ab"><div class="abHead" onclick="toggleAb('rules')"><span>Правила использования</span><span class="ar">▼</span></div><div class="abBody" id="abBodyRules"><div class="abIn" style="padding:15px"><p class="abTx">1. Приложение предназначено для личного учёта финансов и составления списков покупок.</p><p class="abTx">2. <strong>Конфиденциальность:</strong> все ваши данные хранятся исключительно в памяти вашего устройства и в вашем личном облаке. Мы не собираем, не видим и не передаем вашу информацию третьим лицам.</p><p class="abTx">3. <strong>Безопасность:</strong> при очистке данных браузера или нажатии кнопки "Сброс" вся история будет безвозвратно удалена. Используйте функцию резервного копирования для подстраховки.</p><p class="abTx">4. Разработчик не несет финансовой ответственности за решения, принятые на основе данных приложения.</p></div></div><div class="abHead" onclick="toggleAb('backup')"><span>Резервное копирование</span><span class="ar">▼</span></div><div class="abBody" id="abBodyBackup"><div class="abIn" style="padding:15px;text-align:center"><p class="abTx">Ваши данные автоматически копируются в облако после каждого изменения.<br>Если данные потерялись — нажмите «Восстановить» ниже.</p><button class="backupBtn save" onclick="createBackup()">💾 Создать резервную копию</button><button class="backupBtn restore" onclick="restoreBackup()">📂 Восстановить из копии</button></div></div><div class="abHead" onclick="toggleAb('contact')"><span>Связаться с разработчиком</span><span class="ar">▼</span></div><div class="abBody" id="abBodyContact"><div class="abIn" style="padding:15px;text-align:center"><p class="abTx">Есть идеи, предложения или вы нашли ошибку?<br>Напишите мне напрямую, я всегда рада обратной связи!</p><a href="https://max.ru/u/f9LHodD0cOJVkjxehingWZYuo9MRvWNmgBpfDLFbdtqqq6BJn_60eiONJIM" target="_blank" class="maxBtn">Написать в Макс</a></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
 <div class="tabBar">
 <div class="tabItem" data-page="repScr"><div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg></div><div class="tabLabel">Отчет</div></div>
@@ -400,12 +400,17 @@ window.restoreBackup=async function(){if(!confirm('Восстановить да
 document.addEventListener('focusout',()=>{setTimeout(()=>{window.scrollTo(0,0);document.body.scrollTop=0;document.documentElement.scrollTop=0},100)});
 camelliaInterval=setInterval(emitCamelliaParticles,500);
 
-window.toggleTodo=toggleTodo;window.toggleAb=toggleAb;window.addTodo=addTodo;window.toggleCheck=toggleCheck;window.deleteTodo=deleteTodo;window.setResMode=setResMode;window.applyRes=applyRes;
-
-const cachedInfo=localStorage.getItem('budget_user_info');
-if(cachedInfo){const info=JSON.parse(cachedInfo);nm=info.nm;gen=info.gen}
-
-(async()=>{await ld();if(nm&&gen){op();rolloverTodos();renderTodos('day');renderTodos('month');renderTodos('year')}else{$('R').style.display='flex';$('A').style.display='none'}})();
-</script>
-</body>
-</html>
+// Простой офлайн-режим через кэширование
+if('serviceWorker' in navigator){
+  const swCode = `
+    const CACHE = 'budget-v4';
+    self.addEventListener('install', e => {
+      e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', './index.html'])));
+      self.skipWaiting();
+    });
+    self.addEventListener('fetch', e => {
+      e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
+    });
+  `;
+  const blob = new Blob([swCode], {type: 'application/javascript'});
+  navigator.serviceWorker.register(UR
