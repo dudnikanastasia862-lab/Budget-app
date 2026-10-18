@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Budget</title>
 <link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='br' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23d4a574'/%3E%3Cstop offset='1' stop-color='%236b4f10'/%3E%3C/linearGradient%3E%3Cpattern id='q' width='36' height='36' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'%3E%3Cpath d='M0 18 L18 0 L36 18 L18 36 Z' fill='none' stroke='%23ffffff' stroke-width='1.5' opacity='0.3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='256' height='512' fill='%230a0a0a'/%3E%3Crect width='256' height='512' fill='url(%23q)'/%3E%3Crect x='256' width='256' height='512' fill='url(%23br)'/%3E%3Ctext x='256' y='340' font-family='Georgia,serif' font-size='260' font-weight='bold' fill='%23ffffff' text-anchor='middle' stroke='%23000000' stroke-width='3' paint-order='stroke'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8xOC8yNqBxG4cAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAADiElEQVR4nO3dQW7bMBBAUTrI/a9sd5EuAhSILVISZ/77uxYBLVGcGZL68/Pz8wPg4K/rBwD4LsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhABsECMggWkEGwgAyCBWQQLCCDYAEZBAvIIFhAB......">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Budget">
 <meta name="theme-color" content="#0a0a0a">
@@ -36,25 +36,25 @@ body{font-family:Georgia,serif;min-height:100vh;padding:12px;padding-bottom:80px
 header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:24px;letter-spacing:2px;text-transform:uppercase}
 .bal{text-align:right}
-.balL{font-size:9px;margin-bottom:2px}
-.balV{font-size:20px;font-weight:600}
+.balL{font-size:10px;margin-bottom:2px}
+.balV{font-size:22px;font-weight:600}
 .bO,.bR{padding:6px 12px;font-size:10px;cursor:pointer;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .bO:active,.bR:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .bud,.frm,.st,.tx,.ab{padding:15px;margin-bottom:12px}
 .bH{margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(128,128,128,0.3)}
-.sT{font-size:18px;letter-spacing:2px;text-transform:uppercase}
+.sT{font-size:20px;letter-spacing:2px;text-transform:uppercase}
 .g3{display:grid!important;grid-template-columns:1fr 1fr 1fr!important;gap:8px;margin-bottom:12px}
 .cd{padding:12px;text-align:center;min-height:80px;display:flex;flex-direction:column;justify-content:center}
-.cL{font-size:9px;letter-spacing:1px;margin-bottom:6px}
-.cV{font-size:18px;font-weight:600}
+.cL{font-size:10px;letter-spacing:1px;margin-bottom:6px}
+.cV{font-size:20px;font-weight:600}
 .bI{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
-.bI label,label{display:block;font-size:9px;margin-bottom:4px}
+.bI label,label{display:block;font-size:10px;margin-bottom:4px}
 .bI input,input,select{width:100%;padding:8px;font-size:13px}
 .bS,.bA{margin-top:12px;width:100%;padding:10px;cursor:pointer;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .bS:active,.bA:active{transform:translateY(2px);box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .sts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.sL{font-size:9px;margin-bottom:4px}
-.sV{font-size:18px;font-weight:600}
+.sL{font-size:10px;margin-bottom:4px}
+.sV{font-size:20px;font-weight:600}
 .tg{display:flex;margin-bottom:12px;gap:6px}
 .tB{flex:1;padding:10px;cursor:pointer;font-size:10px;text-transform:uppercase;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
 .tB:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
@@ -67,56 +67,79 @@ header{padding:10px;margin-bottom:10px;display:flex;justify-content:space-betwee
 .fB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
 .recordsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .recordsCol{padding:10px;border:1px solid currentColor}
-.recordsColTitle{font-size:11px;text-transform:uppercase;text-align:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(128,128,128,0.3);letter-spacing:1px}
+.recordsColTitle{font-size:12px;text-transform:uppercase;text-align:center;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(128,128,128,0.3);letter-spacing:1px}
 .tx{position:relative;padding:8px 10px;margin-bottom:6px;border:1px solid currentColor}
 .tx.transfer{opacity:0.85;border-style:dashed}
 .txT{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3px}
-.txC{font-size:12px;font-weight:600}
-.txD{font-size:10px;font-style:italic;opacity:0.8;margin-left:4px}
-.txA{font-size:14px;font-weight:600}
+.txC{font-size:14px;font-weight:600}
+.txD{font-size:11px;font-style:italic;opacity:0.8;margin-left:4px}
+.txA{font-size:16px;font-weight:600}
 .txB{display:flex;justify-content:space-between;align-items:center}
-.txP{font-size:8px;text-transform:uppercase;opacity:0.7}
-.txD2{font-size:9px;opacity:0.7}
+.txP{font-size:9px;text-transform:uppercase;opacity:0.7}
+.txD2{font-size:10px;opacity:0.7}
 .txDl{position:absolute;top:4px;right:4px;width:20px;height:20px;cursor:pointer;font-size:12px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 2px 4px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s;display:flex;align-items:center;justify-content:center}
 .txDl:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
 .emp{text-align:center;padding:30px;font-style:italic}
-.bdT,.todoHead,.abHead{width:100%;padding:12px;cursor:pointer;font-size:11px;letter-spacing:1px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;margin-bottom:8px;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
-.bdT:active,.todoHead:active,.abHead:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
-.bdT .ar,.todoHead .ar,.abHead .ar{transition:transform 0.3s}
-.bdT.o .ar,.todoHead.o .ar,.abHead.o .ar{transform:rotate(180deg)}
-.bdC,.todoBody,.abBody{max-height:0;overflow:hidden;transition:max-height 0.5s}
-.bdC.o,.todoBody.o,.abBody.o{max-height:5000px}
-.bdC.o .bdIn,.todoBody.o .todoIn{padding:12px 0}
+.bdT,.todoHead,.abHead,.goalCard{width:100%;padding:12px;cursor:pointer;font-size:11px;letter-spacing:1px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;margin-bottom:8px;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s}
+.bdT:active,.todoHead:active,.abHead:active,.goalCard:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
+.bdT .ar,.todoHead .ar,.abHead .ar,.goalCard .ar{transition:transform 0.3s}
+.bdT.o .ar,.todoHead.o .ar,.abHead.o .ar,.goalCard.o .ar{transform:rotate(180deg)}
+.bdC,.todoBody,.abBody,.goalBody{max-height:0;overflow:hidden;transition:max-height 0.5s}
+.bdC.o,.todoBody.o,.abBody.o,.goalBody.o{max-height:5000px}
+.bdC.o .bdIn,.todoBody.o .todoIn,.abBody.o .abIn,.goalBody.o .goalIn{padding:12px 0}
+.goalIn{padding:12px}
+.goalNameInput{width:100%;padding:10px;font-size:14px;background:rgba(255,255,255,0.1);border:2px solid currentColor;color:inherit;margin-bottom:10px}
+.goalRow{display:flex;gap:8px;margin-bottom:10px;align-items:center}
+.goalAmtInput{flex:1;padding:10px;font-size:14px;background:rgba(255,255,255,0.1);border:2px solid currentColor;color:inherit}
+.goalBtn{padding:10px 14px;font-size:11px;text-transform:uppercase;cursor:pointer;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);white-space:nowrap}
+.goalBtn:active{transform:translateY(2px)}
+.goalDel{padding:10px 14px;font-size:11px;text-transform:uppercase;cursor:pointer;background:linear-gradient(180deg,#ef4444 0%,#dc2626 100%)!important;border:2px solid #ef4444!important;color:#fff!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);white-space:nowrap}
+.goalDel:active{transform:translateY(2px)}
+.addGoalBtn{width:100%;padding:16px;font-size:24px;cursor:pointer;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);margin-top:12px}
+.addGoalBtn:active{transform:translateY(2px)}
+.deleteModal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
+.deleteModal.show{display:flex}
+.deleteModalBox{background:var(--bg,#1a1a1a);padding:24px;border-radius:16px;max-width:320px;width:100%;text-align:center;border:2px solid currentColor}
+.deleteModalBox p{margin-bottom:16px;font-size:14px;line-height:1.5}
+.deleteModalBtns{display:flex;gap:10px}
+.deleteModalBtns button{flex:1;padding:12px;font-size:12px;text-transform:uppercase;cursor:pointer;border:2px solid currentColor;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)}
+.deleteModalBtns button:active{transform:translateY(2px)}
+.deleteModalBtns .btnSuper{background:linear-gradient(180deg,#22c55e 0%,#16a34a 100%)!important;border-color:#22c55e!important;color:#fff!important}
+.deleteModalBtns .btnNo{background:linear-gradient(180deg,#ef4444 0%,#dc2626 100%)!important;border-color:#ef4444!important;color:#fff!important}
 .bdG{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .bdCol{padding:10px}
 .bdCT{font-size:12px;text-transform:uppercase;margin-bottom:8px;text-align:center;padding-bottom:6px;border-bottom:1px solid rgba(128,128,128,0.3)}
 .bdIt{padding:6px;margin-bottom:4px;display:flex;justify-content:space-between}
-.bdIN{font-size:9px}
-.bdIV{font-size:13px;font-weight:600}
-.bdE,.repEmpty,.todoEmpty,.recordsEmpty{text-align:center;padding:15px;font-style:italic;opacity:0.6;font-size:11px}
+.bdIN{font-size:10px}
+.bdIV{font-size:14px;font-weight:600}
+.bdE,.repEmpty,.todoEmpty,.recordsEmpty,.goalsEmpty{text-align:center;padding:15px;font-style:italic;opacity:0.6;font-size:12px}
 .donateBtn{display:block;text-align:center;text-decoration:none;margin-top:24px;padding:14px;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:all 0.1s}
 .donateBtn:active{transform:translateY(2px);box-shadow:0 1px 3px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
 .repHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.repMonth{font-size:16px;letter-spacing:2px;text-transform:uppercase;flex:1;text-align:center}
+.repMonth{font-size:18px;letter-spacing:2px;text-transform:uppercase;flex:1;text-align:center}
 .repArrow{padding:8px 14px;cursor:pointer;font-size:16px;background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;border:2px solid currentColor!important;color:inherit!important;box-shadow:0 3px 6px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.1s;display:flex;align-items:center;justify-content:center}
 .repArrow:active{transform:translateY(2px)}
 .repArrow svg{width:16px;height:16px;fill:currentColor}
 .repGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .repCard{padding:12px;text-align:center}
-.repCL{font-size:9px;letter-spacing:1px;margin-bottom:6px}
-.repCV{font-size:18px;font-weight:600}
+.repCL{font-size:10px;letter-spacing:1px;margin-bottom:6px}
+.repCV{font-size:20px;font-weight:600}
 .topCat{margin-top:12px}
-.topCatT{font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(128,128,128,0.3)}
+.topCatT{font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(128,128,128,0.3)}
 .topItem{margin-bottom:10px}
 .topItemH{display:flex;justify-content:space-between;margin-bottom:4px}
-.topItemN{font-size:10px;letter-spacing:1px}
-.topItemV{font-size:11px;font-weight:600}
+.topItemN{font-size:11px;letter-spacing:1px}
+.topItemV{font-size:12px;font-weight:600}
 .topBar{height:6px;background:rgba(128,128,128,0.2);overflow:hidden}
 .topBarF{height:100%;transition:width 0.5s}
 .abT{text-align:center;margin-bottom:20px}
-.abTx{line-height:1.6;margin-bottom:12px;font-size:13px}
+.abTx{line-height:1.6;margin-bottom:12px;font-size:14px}
 .maxBtn{display:inline-block;width:100%;padding:14px;text-align:center;text-decoration:none;font-size:13px;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all 0.1s;margin-top:10px}
 .maxBtn:active{transform:translateY(2px)}
+.backupBtn{display:inline-block;width:100%;padding:14px;text-align:center;font-size:13px;letter-spacing:2px;text-transform:uppercase;border-radius:4px;transition:all 0.1s;margin-top:10px;cursor:pointer}
+.backupBtn:active{transform:translateY(2px)}
+.backupBtn.save{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid currentColor!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
+.backupBtn.restore{background:linear-gradient(180deg,#d4a574 0%,#8b6914 100%)!important;color:#fff!important;border:2px solid rgba(255,255,255,0.3)!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.2)!important}
 .todoItem{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:8px;border:1px solid currentColor}
 .customCheck{width:20px;height:20px;min-width:20px;border:2px solid currentColor;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
 .customCheck svg{width:14px;height:14px;fill:currentColor;opacity:0;transition:opacity 0.2s}
@@ -133,7 +156,7 @@ body.chl .tabBar,body.arm .tabBar{display:flex}
 .tabItem{display:flex;flex-direction:column;align-items:center;cursor:pointer;flex:1}
 .tabIcon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:4px;transition:all 0.2s;border:2px solid rgba(255,255,255,0.6);background:transparent}
 .tabIcon svg{fill:currentColor;transition:fill 0.2s}
-.tabLabel{font-size:9px;letter-spacing:0.5px;color:rgba(255,255,255,0.7);transition:color 0.2s}
+.tabLabel{font-size:10px;letter-spacing:0.5px;color:rgba(255,255,255,0.7);transition:color 0.2s}
 body.chl .tabItem.active .tabIcon{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;border-color:#fff!important}
 body.chl .tabItem.active .tabIcon svg{fill:#000!important}
 body.chl .tabItem.active .tabLabel{color:#fff!important;font-weight:600}
@@ -145,298 +168,107 @@ body.chl{background:#f5f0e8!important;color:#000!important;background-image:repe
 body.chl header{background:transparent!important;color:#000!important}
 body.chl .logo,body.chl .balL,body.chl .balV{color:#000!important}
 body.chl .bO,body.chl .bR{color:#fff!important}
-body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx,body.chl .ab,body.chl .recordsCol{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1)!important}
+body.chl .bud,body.chl .frm,body.chl .st,body.chl .tx,body.chl .ab,body.chl .recordsCol,body.chl .goalCard{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.1)!important}
 body.chl .sT,body.chl .cL,body.chl .sL,body.chl .txC,body.chl label,body.chl .repCL,body.chl .repMonth,body.chl .topCatT,body.chl .topItemN,body.chl .abTx,body.chl .recordsColTitle{color:#000!important}
 body.chl .cV,body.chl .sV,body.chl .txA,body.chl .repCV,body.chl .topItemV{color:#000!important}
 body.chl .bS,body.chl .bA{color:#fff!important}
-body.chl .tB,body.chl .fB,body.chl .repArrow,body.chl .todoAdd button{color:#fff!important}
+body.chl .tB,body.chl .fB,body.chl .repArrow,body.chl .todoAdd button,body.chl .goalBtn,body.chl .goalDel,body.chl .addGoalBtn{color:#fff!important}
 body.chl .tB.s,body.chl .fB.s{background:linear-gradient(180deg,#fff 0%,#f5f0e8 50%,#e8dcc8 100%)!important;color:#000!important;border:2px solid #fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.8),0 2px 4px rgba(0,0,0,0.2)!important}
-body.chl .cd,body.chl input,body.chl select,body.chl .repCard{border:1px solid #000!important;color:#000!important;background:#e8dcc8!important}
+body.chl .cd,body.chl input,body.chl select,body.chl .repCard,body.chl .goalNameInput,body.chl .goalAmtInput{border:1px solid #000!important;color:#000!important;background:#e8dcc8!important}
 body.chl .txDl,body.chl .bdT,body.chl .todoHead,body.chl .abHead{color:#fff!important}
-body.chl .bdIn,body.chl .todoIn{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15)!important}
+body.chl .bdIn,body.chl .todoIn,body.chl .abIn,body.chl .goalIn{background:#e8dcc8!important;color:#000!important;border:1px solid #000!important;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px),repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.6) 20px,rgba(255,255,255,0.85) 21px,rgba(160,160,160,0.25) 21px,rgba(160,160,160,0.25) 23px)!important;box-shadow:inset 0 2px 10px rgba(0,0,0,0.15)!important}
 body.chl .bdCol{background:#e8dcc8!important;border:1px solid #000!important}
 body.chl .bdIt{background:#e8dcc8!important;border:1px solid #000!important}
-body.chl .bdE,body.chl .repEmpty,body.chl .todoEmpty,body.chl .recordsEmpty{color:#666!important}
-body.chl .donateBtn{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid #fff!important}
-body.chl .maxBtn{background:#000!important;color:#fff!important;border:2px solid #fff!important}
+body.chl .bdE,body.chl .repEmpty,body.chl .todoEmpty,body.chl .recordsEmpty,body.chl .goalsEmpty{color:#666!important}
+body.chl .donateBtn,body.chl .backupBtn.save{background:linear-gradient(180deg,#2a2a2a 0%,#000 100%)!important;color:#fff!important;border:2px solid #fff!important}
+body.chl .backupBtn.restore,body.chl .maxBtn{background:#000!important;color:#fff!important;border:2px solid #fff!important}
 body.chl .topBarF{background:#000!important}
 body.chl .tabBar{background:#0a0a0a!important;border-top:1px solid rgba(255,255,255,0.2)!important}
 body.chl .tabIcon{border-color:rgba(255,255,255,0.6)!important;color:#fff!important}
 body.chl .tabLabel{color:rgba(255,255,255,0.7)!important}
-body.chl .todoAdd input{border-color:#000!important;background:rgba(255,255,255,0.5)!important}
+body.chl .todoAdd input,body.chl .goalNameInput,body.chl .goalAmtInput{border-color:#000!important;background:rgba(255,255,255,0.5)!important}
 body.chl .customCheck{border-color:#000!important}
 body.chl .customCheck svg{fill:#000!important}
+body.chl .deleteModalBox{background:#e8dcc8!important;color:#000!important;border-color:#000!important}
 
 body.arm{background:linear-gradient(135deg,#4a4036,#3a322a)!important;color:#fff!important}
 body.arm header{background:transparent!important;color:#fff!important}
 body.arm .logo,body.arm .balL,body.arm .balV{color:#fff!important}
 body.arm .bO,body.arm .bR{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;border:1px solid #6b4f10!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
-body.arm .bud,body.arm .frm,body.arm .st,body.arm .tx,body.arm .ab,body.arm .recordsCol{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
+body.arm .bud,body.arm .frm,body.arm .st,body.arm .tx,body.arm .ab,body.arm .recordsCol,body.arm .goalCard{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
 body.arm .sT,body.arm .cL,body.arm .sL,body.arm .txC,body.arm label,body.arm .repCL,body.arm .repMonth,body.arm .topCatT,body.arm .topItemN,body.arm .abTx,body.arm .recordsColTitle{color:#3a2e24!important}
 body.arm .cV,body.arm .sV,body.arm .txA,body.arm .repCV,body.arm .topItemV{color:#3a2e24!important}
 body.arm .bS,body.arm .bA{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 20%,#b8864e 50%,#8b6914 80%,#6b4f10 100%)!important;color:#fff!important;border:1px solid #6b4f10!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
 body.arm .bS:active,body.arm .bA:active{box-shadow:0 2px 4px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.3) inset,0 -1px 2px rgba(0,0,0,0.3) inset!important;transform:translateY(2px)}
-body.arm .tB,body.arm .fB{background:linear-gradient(180deg,#e8d5b7 0%,#c9a87c 50%,#a8845c 100%)!important;color:#3a2e24!important;border:1px solid #8b6914!important;box-shadow:0 3px 6px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.4) inset!important;text-shadow:0 1px 0 rgba(255,255,255,0.3)!important}
+body.arm .tB,body.arm .fB,body.arm .goalBtn,body.arm .goalDel,body.arm .addGoalBtn{background:linear-gradient(180deg,#e8d5b7 0%,#c9a87c 50%,#a8845c 100%)!important;color:#3a2e24!important;border:1px solid #8b6914!important;box-shadow:0 3px 6px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.4) inset!important;text-shadow:0 1px 0 rgba(255,255,255,0.3)!important}
 body.arm .tB.s,body.arm .fB.s{background:linear-gradient(180deg,#fff 0%,#f4e4c1 30%,#d4a574 70%,#b8864e 100%)!important;color:#3a2e24!important;border:1px solid #b8864e!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 2px 4px rgba(255,255,255,0.5) inset,0 -2px 4px rgba(0,0,0,0.2) inset!important}
-body.arm .cd,body.arm input,body.arm select,body.arm .repCard{border-color:#d4c5a9!important;color:#3a2e24!important;background:rgba(255,255,255,0.7)!important}
+body.arm .cd,body.arm input,body.arm select,body.arm .repCard,body.arm .goalNameInput,body.arm .goalAmtInput{border-color:#d4c5a9!important;color:#3a2e24!important;background:rgba(255,255,255,0.7)!important}
 body.arm .txDl{border:1px solid #d4c5a9!important;color:#8b7355!important;background:transparent!important}
-body.arm .bdT,body.arm .todoHead,body.arm .abHead{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
-body.arm .bdIn,body.arm .todoIn{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
+body.arm .bdT,body.arm .todoHead,body.arm .abHead,body.arm .goalCard{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
+body.arm .bdIn,body.arm .todoIn,body.arm .abIn,body.arm .goalIn{background:linear-gradient(135deg,#f5f0e8,#ebe5d9)!important;color:#3a2e24!important;border:1px solid #d4c5a9!important}
 body.arm .bdCol{background:rgba(255,255,255,0.5)!important;border:1px solid #d4c5a9!important}
 body.arm .bdIt{background:rgba(255,255,255,0.7)!important;border:1px solid #d4c5a9!important}
-body.arm .bdE,body.arm .repEmpty,body.arm .todoEmpty,body.arm .recordsEmpty{color:#8b7355!important}
-body.arm .donateBtn{background:linear-gradient(180deg,#e8d5b7 0%,#c9a87c 50%,#a8845c 100%)!important;color:#3a2e24!important;border:1px solid #8b6914!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.3) inset!important;text-shadow:0 1px 0 rgba(255,255,255,0.3)!important}
-body.arm .maxBtn{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;color:#fff!important;border:1px solid #6b4f10!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
+body.arm .bdE,body.arm .repEmpty,body.arm .todoEmpty,body.arm .recordsEmpty,body.arm .goalsEmpty{color:#8b7355!important}
+body.arm .donateBtn,body.arm .backupBtn.save{background:linear-gradient(180deg,#e8d5b7 0%,#c9a87c 50%,#a8845c 100%)!important;color:#3a2e24!important;border:1px solid #8b6914!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.3) inset!important;text-shadow:0 1px 0 rgba(255,255,255,0.3)!important}
+body.arm .backupBtn.restore,body.arm .maxBtn{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;color:#fff!important;border:1px solid #6b4f10!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
 body.arm .repArrow{background:linear-gradient(180deg,#f4e4c1 0%,#d4a574 30%,#b8864e 60%,#8b6914 100%)!important;border:1px solid #6b4f10!important;color:#fff!important;box-shadow:0 4px 8px rgba(0,0,0,0.4),0 1px 2px rgba(255,255,255,0.4) inset,0 -2px 4px rgba(0,0,0,0.3) inset!important;text-shadow:0 1px 2px rgba(0,0,0,0.5)!important}
 body.arm .topBarF{background:linear-gradient(90deg,#f4e4c1,#d4a574,#b8864e,#8b6914)!important;box-shadow:0 1px 2px rgba(255,255,255,0.3) inset}
 body.arm .tabBar{background:#3a322a!important;border-top:1px solid rgba(212,165,116,0.3)!important}
 body.arm .tabIcon{border-color:rgba(212,165,116,0.6)!important;color:#d4a574!important}
 body.arm .tabLabel{color:rgba(212,165,116,0.7)!important}
-body.arm .todoAdd input{border-color:#8b6914!important;background:rgba(255,255,255,0.5)!important}
+body.arm .todoAdd input,body.arm .goalNameInput,body.arm .goalAmtInput{border-color:#8b6914!important;background:rgba(255,255,255,0.5)!important}
 body.arm .customCheck{border-color:#8b6914!important}
 body.arm .customCheck svg{fill:#8b6914!important}
+body.arm .deleteModalBox{background:#3a322a!important;color:#fff!important;border-color:#d4a574!important}
 .pearl{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#d4c5a9);box-shadow:0 0 8px rgba(255,255,255,0.6);animation:pf 2.5s forwards}
 @keyframes pf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.3)}}
 .bronze{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,#ffd700,#b8864e,transparent);box-shadow:0 0 8px #d4a574;animation:bf 2s forwards}
 @keyframes bf{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--tx),var(--ty)) scale(0.2)}}
 .totalBox{padding:12px;margin-bottom:12px;display:flex;justify-content:space-around;text-align:center;border:1px solid currentColor}
 .totalBox div{flex:1}
-.totalBox .tL{font-size:9px;letter-spacing:1px;margin-bottom:4px}
-.totalBox .tV{font-size:18px;font-weight:600}
+.totalBox .tL{font-size:10px;letter-spacing:1px;margin-bottom:4px}
+.totalBox .tV{font-size:20px;font-weight:600}
 .totalBox .divider{border-left:1px solid currentColor;flex:0}
-.recordsTotal{padding:8px 10px;margin-top:8px;border-top:2px solid currentColor;text-align:right;font-size:13px;font-weight:600;letter-spacing:1px}
+.recordsTotal{padding:8px 10px;margin-top:8px;border-top:2px solid currentColor;text-align:right;font-size:14px;font-weight:600;letter-spacing:1px}
 </style>
 </head>
 <body>
 <div id="R">
-<div class="L"></div>
-<div class="R"></div>
-<svg class="C" viewBox="0 0 100 100">
-<defs>
-<radialGradient id="p1" cx="35%" cy="30%"><stop offset="0%" stop-color="#ffffff"/><stop offset="40%" stop-color="#f8f4ec"/><stop offset="100%" stop-color="#c9b896"/></radialGradient>
-<radialGradient id="p2" cx="40%" cy="35%"><stop offset="0%" stop-color="#fffef8"/><stop offset="50%" stop-color="#ede4d3"/><stop offset="100%" stop-color="#b8a88a"/></radialGradient>
-<radialGradient id="pc" cx="50%" cy="50%"><stop offset="0%" stop-color="#fff8dc"/><stop offset="100%" stop-color="#d4c5a9"/></radialGradient>
-<filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-opacity="0.4"/></filter>
-</defs>
-<ellipse cx="50" cy="28" rx="16" ry="20" fill="url(#p1)" filter="url(#sh)"/>
-<ellipse cx="50" cy="72" rx="16" ry="20" fill="url(#p1)" filter="url(#sh)"/>
-<ellipse cx="28" cy="50" rx="20" ry="16" fill="url(#p1)" filter="url(#sh)"/>
-<ellipse cx="72" cy="50" rx="20" ry="16" fill="url(#p1)" filter="url(#sh)"/>
-<ellipse cx="35" cy="35" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(-45 35 35)"/>
-<ellipse cx="65" cy="35" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(45 65 35)"/>
-<ellipse cx="35" cy="65" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(45 35 65)"/>
-<ellipse cx="65" cy="65" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(-45 65 65)"/>
-<circle cx="50" cy="50" r="9" fill="url(#pc)"/>
-<circle cx="50" cy="50" r="4" fill="#c9b896"/>
-</svg>
-<div class="X">
-<div class="T">BUDGET</div>
-<input type="text" class="I" id="nI" placeholder="Ваше имя" maxlength="20">
-<div class="G">
-<button class="B Bf" id="bF">Женский</button>
-<button class="B Bm" id="bM">Мужской</button>
-</div>
-<button class="Go" id="gB" disabled>Продолжить</button>
-</div>
+<div class="L"></div><div class="R"></div>
+<svg class="C" viewBox="0 0 100 100"><defs><radialGradient id="p1" cx="35%" cy="30%"><stop offset="0%" stop-color="#ffffff"/><stop offset="40%" stop-color="#f8f4ec"/><stop offset="100%" stop-color="#c9b896"/></radialGradient><radialGradient id="p2" cx="40%" cy="35%"><stop offset="0%" stop-color="#fffef8"/><stop offset="50%" stop-color="#ede4d3"/><stop offset="100%" stop-color="#b8a88a"/></radialGradient><radialGradient id="pc" cx="50%" cy="50%"><stop offset="0%" stop-color="#fff8dc"/><stop offset="100%" stop-color="#d4c5a9"/></radialGradient><filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-opacity="0.4"/></filter></defs><ellipse cx="50" cy="28" rx="16" ry="20" fill="url(#p1)" filter="url(#sh)"/><ellipse cx="50" cy="72" rx="16" ry="20" fill="url(#p1)" filter="url(#sh)"/><ellipse cx="28" cy="50" rx="20" ry="16" fill="url(#p1)" filter="url(#sh)"/><ellipse cx="72" cy="50" rx="20" ry="16" fill="url(#p1)" filter="url(#sh)"/><ellipse cx="35" cy="35" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(-45 35 35)"/><ellipse cx="65" cy="35" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(45 65 35)"/><ellipse cx="35" cy="65" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(45 35 65)"/><ellipse cx="65" cy="65" rx="14" ry="18" fill="url(#p2)" filter="url(#sh)" transform="rotate(-45 65 65)"/><circle cx="50" cy="50" r="9" fill="url(#pc)"/><circle cx="50" cy="50" r="4" fill="#c9b896"/></svg>
+<div class="X"><div class="T">BUDGET</div><input type="text" class="I" id="nI" placeholder="Ваше имя" maxlength="20"><div class="G"><button class="B Bf" id="bF">Женский</button><button class="B Bm" id="bM">Мужской</button></div><button class="Go" id="gB" disabled>Продолжить</button></div>
 </div>
 
 <div id="A" style="display:none">
-<header>
-<button class="bO" id="oB">Выйти</button>
-<div class="logo">Budget</div>
-<div style="display:flex;align-items:center;gap:8px">
-<div class="bal"><div class="balL">Ваш баланс</div><div class="balV" id="bV">0 ₽</div></div>
-<button class="bR" id="rB">Сброс</button>
-</div>
-</header>
-<div class="bud">
-<div class="bH"><div class="sT">Мой бюджет</div></div>
-<div class="g3">
-<div class="cd"><div class="cL">Наличные</div><div class="cV" id="cV">0 ₽</div></div>
-<div class="cd"><div class="cL">Безналичные</div><div class="cV" id="dV">0 ₽</div></div>
-<div class="cd"><div class="cL">Резерв</div><div class="cV" id="rV">0 ₽</div></div>
-</div>
-<div id="bB">
-<div class="bI">
-<div><label>Начальный баланс наличных</label><input type="number" id="iC" placeholder="0"></div>
-<div><label>Начальный баланс карты</label><input type="number" id="iD" placeholder="0"></div>
-<div><label>Начальный резерв</label><input type="number" id="iR" placeholder="0"></div>
-</div>
-<button class="bS" id="sB">Сохранить</button>
-</div>
-<div class="bdT" id="resT"><span>Управление резервом</span><span class="ar">▼</span></div>
-<div class="bdC" id="resC">
-<div class="bdIn" style="padding:12px">
-<div style="text-align:center;margin-bottom:12px">
-<div style="font-size:9px;letter-spacing:1px">Текущий резерв</div>
-<div style="font-size:20px;font-weight:600" id="resCur">0 ₽</div>
-</div>
-<div class="tg" style="margin-bottom:10px">
-<button class="tB s" id="resAddBtn" onclick="setResMode('add')">Пополнить</button>
-<button class="tB" id="resSubBtn" onclick="setResMode('sub')">Снять</button>
-</div>
-<div id="resForm" style="display:none">
-<div style="margin-bottom:8px">
-<label>Сумма</label>
-<input type="number" id="resAmt" placeholder="0" min="0">
-</div>
-<div style="margin-bottom:10px">
-<label id="resSrcLabel">Источник</label>
-<select id="resSrc">
-<option value="cash">Наличные</option>
-<option value="card">Безналичные</option>
-</select>
-</div>
-<button class="bS" onclick="applyRes()">Применить</button>
-</div>
-</div>
-</div>
-<div class="totalBox">
-<div><div class="tL">Всего</div><div class="tV" id="totAll">0 ₽</div></div>
-<div class="divider"></div>
-<div><div class="tL">Всего с резервом</div><div class="tV" id="totRes">0 ₽</div></div>
-</div>
-</div>
-<div class="sts">
-<div class="st"><div class="sL">Доходы</div><div class="sV" id="iV">0 ₽</div></div>
-<div class="st"><div class="sL">Расходы</div><div class="sV" id="eV">0 ₽</div></div>
-</div>
-<div class="frm">
-<div class="sT">Добавить запись</div>
-<div class="tg">
-<button class="tB s" id="tE">Расход</button>
-<button class="tB" id="tI">Доход</button>
-<button class="tB" id="tTr">Перевод</button>
-</div>
+<header><button class="bO" id="oB">Выйти</button><div class="logo">Budget</div><div style="display:flex;align-items:center;gap:8px"><div class="bal"><div class="balL">Ваш баланс</div><div class="balV" id="bV">0 ₽</div></div><button class="bR" id="rB">Сброс</button></div></header>
+<div class="bud"><div class="bH"><div class="sT">Мой бюджет</div></div><div class="g3"><div class="cd"><div class="cL">Наличные</div><div class="cV" id="cV">0 ₽</div></div><div class="cd"><div class="cL">Безналичные</div><div class="cV" id="dV">0 ₽</div></div><div class="cd"><div class="cL">Резерв</div><div class="cV" id="rV">0 ₽</div></div></div><div id="bB"><div class="bI"><div><label>Начальный баланс наличных</label><input type="number" id="iC" placeholder="0"></div><div><label>Начальный баланс карты</label><input type="number" id="iD" placeholder="0"></div><div><label>Начальный резерв</label><input type="number" id="iR" placeholder="0"></div></div><button class="bS" id="sB">Сохранить</button></div><div class="bdT" id="resT"><span>Управление резервом</span><span class="ar">▼</span></div><div class="bdC" id="resC"><div class="bdIn" style="padding:12px"><div style="text-align:center;margin-bottom:12px"><div style="font-size:10px;letter-spacing:1px">Текущий резерв</div><div style="font-size:22px;font-weight:600" id="resCur">0 ₽</div></div><div class="tg" style="margin-bottom:10px"><button class="tB s" id="resAddBtn" onclick="setResMode('add')">Пополнить</button><button class="tB" id="resSubBtn" onclick="setResMode('sub')">Снять</button></div><div id="resForm" style="display:none"><div style="margin-bottom:8px"><label>Сумма</label><input type="number" id="resAmt" placeholder="0" min="0"></div><div style="margin-bottom:10px"><label id="resSrcLabel">Источник</label><select id="resSrc"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div><button class="bS" onclick="applyRes()">Применить</button></div></div></div><div class="totalBox"><div><div class="tL">Всего</div><div class="tV" id="totAll">0 ₽</div></div><div class="divider"></div><div><div class="tL">Всего с резервом</div><div class="tV" id="totRes">0 ₽</div></div></div></div>
+<div class="sts"><div class="st"><div class="sL">Доходы</div><div class="sV" id="iV">0 ₽</div></div><div class="st"><div class="sL">Расходы</div><div class="sV" id="eV">0 ₽</div></div></div>
+<div class="frm"><div class="sT">Добавить запись</div><div class="tg"><button class="tB s" id="tE">Расход</button><button class="tB" id="tI">Доход</button><button class="tB" id="tTr">Перевод</button></div><form id="tF"><div class="fG"><div><label>Категория</label><select id="cS" required></select></div><div><label>Сумма (₽)</label><input type="number" id="aI" placeholder="0" min="0" required></div><div><label>Способ оплаты</label><select id="pS"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div><div><label>Дата</label><input type="date" id="dI" required></div><div class="fl"><label>Описание</label><input type="text" id="dS" placeholder="Необязательно"></div></div><button type="submit" class="bA" id="addBtn">Добавить</button></form><form id="trF" style="display:none"><div class="fG"><div><label>Откуда</label><select id="trFrom"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div><div><label>Куда</label><select id="trTo"><option value="card">Безналичные</option><option value="cash">Наличные</option></select></div><div class="fl"><label>Сумма (₽)</label><input type="number" id="trAmt" placeholder="0" min="0" required></div><div class="fl"><label>Описание (необязательно)</label><input type="text" id="trDsc" placeholder="Например: положила на карту"></div></div><button type="submit" class="bA">Перевести</button></form></div>
+<div class="sT">Мои записи</div><div class="bdT" id="bT"><span>Разбивка по категориям</span><span class="ar">▼</span></div><div class="bdC" id="bC"><div class="bdIn"><div class="bdG"><div class="bdCol"><div class="bdCT">Расходы</div><div id="eC"></div></div><div class="bdCol"><div class="bdCT">Доходы</div><div id="iC2"></div></div></div></div></div><div class="fl2"><button class="fB s" id="fA">Все</button><button class="fB" id="fI">Доходы</button><button class="fB" id="fE">Расходы</button><button class="fB" id="fTr">Переводы</button></div><div class="recordsGrid" id="recordsGrid"><div class="recordsCol" id="expCol"><div class="recordsColTitle">Расходы</div><div id="expList"></div><div class="recordsTotal" id="expTotal" style="display:none"></div></div><div class="recordsCol" id="incCol"><div class="recordsColTitle">Доходы</div><div id="incList"></div><div class="recordsTotal" id="incTotal" style="display:none"></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
-<form id="tF">
-<div class="fG">
-<div><label>Категория</label><select id="cS" required></select></div>
-<div><label>Сумма (₽)</label><input type="number" id="aI" placeholder="0" min="0" required></div>
-<div><label>Способ оплаты</label><select id="pS"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div>
-<div><label>Дата</label><input type="date" id="dI" required></div>
-<div class="fl"><label>Описание</label><input type="text" id="dS" placeholder="Необязательно"></div>
-</div>
-<button type="submit" class="bA" id="addBtn">Добавить</button>
-</form>
+<div id="repScr" style="display:none"><header><div style="width:80px"></div><div class="logo">ОТЧЕТ</div><div style="width:80px"></div></header><div class="bud"><div class="repHead"><button class="repArrow" id="prevM"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button><div class="repMonth" id="repMonth"></div><button class="repArrow" id="nextM"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button></div><div class="repGrid"><div class="repCard"><div class="repCL">Доходы</div><div class="repCV" id="rInc">0 ₽</div></div><div class="repCard"><div class="repCL">Расходы</div><div class="repCV" id="rExp">0 ₽</div></div><div class="repCard"><div class="repCL">Баланс</div><div class="repCV" id="rBal">0 ₽</div></div><div class="repCard"><div class="repCL">В день</div><div class="repCV" id="rDay">0 ₽</div></div></div><div class="topCat"><div class="topCatT">Топ расходов по категориям</div><div id="topCats"></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
-<form id="trF" style="display:none">
-<div class="fG">
-<div><label>Откуда</label><select id="trFrom"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div>
-<div><label>Куда</label><select id="trTo"><option value="card">Безналичные</option><option value="cash">Наличные</option></select></div>
-<div class="fl"><label>Сумма (₽)</label><input type="number" id="trAmt" placeholder="0" min="0" required></div>
-<div class="fl"><label>Описание (необязательно)</label><input type="text" id="trDsc" placeholder="Например: положила на карту"></div>
-</div>
-<button type="submit" class="bA">Перевести</button>
-</form>
-</div>
+<div id="listScr" style="display:none"><header><div style="width:80px"></div><div class="logo">СПИСОК</div><div style="width:80px"></div></header><div class="bud"><div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div><div class="todoAdd"><input type="text" id="todoInputDay" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('day')}"><button onclick="addTodo('day')">+</button></div></div><div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div><div class="todoAdd"><input type="text" id="todoInputMonth" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('month')}"><button onclick="addTodo('month')">+</button></div></div><div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div><div class="todoAdd"><input type="text" id="todoInputYear" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('year')}"><button onclick="addTodo('year')">+</button></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
-<div class="sT">Мои записи</div>
-<div class="bdT" id="bT"><span>Разбивка по категориям</span><span class="ar">▼</span></div>
-<div class="bdC" id="bC"><div class="bdIn"><div class="bdG"><div class="bdCol"><div class="bdCT">Расходы</div><div id="eC"></div></div><div class="bdCol"><div class="bdCT">Доходы</div><div id="iC2"></div></div></div></div></div>
-<div class="fl2">
-<button class="fB s" id="fA">Все</button>
-<button class="fB" id="fI">Доходы</button>
-<button class="fB" id="fE">Расходы</button>
-<button class="fB" id="fTr">Переводы</button>
-</div>
-<div class="recordsGrid" id="recordsGrid">
-<div class="recordsCol" id="expCol">
-<div class="recordsColTitle">Расходы</div>
-<div id="expList"></div>
-<div class="recordsTotal" id="expTotal" style="display:none"></div>
-</div>
-<div class="recordsCol" id="incCol">
-<div class="recordsColTitle">Доходы</div>
-<div id="incList"></div>
-<div class="recordsTotal" id="incTotal" style="display:none"></div>
-</div>
-</div>
-<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
-</div>
+<div id="goalsScr" style="display:none"><header><div style="width:80px"></div><div class="logo">ЦЕЛИ</div><div style="width:80px"></div></header><div class="bud" id="goalsContainer"><div class="goalsEmpty" id="goalsEmpty">Нет целей. Нажмите + чтобы добавить!</div><div id="goalsList"></div><button class="addGoalBtn" onclick="addGoal()">+</button></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
-<div id="repScr" style="display:none">
-<header><div style="width:80px"></div><div class="logo">ОТЧЕТ</div><div style="width:80px"></div></header>
-<div class="bud">
-<div class="repHead">
-<button class="repArrow" id="prevM"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button>
-<div class="repMonth" id="repMonth"></div>
-<button class="repArrow" id="nextM"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button>
-</div>
-<div class="repGrid">
-<div class="repCard"><div class="repCL">Доходы</div><div class="repCV" id="rInc">0 ₽</div></div>
-<div class="repCard"><div class="repCL">Расходы</div><div class="repCV" id="rExp">0 ₽</div></div>
-<div class="repCard"><div class="repCL">Баланс</div><div class="repCV" id="rBal">0 ₽</div></div>
-<div class="repCard"><div class="repCL">В день</div><div class="repCV" id="rDay">0 ₽</div></div>
-</div>
-<div class="topCat"><div class="topCatT">Топ расходов по категориям</div><div id="topCats"></div></div>
-</div>
-<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
-</div>
-
-<div id="listScr" style="display:none">
-<header><div style="width:80px"></div><div class="logo">СПИСОК</div><div style="width:80px"></div></header>
-<div class="bud">
-<div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div>
-<div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div>
-<div class="todoAdd">
-<input type="text" id="todoInputDay" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('day')}">
-<button onclick="addTodo('day')">+</button>
-</div></div>
-
-<div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div>
-<div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div>
-<div class="todoAdd">
-<input type="text" id="todoInputMonth" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('month')}">
-<button onclick="addTodo('month')">+</button>
-</div></div>
-
-<div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div>
-<div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div>
-<div class="todoAdd">
-<input type="text" id="todoInputYear" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('year')}">
-<button onclick="addTodo('year')">+</button>
-</div></div>
-</div>
-<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания </a>
-</div>
-
-<div id="aboutScr" style="display:none">
-<header><div style="width:80px"></div><div class="logo">О НАС</div><div style="width:80px"></div></header>
-<div class="ab">
-<div class="abHead" onclick="toggleAb('rules')"><span>Правила использования</span><span class="ar">▼</span></div>
-<div class="abBody" id="abBodyRules"><div class="abIn" style="padding:15px">
-<p class="abTx">1. Приложение предназначено для личного учёта финансов и составления списков покупок.</p>
-<p class="abTx">2. <strong>Конфиденциальность:</strong> все ваши данные (баланс, транзакции, списки) хранятся исключительно в памяти вашего устройства (локально). Мы не собираем, не видим и не передаем вашу информацию третьим лицам.</p>
-<p class="abTx">3. <strong>Безопасность:</strong> при очистке данных браузера или нажатии кнопки "Сброс" вся история будет безвозвратно удалена. Регулярно проверяйте актуальность данных.</p>
-<p class="abTx">4. Разработчик не несет финансовой ответственности за решения, принятые на основе данных приложения.</p>
-</div></div>
-
-<div class="abHead" onclick="toggleAb('contact')"><span>Связаться с разработчиком</span><span class="ar">▼</span></div>
-<div class="abBody" id="abBodyContact"><div class="abIn" style="padding:15px;text-align:center">
-<p class="abTx">Есть идеи, предложения или вы нашли ошибку?<br>Напишите мне напрямую, я всегда рада обратной связи!</p>
-<a href="https://max.ru/u/f9LHodD0cOJVkjxehingWZYuo9MRvWNmgBpfDLFbdtqqq6BJn_60eiONJIM" target="_blank" class="maxBtn">Написать в Макс</a>
-</div></div>
-</div>
-<a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a>
-</div>
+<div id="aboutScr" style="display:none"><header><div style="width:80px"></div><div class="logo">О НАС</div><div style="width:80px"></div></header><div class="ab"><div class="abHead" onclick="toggleAb('rules')"><span>Правила использования</span><span class="ar">▼</span></div><div class="abBody" id="abBodyRules"><div class="abIn" style="padding:15px"><p class="abTx">1. Приложение предназначено для личного учёта финансов и составления списков покупок.</p><p class="abTx">2. <strong>Конфиденциальность:</strong> все ваши данные хранятся исключительно в памяти вашего устройства и в вашем личном облаке. Мы не собираем, не видим и не передаем вашу информацию третьим лицам.</p><p class="abTx">3. <strong>Безопасность:</strong> при очистке данных браузера или нажатии кнопки "Сброс" вся история будет безвозвратно удалена. Используйте функцию резервного копирования для подстраховки.</p><p class="abTx">4. Разработчик не несет финансовой ответственности за решения, принятые на основе данных приложения.</p></div></div><div class="abHead" onclick="toggleAb('backup')"><span>Резервное копирование</span><span class="ar">▼</span></div><div class="abBody" id="abBodyBackup"><div class="abIn" style="padding:15px;text-align:center"><p class="abTx">Ваши данные автоматически копируются в облако после каждого изменения.<br>Если данные потерялись — нажмите «Восстановить» ниже.</p><button class="backupBtn save" onclick="createBackup()">💾 Создать резервную копию</button><button class="backupBtn restore" onclick="restoreBackup()">📂 Восстановить из копии</button></div></div><div class="abHead" onclick="toggleAb('contact')"><span>Связаться с разработчиком</span><span class="ar">▼</span></div><div class="abBody" id="abBodyContact"><div class="abIn" style="padding:15px;text-align:center"><p class="abTx">Есть идеи, предложения или вы нашли ошибку?<br>Напишите мне напрямую, я всегда рада обратной связи!</p><a href="https://max.ru/u/f9LHodD0cOJVkjxehingWZYuo9MRvWNmgBpfDLFbdtqqq6BJn_60eiONJIM" target="_blank" class="maxBtn">Написать в Макс</a></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
 <div class="tabBar">
-<div class="tabItem" data-page="repScr">
-<div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg></div>
-<div class="tabLabel">Отчет</div>
+<div class="tabItem" data-page="repScr"><div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg></div><div class="tabLabel">Отчет</div></div>
+<div class="tabItem active" data-page="A"><div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="tabLabel">Главная</div></div>
+<div class="tabItem" data-page="listScr"><div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></div><div class="tabLabel">Список</div></div>
+<div class="tabItem" data-page="goalsScr"><div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div class="tabLabel">Цели</div></div>
+<div class="tabItem" data-page="aboutScr"><div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div><div class="tabLabel">О нас</div></div>
 </div>
-<div class="tabItem active" data-page="A">
-<div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-<div class="tabLabel">Главная</div>
+
+<div class="deleteModal" id="deleteModal">
+<div class="deleteModalBox">
+<p id="deleteModalText">Удалить цель?</p>
+<div class="deleteModalBtns">
+<button class="btnSuper" onclick="confirmDeleteGoal(true)">🎉 Я супер!</button>
+<button class="btnNo" onclick="confirmDeleteGoal(false)">❌ Не актуально</button>
 </div>
-<div class="tabItem" data-page="listScr">
-<div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></div>
-<div class="tabLabel">Список</div>
-</div>
-<div class="tabItem" data-page="aboutScr">
-<div class="tabIcon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
-<div class="tabLabel">О нас</div>
 </div>
 </div>
 
@@ -444,682 +276,183 @@ body.arm .customCheck svg{fill:#8b6914!important}
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, where, setDoc, getDoc, enableIndexedDbPersistence } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBzzbsIq-ercysxRQl1wEFHWVKPOgAkd38",
-  authDomain: "budget-app-82758.firebaseapp.com",
-  projectId: "budget-app-82758",
-  storageBucket: "budget-app-82758.firebasestorage.app",
-  messagingSenderId: "414241966369",
-  appId: "1:414241966369:web:301d44330ed8c233531660"
-};
-
+const firebaseConfig = {apiKey:"AIzaSyBzzbsIq-ercysxRQl1wEFHWVKPOgAkd38",authDomain:"budget-app-82758.firebaseapp.com",projectId:"budget-app-82758",storageBucket:"budget-app-82758.firebasestorage.app",messagingSenderId:"414241966369",appId:"1:414241966369:web:301d44330ed8c233531660"};
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-enableIndexedDbPersistence(db).catch(err => {
-  if (err.code === 'failed-precondition') {
-    console.log('Persistence failed: multiple tabs open');
-  } else if (err.code === 'unimplemented') {
-    console.log('Persistence not supported by browser');
-  }
-});
+enableIndexedDbPersistence(db).catch(()=>{});
 
 let userId = localStorage.getItem('budget_user_id');
-if(!userId){
-  userId = 'user_'+Math.random().toString(36).substr(2,9)+'_'+Date.now().toString(36);
-  localStorage.setItem('budget_user_id', userId);
-}
+if(!userId){userId='user_'+Math.random().toString(36).substr(2,9)+'_'+Date.now().toString(36);localStorage.setItem('budget_user_id',userId);}
+const userRef=doc(db,'users',userId), txRef=collection(userRef,'transactions'), backupRef=doc(db,'backups',userId);
 
-const userRef = doc(db, 'users', userId);
-const txRef = collection(userRef, 'transactions');
-
-const EC=['Еда','Одежда','Кафе','Красота','Салоны','Дом','Транспорт','Развлечения','Здоровье','Обучение','Путешествия','Подарки','Подписки','Связь','Бытовая химия','Другое'];
-const IC=['Зарплата','Фриланс','Подарки','Инвестиции','Аренда','Кэшбэк','Другое'];
+const EC=['Продукты','Для дома','Бытовая химия','Коммунальные услуги','Связь','Автомобиль','Транспорт','Маркетплейсы','Рестораны','Одежда','Отдых','Развлечения'];
+const IC=['Зарплата','Премия','Входящий перевод','Фриланс','Подработка','Кэшбэк'];
 const MN=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-let tx=[], bud={c:0,d:0,r:0,s:false}, todos=[], gen=null, nm='', cT='expense', cF='all';
-let repDate=new Date();
-let resMode='add';
-let camelliaInterval=null;
+let tx=[],bud={c:0,d:0,r:0,s:false},todos=[],goals=[],gen=null,nm='',cT='expense',cF='all';
+let repDate=new Date(),resMode='add',camelliaInterval=null,deleteGoalId=null;
 const $=id=>document.getElementById(id);
 
-function getCurrentPeriod(type){
-  const now=new Date();
-  if(type==='day') return now.toISOString().split('T')[0];
-  if(type==='month') return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
-  if(type==='year') return `${now.getFullYear()}`;
-}
+function fbSave(data){setDoc(userRef,data,{merge:true}).catch(()=>{});setDoc(backupRef,{...data,updatedAt:new Date().toISOString()},{merge:true}).catch(()=>{})}
+function fbAddTx(d){addDoc(txRef,d).catch(()=>{})}
+function fbDeleteTx(id){getDocs(txRef).then(s=>{s.forEach(d=>{if(d.data().id===id)deleteDoc(d.ref).catch(()=>{})})}).catch(()=>{})}
 
-function rolloverTodos(){
-  const cDay=getCurrentPeriod('day'), cMonth=getCurrentPeriod('month'), cYear=getCurrentPeriod('year');
-  let changed=false;
-  todos=todos.map(t=>{
-    if(!t.checked){
-      if(t.type==='day' && t.period<cDay){t.period=cDay;changed=true;}
-      if(t.type==='month' && t.period<cMonth){t.period=cMonth;changed=true;}
-      if(t.type==='year' && t.period<cYear){t.period=cYear;changed=true;}
-    }
-    return t;
-  });
-  if(changed) saveTodos();
-}
+function getCurrentPeriod(t){const n=new Date();if(t==='day')return n.toISOString().split('T')[0];if(t==='month')return`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}`;return`${n.getFullYear()}`}
+function rolloverTodos(){const cd=getCurrentPeriod('day'),cm=getCurrentPeriod('month'),cy=getCurrentPeriod('year');let ch=false;todos=todos.map(t=>{if(!t.checked){if(t.type==='day'&&t.period<cd){t.period=cd;ch=true}if(t.type==='month'&&t.period<cm){t.period=cm;ch=true}if(t.type==='year'&&t.period<cy){t.period=cy;ch=true}}return t});if(ch)fbSave({todos})}
 
-async function saveTodos(){
-  try{ await setDoc(userRef, {todos}, {merge:true}); }
-  catch(e){ console.error('Error saving todos:', e); }
-}
+function renderTodos(type){const cp=getCurrentPeriod(type),items=todos.filter(t=>t.type===type&&t.period===cp),c=$('todoList'+type.charAt(0).toUpperCase()+type.slice(1));if(!items.length){c.innerHTML='<div class="todoEmpty">Список пуст</div>';return}c.innerHTML=items.map(t=>`<div class="todoItem"><div class="customCheck ${t.checked?'checked':''}" onclick="toggleCheck('${t.id}',event)"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" stroke-width="3"/></svg></div><div class="todoText ${t.checked?'checked':''}">${t.text}</div><button class="todoDel" onclick="deleteTodo('${t.id}')">×</button></div>`).join('')}
 
-function renderTodos(type){
-  const curPeriod=getCurrentPeriod(type);
-  const items=todos.filter(t=>t.type===type && t.period===curPeriod);
-  const container=$('todoList'+type.charAt(0).toUpperCase()+type.slice(1));
-  if(items.length===0){container.innerHTML='<div class="todoEmpty">Список пуст</div>';return;}
-  container.innerHTML=items.map(t=>`
-    <div class="todoItem">
-      <div class="customCheck ${t.checked?'checked':''}" onclick="toggleCheck('${t.id}',event)">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" stroke-width="3"/></svg>
-      </div>
-      <div class="todoText ${t.checked?'checked':''}">${t.text}</div>
-      <button class="todoDel" onclick="deleteTodo('${t.id}')">×</button>
+async function addTodo(type){const i=$('todoInput'+type.charAt(0).toUpperCase()+type.slice(1)),t=i.value.trim();if(!t)return;todos.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),text:t,checked:false,type,period:getCurrentPeriod(type)});fbSave({todos});i.value='';i.blur();renderTodos(type)}
+async function toggleCheck(id,ev){const t=todos.find(x=>x.id===id);if(t){t.checked=!t.checked;fbSave({todos});renderTodos(t.type);if(t.checked){const r=ev.currentTarget.getBoundingClientRect();shAt(r.left+r.width/2,r.top+r.height/2)}}}
+function shAt(x,y){if(gen==='female'){for(let i=0;i<40;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+8;p.style.cssText=`width:${sz}px;height:${sz}px;left:${x}px;top:${y}px`;const a=(Math.PI*2*i)/40,d=Math.random()*200+100;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}}else{for(let i=0;i<60;i++){const p=document.createElement('div');p.className='bronze';const sz=Math.random()*6+3;p.style.cssText=`width:${sz}px;height:${sz}px;left:${x}px;top:${y}px`;const a=(Math.PI*2*i)/60,d=Math.random()*250+150;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2000)}}}
+async function deleteTodo(id){const t=todos.find(x=>x.id===id);if(t&&confirm('Удалить?')){todos=todos.filter(x=>x.id!==id);fbSave({todos});renderTodos(t.type)}}
+
+// === ЦЕЛИ ===
+function renderGoals(){
+  const c=$('goalsList'),empty=$('goalsEmpty');
+  if(!goals.length){empty.style.display='block';c.innerHTML='';return}
+  empty.style.display='none';
+  c.innerHTML=goals.map(g=>`
+    <div class="goalCard" id="gc_${g.id}" onclick="toggleGoal('${g.id}')">
+      <span>${g.name||'Без названия'}</span><span class="ar">▼</span>
     </div>
-  `).join('');
+    <div class="goalBody" id="gb_${g.id}">
+      <div class="goalIn">
+        <input class="goalNameInput" id="gn_${g.id}" value="${g.name||''}" placeholder="Название цели" onclick="event.stopPropagation()">
+        <div class="goalRow">
+          <input class="goalAmtInput" id="ga_${g.id}" type="number" placeholder="Сумма" min="0" onclick="event.stopPropagation()">
+          <button class="goalBtn" onclick="event.stopPropagation();contributeToGoal('${g.id}')">Пополнить из резерва</button>
+        </div>
+        <div class="goalRow">
+          <button class="goalBtn" onclick="event.stopPropagation();showGoalTotal('${g.id}')">Итог</button>
+          <button class="goalBtn" onclick="event.stopPropagation();saveGoalName('${g.id}')">Сохранить</button>
+          <button class="goalDel" onclick="event.stopPropagation();askDeleteGoal('${g.id}')">Удалить</button>
+        </div>
+      </div>
+    </div>`).join('');
 }
 
-async function addTodo(type){
-  const input=$('todoInput'+type.charAt(0).toUpperCase()+type.slice(1));
-  const text=input.value.trim();
-  if(!text) return;
-  const newTodo={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), text:text, checked:false, type:type, period:getCurrentPeriod(type)};
-  todos.push(newTodo);
-  await saveTodos();
-  input.value='';
-  input.blur();
-  renderTodos(type);
-}
+window.toggleGoal=function(id){
+  const card=$('gc_'+id),body=$('gb_'+id);
+  card.classList.toggle('o');body.classList.toggle('o');
+};
 
-async function toggleCheck(id,event){
-  const t=todos.find(x=>x.id===id);
-  if(t){
-    t.checked=!t.checked;
-    await saveTodos();
-    renderTodos(t.type);
-    if(t.checked){
-      const rect=event.currentTarget.getBoundingClientRect();
-      const x=rect.left+rect.width/2;
-      const y=rect.top+rect.height/2;
-      shAt(x,y);
-    }
-  }
-}
+window.addGoal=function(){
+  goals.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:'',saved:0});
+  fbSave({goals});renderGoals();
+  setTimeout(()=>{
+    const lastBody=document.querySelector('.goalBody:last-of-type');
+    if(lastBody&&!lastBody.classList.contains('o'))lastBody.previousElementSibling.click();
+  },100);
+};
 
-function shAt(x,y){
-  if(gen==='female'){
-    for(let i=0;i<40;i++){
-      const p=document.createElement('div');
-      p.className='pearl';
-      const sz=Math.random()*12+8;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px';
-      const a=(Math.PI*2*i)/40;
-      const d=Math.random()*200+100;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2500);
-    }
-  }else{
-    for(let i=0;i<60;i++){
-      const p=document.createElement('div');
-      p.className='bronze';
-      const sz=Math.random()*6+3;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px';
-      const a=(Math.PI*2*i)/60;
-      const d=Math.random()*250+150;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2000);
-    }
-  }
-}
+window.saveGoalName=function(id){
+  const g=goals.find(x=>x.id===id);
+  if(g){g.name=$('gn_'+id).value.trim();fbSave({goals});renderGoals()}
+};
 
-async function deleteTodo(id){
-  const t=todos.find(x=>x.id===id);
-  if(t && confirm('Удалить эту запись?')){
-    todos=todos.filter(x=>x.id!==id);
-    await saveTodos();
-    renderTodos(t.type);
-  }
-}
-
-function toggleTodo(type){
-  const head=event.currentTarget;
-  const body=$('todoBody'+type.charAt(0).toUpperCase()+type.slice(1));
-  head.classList.toggle('o');
-  body.classList.toggle('o');
-}
-
-function toggleAb(section){
-  const head=event.currentTarget;
-  const body=$('abBody'+section.charAt(0).toUpperCase()+section.slice(1));
-  head.classList.toggle('o');
-  body.classList.toggle('o');
-}
-
-function setResMode(mode){
-  resMode=mode;
-  if(mode==='add'){
-    $('resAddBtn').classList.add('s');
-    $('resSubBtn').classList.remove('s');
-    $('resSrcLabel').textContent='Источник';
-  }else{
-    $('resSubBtn').classList.add('s');
-    $('resAddBtn').classList.remove('s');
-    $('resSrcLabel').textContent='Куда вернуть';
-  }
-  $('resForm').style.display='block';
-  $('resAmt').value='';
-}
-
-async function applyRes(){
-  const amt=parseFloat($('resAmt').value);
-  const src=$('resSrc').value;
-  if(!amt||amt<=0){alert('Введите сумму');return;}
-  const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
-  const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
+window.contributeToGoal=function(id){
+  const g=goals.find(x=>x.id===id);
+  if(!g)return;
+  const amt=parseFloat($('ga_'+id).value);
+  if(!amt||amt<=0){alert('Введите сумму');return}
   const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
   const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
   const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);
   const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
-  const cb=bud.c+ci-ce;
-  const db2=bud.d+di-de;
-  if(resMode==='add'){
-    const available=src==='cash'?cb:db2;
-    if(amt>available){alert('Недостаточно средств');return;}
-    bud.r+=amt;
-    if(src==='cash') bud.c-=amt; else bud.d-=amt;
-  }else{
-    if(amt>bud.r){alert('В резерве недостаточно средств');return;}
-    bud.r-=amt;
-    if(src==='cash') bud.c+=amt; else bud.d+=amt;
-  }
-  try{ await setDoc(userRef, {bud}, {merge:true}); }
-  catch(e){ console.error('Error saving budget:', e); }
-  $('resForm').style.display='none';
-  $('resAmt').value='';
-  sh($('resT'));
-  rn();
-}
+  const cb=bud.c+ci-ce,db2=bud.d+di-de;
+  const totalReserve=bud.r;
+  if(amt>totalReserve){alert('Недостаточно средств в резерве ('+fm(totalReserve)+')');return}
+  bud.r-=amt;
+  g.saved+=amt;
+  fbSave({bud,goals});
+  $('ga_'+id).value='';
+  alert('✅ Переведено '+fm(amt)+' из резерва!\nНакоплено: '+fm(g.saved));
+  renderGoals();rn();
+};
 
-function emitCamelliaParticles(){
-  const cam=$('R').querySelector('.C');
-  if(!cam) return;
-  const rect=cam.getBoundingClientRect();
-  const cx=rect.left+rect.width/2;
-  const cy=rect.top+rect.height/2;
-  if(!gen){
-    for(let i=0;i<6;i++){
-      const p=document.createElement('div'); p.className='pearl';
-      const sz=Math.random()*12+6;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
-      const a=Math.random()*Math.PI*2, d=Math.random()*180+80;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2500);
-    }
-    return;
+window.showGoalTotal=function(id){
+  const g=goals.find(x=>x.id===id);
+  if(g)alert(' Накоплено на "'+(g.name||'Без названия')+'":\n'+fm(g.saved));
+};
+
+window.askDeleteGoal=function(id){
+  deleteGoalId=id;
+  const g=goals.find(x=>x.id===id);
+  $('deleteModalText').textContent='Удалить цель "'+(g?.name||'Без названия')+'"?';
+  $('deleteModal').classList.add('show');
+};
+
+window.confirmDeleteGoal=function(isSuper){
+  if(deleteGoalId){
+    goals=goals.filter(x=>x.id!==deleteGoalId);
+    fbSave({goals});
+    renderGoals();
+    $('deleteModal').classList.remove('show');
+    if(isSuper)alert(' Поздравляем! Цель достигнута!');
+    else alert('Цель удалена.');
+    deleteGoalId=null;
   }
-  if(gen==='female'){
-    for(let i=0;i<8;i++){
-      const p=document.createElement('div'); p.className='pearl';
-      const sz=Math.random()*12+6;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
-      const a=Math.random()*Math.PI*2, d=Math.random()*180+80;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2500);
-    }
-  }else{
-    for(let i=0;i<10;i++){
-      const p=document.createElement('div'); p.className='bronze';
-      const sz=Math.random()*6+3;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+cx+'px;top:'+cy+'px';
-      const a=Math.random()*Math.PI*2, d=Math.random()*200+100;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2000);
-    }
-  }
-}
+};
+
+function toggleTodo(type){event.currentTarget.classList.toggle('o');$('todoBody'+type.charAt(0).toUpperCase()+type.slice(1)).classList.toggle('o')}
+function toggleAb(section){event.currentTarget.classList.toggle('o');$('abBody'+section.charAt(0).toUpperCase()+section.slice(1)).classList.toggle('o')}
+
+function setResMode(mode){resMode=mode;if(mode==='add'){$('resAddBtn').classList.add('s');$('resSubBtn').classList.remove('s');$('resSrcLabel').textContent='Источник'}else{$('resSubBtn').classList.add('s');$('resAddBtn').classList.remove('s');$('resSrcLabel').textContent='Куда вернуть'}$('resForm').style.display='block';$('resAmt').value=''}
+
+async function applyRes(){const amt=parseFloat($('resAmt').value),src=$('resSrc').value;if(!amt||amt<=0){alert('Введите сумму');return}const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0),ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0),di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0),de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0),cb=bud.c+ci-ce,db2=bud.d+di-de;if(resMode==='add'){const av=src==='cash'?cb:db2;if(amt>av){alert('Недостаточно средств');return}bud.r+=amt;if(src==='cash')bud.c-=amt;else bud.d-=amt}else{if(amt>bud.r){alert('В резерве недостаточно средств');return}bud.r-=amt;if(src==='cash')bud.c+=amt;else bud.d+=amt}fbSave({bud});$('resForm').style.display='none';$('resAmt').value='';sh($('resT'));rn()}
+
+function emitCamelliaParticles(){const cam=$('R').querySelector('.C');if(!cam)return;const r=cam.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;if(!gen){for(let i=0;i<6;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+6;p.style.cssText=`width:${sz}px;height:${sz}px;left:${cx}px;top:${cy}px`;const a=Math.random()*Math.PI*2,d=Math.random()*180+80;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}return}const cls=gen==='female'?'pearl':'bronze',cnt=gen==='female'?8:10;for(let i=0;i<cnt;i++){const p=document.createElement('div');p.className=cls;const sz=gen==='female'?Math.random()*12+6:Math.random()*6+3;p.style.cssText=`width:${sz}px;height:${sz}px;left:${cx}px;top:${cy}px`;const a=Math.random()*Math.PI*2,d=Math.random()*(gen==='female'?180:200)+(gen==='female'?80:100);p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),gen==='female'?2500:2000)}}
 
 $('bF').onclick=function(){$('bF').classList.add('s');$('bM').classList.remove('s');gen='female';ck()};
 $('bM').onclick=function(){$('bM').classList.add('s');$('bF').classList.remove('s');gen='male';ck()};
 $('nI').oninput=ck;
 function ck(){$('gB').disabled=!($('nI').value.trim()&&gen)}
 
-$('gB').onclick=async function(){
-  nm=$('nI').value.trim();
-  if(!nm||!gen)return;
-  try{
-    await setDoc(userRef, {nm, gen, bud, todos: []}, {merge:true});
-    localStorage.setItem('budget_user_info', JSON.stringify({nm, gen}));
-  }catch(e){console.error('Error saving user:',e);}
-  op();
-};
+$('gB').onclick=async function(){nm=$('nI').value.trim();if(!nm||!gen)return;fbSave({nm,gen,bud,todos:[],goals:[]});localStorage.setItem('budget_user_info',JSON.stringify({nm,gen}));op()};
+$('oB').onclick=async function(){if(!confirm('Выйти? Все данные будут удалены.'))return;deleteDoc(userRef).catch(()=>{});deleteDoc(backupRef).catch(()=>{});localStorage.removeItem('budget_user_id');localStorage.removeItem('budget_user_info');location.reload()};
 
-$('oB').onclick=async function(){
-  if(!confirm('Выйти? Все данные будут удалены из облака.'))return;
-  try{ await deleteDoc(userRef); }catch(e){console.error('Error deleting user:',e);}
-  localStorage.removeItem('budget_user_id');
-  localStorage.removeItem('budget_user_info');
-  location.reload();
-};
+function hideAll(){$('A').style.display='none';$('repScr').style.display='none';$('listScr').style.display='none';$('goalsScr').style.display='none';$('aboutScr').style.display='none'}
+function showPage(id){hideAll();$(id).style.display='block';if(id==='repScr'){repDate=new Date();renderReport()}if(id==='listScr'){rolloverTodos();renderTodos('day');renderTodos('month');renderTodos('year')}if(id==='goalsScr')renderGoals()}
+document.querySelectorAll('.tabItem').forEach(item=>{item.onclick=function(){document.querySelectorAll('.tabItem').forEach(i=>i.classList.remove('active'));this.classList.add('active');showPage(this.dataset.page)}});
 
-function hideAll(){$('A').style.display='none';$('repScr').style.display='none';$('listScr').style.display='none';$('aboutScr').style.display='none'}
-function showPage(id){
-  hideAll();
-  $(id).style.display='block';
-  if(id==='repScr'){repDate=new Date();renderReport()}
-  if(id==='listScr'){
-    rolloverTodos();
-    renderTodos('day');
-    renderTodos('month');
-    renderTodos('year');
-  }
-}
-document.querySelectorAll('.tabItem').forEach(item=>{
-  item.onclick=function(){
-    document.querySelectorAll('.tabItem').forEach(i=>i.classList.remove('active'));
-    this.classList.add('active');
-    showPage(this.dataset.page);
-  }
-});
+function op(){$('R').style.display='none';$('A').style.display='block';document.body.className=gen==='female'?'chl':'arm';fc();rn();rb()}
 
-function op(){
-  $('R').style.display='none';
-  $('A').style.display='block';
-  document.body.className=gen==='female'?'chl':'arm';
-  fc();rn();rb();
-}
+async function ld(){try{const ud=await getDoc(userRef);if(ud.exists()){const d=ud.data();if(d.nm){nm=d.nm;gen=d.gen;localStorage.setItem('budget_user_info',JSON.stringify({nm,gen}))}if(d.bud)bud=d.bud;if(d.todos&&Array.isArray(d.todos))todos=d.todos;else todos=[];if(d.goals&&Array.isArray(d.goals))goals=d.goals;else goals=[]}const ts=await getDocs(txRef);tx=[];ts.forEach(d=>{tx.push(d.data())})}catch(e){console.error('Load error:',e)}}
 
-async function ld(){
-  try{
-    const userDoc = await getDoc(userRef);
-    if(userDoc.exists()){
-      const userData = userDoc.data();
-      if(userData.nm) { 
-        nm = userData.nm; 
-        gen = userData.gen; 
-        localStorage.setItem('budget_user_info', JSON.stringify({nm, gen}));
-      }
-      if(userData.bud) bud = userData.bud;
-      if(userData.todos && Array.isArray(userData.todos)) {
-        todos = userData.todos;
-      } else {
-        todos = [];
-      }
-    }
-    const txSnapshot = await getDocs(txRef);
-    tx = [];
-    txSnapshot.forEach(d => { tx.push(d.data()); });
-  }catch(e){ console.error('Error loading data:', e); }
-}
-
-$('sB').onclick=async function(){
-  bud={c:parseFloat($('iC').value)||0, d:parseFloat($('iD').value)||0, r:parseFloat($('iR').value)||0, s:true};
-  try{ await setDoc(userRef, {bud}, {merge:true}); }
-  catch(e){ console.error('Error saving budget:', e); }
-  sh(this); rn(); rb();
-};
-
-$('rB').onclick=async function(){
-  if(!confirm('Сбросить все данные?'))return;
-  tx=[]; todos=[]; bud={c:0,d:0,r:0,s:false};
-  try{ await setDoc(userRef, {bud, todos, tx: []}, {merge:true}); }
-  catch(e){ console.error('Error resetting:', e); }
-  $('bB').style.display='block';
-  $('iC').value=''; $('iD').value=''; $('iR').value='';
-  rn(); rb();
-  alert('Очищено');
-};
+$('sB').onclick=function(){bud={c:parseFloat($('iC').value)||0,d:parseFloat($('iD').value)||0,r:parseFloat($('iR').value)||0,s:true};fbSave({bud});sh(this);rn();rb()};
+$('rB').onclick=function(){if(!confirm('Сбросить все данные?'))return;tx=[];todos=[];goals=[];bud={c:0,d:0,r:0,s:false};fbSave({bud,todos,goals,tx:[]});$('bB').style.display='block';$('iC').value='';$('iD').value='';$('iR').value='';rn();rb();alert('Очищено')};
 
 $('bT').onclick=function(){this.classList.toggle('o');$('bC').classList.toggle('o')};
 $('resT').onclick=function(){this.classList.toggle('o');$('resC').classList.toggle('o')};
 
-$('tE').onclick=function(){
-  $('tE').classList.add('s');
-  $('tI').classList.remove('s');
-  $('tTr').classList.remove('s');
-  cT='expense';
-  $('tF').style.display='block';
-  $('trF').style.display='none';
-  fc();
-};
-$('tI').onclick=function(){
-  $('tI').classList.add('s');
-  $('tE').classList.remove('s');
-  $('tTr').classList.remove('s');
-  cT='income';
-  $('tF').style.display='block';
-  $('trF').style.display='none';
-  fc();
-};
-$('tTr').onclick=function(){
-  $('tTr').classList.add('s');
-  $('tE').classList.remove('s');
-  $('tI').classList.remove('s');
-  $('tF').style.display='none';
-  $('trF').style.display='block';
-};
+$('tE').onclick=function(){$('tE').classList.add('s');$('tI').classList.remove('s');$('tTr').classList.remove('s');cT='expense';$('tF').style.display='block';$('trF').style.display='none';fc()};
+$('tI').onclick=function(){$('tI').classList.add('s');$('tE').classList.remove('s');$('tTr').classList.remove('s');cT='income';$('tF').style.display='block';$('trF').style.display='none';fc()};
+$('tTr').onclick=function(){$('tTr').classList.add('s');$('tE').classList.remove('s');$('tI').classList.remove('s');$('tF').style.display='none';$('trF').style.display='block'};
+$('trFrom').onchange=function(){$('trTo').value=$('trFrom').value==='cash'?'card':'cash'};
 
-$('trFrom').onchange=function(){
-  const from=$('trFrom').value;
-  $('trTo').value = from==='cash' ? 'card' : 'cash';
-};
-
-$('fA').onclick=function(){sf('all')};
-$('fI').onclick=function(){sf('income')};
-$('fE').onclick=function(){sf('expense')};
-$('fTr').onclick=function(){sf('transfer')};
-
-function sf(f){
-  $('fA').classList.remove('s');$('fI').classList.remove('s');$('fE').classList.remove('s');$('fTr').classList.remove('s');
-  if(f==='all')$('fA').classList.add('s');
-  if(f==='income')$('fI').classList.add('s');
-  if(f==='expense')$('fE').classList.add('s');
-  if(f==='transfer')$('fTr').classList.add('s');
-  cF=f; rn();
-}
+$('fA').onclick=function(){sf('all')};$('fI').onclick=function(){sf('income')};$('fE').onclick=function(){sf('expense')};$('fTr').onclick=function(){sf('transfer')};
+function sf(f){$('fA').classList.remove('s');$('fI').classList.remove('s');$('fE').classList.remove('s');$('fTr').classList.remove('s');if(f==='all')$('fA').classList.add('s');if(f==='income')$('fI').classList.add('s');if(f==='expense')$('fE').classList.add('s');if(f==='transfer')$('fTr').classList.add('s');cF=f;rn()}
 
 $('prevM').onclick=function(){repDate.setMonth(repDate.getMonth()-1);renderReport()};
 $('nextM').onclick=function(){repDate.setMonth(repDate.getMonth()+1);renderReport()};
 
-function renderReport(){
-  const y=repDate.getFullYear(), m=repDate.getMonth();
-  $('repMonth').textContent=MN[m]+' '+y;
-  const mt=tx.filter(t=>{
-    const p=t.d.split('-');
-    const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));
-    return d.getFullYear()===y && d.getMonth()===m;
-  });
-  const inc=mt.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
-  const exp=mt.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
-  const bal=inc-exp;
-  const daysInMonth=new Date(y,m+1,0).getDate();
-  const today=Math.min(new Date().getDate(),daysInMonth);
-  const perDay=exp>0?Math.round(exp/(m===new Date().getMonth()&&y===new Date().getFullYear()?today:daysInMonth)):0;
-  $('rInc').textContent=fm(inc);
-  $('rExp').textContent=fm(exp);
-  $('rBal').textContent=(bal<0?'-':'')+fm(Math.abs(bal));
-  $('rDay').textContent=fm(perDay)+' ₽';
-  const ce={};
-  mt.filter(t=>t.t==='expense').forEach(t=>{ce[t.c]=(ce[t.c]||0)+t.a});
-  const sorted=Object.entries(ce).sort((a,b)=>b[1]-a[1]).slice(0,3);
-  const maxV=sorted.length>0?sorted[0][1]:1;
-  $('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов за этот месяц</div>':sorted.map(([c,v])=>'<div class="topItem"><div class="topItemH"><span class="topItemN">'+c+'</span><span class="topItemV">'+fm(v)+'</span></div><div class="topBar"><div class="topBarF" style="width:'+(v/maxV*100)+'%"></div></div></div>').join('');
-}
+function renderReport(){const y=repDate.getFullYear(),m=repDate.getMonth();$('repMonth').textContent=MN[m]+' '+y;const mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(+p[0],+p[1]-1,+p[2]);return d.getFullYear()===y&&d.getMonth()===m});const inc=mt.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0),exp=mt.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0),bal=inc-exp,dim=new Date(y,m+1,0).getDate(),today=Math.min(new Date().getDate(),dim),pd=exp>0?Math.round(exp/(m===new Date().getMonth()&&y===new Date().getFullYear()?today:dim)):0;$('rInc').textContent=fm(inc);$('rExp').textContent=fm(exp);$('rBal').textContent=(bal<0?'-':'')+fm(Math.abs(bal));$('rDay').textContent=fm(pd)+' ₽';const ce={};mt.filter(t=>t.t==='expense').forEach(t=>{ce[t.c]=(ce[t.c]||0)+t.a});const sorted=Object.entries(ce).sort((a,b)=>b[1]-a[1]).slice(0,3),maxV=sorted.length?sorted[0][1]:1;$('topCats').innerHTML=sorted.length===0?'<div class="repEmpty">Нет расходов</div>':sorted.map(([c,v])=>`<div class="topItem"><div class="topItemH"><span class="topItemN">${c}</span><span class="topItemV">${fm(v)}</span></div><div class="topBar"><div class="topBarF" style="width:${v/maxV*100}%"></div></div></div>`).join('')}
 
-function rb(){
-  const now=new Date(), y=now.getFullYear(), m=now.getMonth()+1;
-  const mt=tx.filter(t=>{
-    const p=t.d.split('-');
-    const d=new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]));
-    return d.getFullYear()===y && d.getMonth()+1===m;
-  });
-  const ce={}, ci={};
-  mt.forEach(t=>{
-    if(t.t==='expense') ce[t.c]=(ce[t.c]||0)+t.a;
-    else if(t.t==='income') ci[t.c]=(ci[t.c]||0)+t.a;
-  });
-  $('eC').innerHTML=Object.keys(ce).length===0?'<div class="bdE">Нет расходов</div>':Object.entries(ce).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">-'+fm(t)+'</span></div>').join('');
-  $('iC2').innerHTML=Object.keys(ci).length===0?'<div class="bdE">Нет доходов</div>':Object.entries(ci).sort((a,b)=>b[1]-a[1]).map(([c,t])=>'<div class="bdIt"><span class="bdIN">'+c+'</span><span class="bdIV">+'+fm(t)+'</span></div>').join('');
-}
+function rb(){const now=new Date(),y=now.getFullYear(),m=now.getMonth()+1,mt=tx.filter(t=>{const p=t.d.split('-');const d=new Date(+p[0],+p[1]-1,+p[2]);return d.getFullYear()===y&&d.getMonth()+1===m}),ce={},ci={};mt.forEach(t=>{if(t.t==='expense')ce[t.c]=(ce[t.c]||0)+t.a;else if(t.t==='income')ci[t.c]=(ci[t.c]||0)+t.a});$('eC').innerHTML=Object.keys(ce).length===0?'<div class="bdE">Нет расходов</div>':Object.entries(ce).sort((a,b)=>b[1]-a[1]).map(([c,t])=>`<div class="bdIt"><span class="bdIN">${c}</span><span class="bdIV">-${fm(t)}</span></div>`).join('');$('iC2').innerHTML=Object.keys(ci).length===0?'<div class="bdE">Нет доходов</div>':Object.entries(ci).sort((a,b)=>b[1]-a[1]).map(([c,t])=>`<div class="bdIt"><span class="bdIN">${c}</span><span class="bdIV">+${fm(t)}</span></div>`).join('')}
 
-function sh(el){
-  const r=el.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2;
-  if(gen==='female'){
-    for(let i=0;i<60;i++){
-      const p=document.createElement('div'); p.className='pearl';
-      const sz=Math.random()*12+8;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';
-      const a=(Math.PI*2*i)/60, d=Math.random()*200+100;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2500);
-    }
-  }else{
-    for(let i=0;i<90;i++){
-      const p=document.createElement('div'); p.className='bronze';
-      const sz=Math.random()*6+3;
-      p.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+(x+Math.random()*100-50)+'px;top:'+(y+Math.random()*100-50)+'px';
-      const a=(Math.PI*2*i)/90, d=Math.random()*250+150;
-      p.style.setProperty('--tx',Math.cos(a)*d+'px');
-      p.style.setProperty('--ty',Math.sin(a)*d+'px');
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),2000);
-    }
-  }
-}
+function sh(el){const r=el.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;if(gen==='female'){for(let i=0;i<60;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+8;p.style.cssText=`width:${sz}px;height:${sz}px;left:${x+Math.random()*100-50}px;top:${y+Math.random()*100-50}px`;const a=(Math.PI*2*i)/60,d=Math.random()*200+100;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}}else{for(let i=0;i<90;i++){const p=document.createElement('div');p.className='bronze';const sz=Math.random()*6+3;p.style.cssText=`width:${sz}px;height:${sz}px;left:${x+Math.random()*100-50}px;top:${y+Math.random()*100-50}px`;const a=(Math.PI*2*i)/90,d=Math.random()*250+150;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2000)}}}
 
-function fc(){
-  const s=$('cS'), c=cT==='expense'?EC:IC;
-  s.innerHTML=c.map(x=>'<option value="'+x+'">'+x+'</option>').join('');
-}
-
+function fc(){const s=$('cS'),c=cT==='expense'?EC:IC;s.innerHTML=c.map(x=>`<option value="${x}">${x}</option>`).join('')}
 function fm(n){return new Intl.NumberFormat('ru-RU').format(n)+' ₽'}
-function fd(d){
-  const p=d.split('-');
-  return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2])).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});
-}
+function fd(d){const p=d.split('-');return new Date(+p[0],+p[1]-1,+p[2]).toLocaleDateString('ru-RU',{day:'numeric',month:'short'})}
+function walletName(w){return w==='cash'?'Наличные':'Безналичные'}
 
-function walletName(w){
-  return w==='cash'?'Наличные':'Безналичные';
-}
-
-async function rn(){
-  const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
-  const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
-  const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
-  const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
-  const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);
-  const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
-  const cb=bud.c+ci-ce, db2=bud.d+di-de;
-  const tb=cb+db2, tbRes=tb+bud.r;
-  
-  $('iV').textContent=fm(inc); $('eV').textContent=fm(exp);
-  $('cV').textContent=fm(cb); $('dV').textContent=fm(db2);
-  $('rV').textContent=fm(bud.r); $('totAll').textContent=fm(tb);
-  $('totRes').textContent=fm(tbRes); $('resCur').textContent=fm(bud.r);
-  const b=$('bV'); b.textContent=(tbRes<0?'-':'')+fm(Math.abs(tbRes));
-  $('bB').style.display=bud.s?'none':'block';
-  $('iC').value=bud.c||''; $('iD').value=bud.d||''; $('iR').value=bud.r||'';
-  
-  const f=cF==='all'?tx:tx.filter(t=>t.t===cF);
-  const s=[...f].sort((a,b)=>{
-    const pa=a.d.split('-'), pb=b.d.split('-');
-    return new Date(parseInt(pb[0]),parseInt(pb[1])-1,parseInt(pb[2]))-new Date(parseInt(pa[0]),parseInt(pa[1])-1,parseInt(pa[2]));
-  });
-  
-  const expList=$('expList'), incList=$('incList'), expTotal=$('expTotal'), incTotal=$('incTotal');
-  const expenses=s.filter(t=>t.t==='expense'), incomes=s.filter(t=>t.t==='income');
-  let expSum=0, incSum=0;
-  
-  if(expenses.length===0){ expList.innerHTML='<div class="recordsEmpty">Нет расходов</div>'; expTotal.style.display='none'; }
-  else{
-    expList.innerHTML=expenses.map(t=>{
-      expSum+=t.a;
-      return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">−'+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+walletName(t.p)+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
-    }).join('');
-    expTotal.style.display='block'; expTotal.textContent=fm(expSum);
-  }
-  
-  if(incomes.length===0){ incList.innerHTML='<div class="recordsEmpty">Нет доходов</div>'; incTotal.style.display='none'; }
-  else{
-    incList.innerHTML=incomes.map(t=>{
-      incSum+=t.a;
-      return '<div class="tx '+t.t+'"><button class="txDl" data-id="'+t.id+'">×</button><div class="txT"><div><span class="txC">'+t.c+'</span><span class="txD">'+(t.dsc||'')+'</span></div><div class="txA">+'+fm(t.a)+'</div></div><div class="txB"><div class="txP">'+walletName(t.p)+'</div><div class="txD2">'+fd(t.d)+'</div></div></div>';
-    }).join('');
-    incTotal.style.display='block'; incTotal.textContent=fm(incSum);
-  }
-  
-  document.querySelectorAll('.txDl').forEach(btn=>{
-    btn.onclick=async ev=>{
-      ev.stopPropagation();
-      if(!confirm('Удалить?'))return;
-      tx=tx.filter(t=>t.id!==btn.dataset.id);
-      try{
-        const txDocs=await getDocs(txRef);
-        txDocs.forEach(async d=>{
-          if(d.data().id===btn.dataset.id) await deleteDoc(d.ref);
-        });
-      }catch(e){console.error('Error deleting:',e);}
-      rn(); rb();
-    };
-  });
-}
+async function rn(){const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0),exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0),ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0),ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0),di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0),de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0),cb=bud.c+ci-ce,db2=bud.d+di-de,tb=cb+db2,tbRes=tb+bud.r;$('iV').textContent=fm(inc);$('eV').textContent=fm(exp);$('cV').textContent=fm(cb);$('dV').textContent=fm(db2);$('rV').textContent=fm(bud.r);$('totAll').textContent=fm(tb);$('totRes').textContent=fm(tbRes);$('resCur').textContent=fm(bud.r);$('bV').textContent=(tbRes<0?'-':'')+fm(Math.abs(tbRes));$('bB').style.display=bud.s?'none':'block';$('iC').value=bud.c||'';$('iD').value=bud.d||'';$('iR').value=bud.r||'';const f=cF==='all'?tx:tx.filter(t=>t.t===cF),s=[...f].sort((a,b)=>{const pa=a.d.split('-'),pb=b.d.split('-');return new Date(+pb[0],+pb[1]-1,+pb[2])-new Date(+pa[0],+pa[1]-1,+pa[2])}),expenses=s.filter(t=>t.t==='expense'),incomes=s.filter(t=>t.t==='income');let expSum=0,incSum=0;if(!expenses.length){$('expList').innerHTML='<div class="recordsEmpty">Нет расходов</div>';$('expTotal').style.display='none'}else{$('expList').innerHTML=expenses.map(t=>{expSum+=t.a;return`<div class="tx ${t.t}"><button class="txDl" data-id="${t.id}">×</button><div class="txT"><div><span class="txC">${t.c}</span><span class="txD">${t.dsc||''}</span></div><div class="txA">−${fm(t.a)}</div></div><div class="txB"><div class="txP">${walletName(t.p)}</div><div class="txD2">${fd(t.d)}</div></div></div>`}).join('');$('expTotal').style.display='block';$('expTotal').textContent=fm(expSum)}if(!incomes.length){$('incList').innerHTML='<div class="recordsEmpty">Нет доходов</div>';$('incTotal').style.display='none'}else{$('incList').innerHTML=incomes.map(t=>{incSum+=t.a;return`<div class="tx ${t.t}"><button class="txDl" data-id="${t.id}">×</button><div class="txT"><div><span class="txC">${t.c}</span><span class="txD">${t.dsc||''}</span></div><div class="txA">+${fm(t.a)}</div></div><div class="txB"><div class="txP">${walletName(t.p)}</div><div class="txD2">${fd(t.d)}</div></div></div>`}).join('');$('incTotal').style.display='block';$('incTotal').textContent=fm(incSum)}document.querySelectorAll('.txDl').forEach(btn=>{btn.onclick=ev=>{ev.stopPropagation();if(!confirm('Удалить?'))return;tx=tx.filter(t=>t.id!==btn.dataset.id);fbDeleteTx(btn.dataset.id);rn();rb()}})}
 
 $('dI').valueAsDate=new Date();
-$('tF').onsubmit=async function(e){
-  e.preventDefault();
-  const a=parseFloat($('aI').value);
-  if(!a||a<=0)return;
-  const newTx={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), t:cT, c:$('cS').value, a, p:$('pS').value, d:$('dI').value, dsc:$('dS').value.trim()};
-  tx.push(newTx);
-  try{ await addDoc(txRef, newTx); }
-  catch(e){ console.error('Error adding transaction:', e); }
-  rn(); rb();
-  e.target.reset();
-  $('dI').valueAsDate=new Date();
-  fc();
-  sh(e.target.querySelector('.bA'));
-};
+$('tF').onsubmit=function(e){e.preventDefault();const a=parseFloat($('aI').value);if(!a||a<=0)return;const nt={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:cT,c:$('cS').value,a,p:$('pS').value,d:$('dI').value,dsc:$('dS').value.trim()};tx.push(nt);fbAddTx(nt);rn();rb();e.target.reset();$('dI').valueAsDate=new Date();fc();sh($('addBtn'))};
 
-$('trF').onsubmit=async function(e){
-  e.preventDefault();
-  const amt=parseFloat($('trAmt').value);
-  const from=$('trFrom').value;
-  const to=$('trTo').value;
-  const dsc=$('trDsc').value.trim();
-  
-  if(!amt||amt<=0){alert('Введите сумму');return;}
-  if(from===to){alert('Откуда и Куда должны быть разными');return;}
-  
-  const inc=tx.filter(t=>t.t==='income').reduce((s,t)=>s+t.a,0);
-  const exp=tx.filter(t=>t.t==='expense').reduce((s,t)=>s+t.a,0);
-  const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
-  const ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0);
-  const di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0);
-  const de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0);
-  const cb=bud.c+ci-ce;
-  const db2=bud.d+di-de;
-  const available = from==='cash' ? cb : db2;
-  
-  if(amt>available){
-    alert('Недостаточно средств в '+walletName(from));
-    return;
-  }
-  
-  if(from==='cash'){
-    bud.c -= amt;
-    bud.d += amt;
-  } else {
-    bud.d -= amt;
-    bud.c += amt;
-  }
-  
-  const newTx={
-    id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),
-    t:'transfer',
-    c:'Перевод',
-    a:amt,
-    p:from,
-    pTo:to,
-    d:$('dI').value || new Date().toISOString().split('T')[0],
-    dsc:dsc || (walletName(from)+' → '+walletName(to))
-  };
-  tx.push(newTx);
-  
-  try{
-    await Promise.all([
-      addDoc(txRef, newTx),
-      setDoc(userRef, {bud}, {merge:true})
-    ]);
-  }catch(e){ console.error('Error transfer:', e); }
-  
-  $('trAmt').value='';
-  $('trDsc').value='';
-  sh(e.target.querySelector('.bA'));
-  rn(); rb();
-};
+$('trF').onsubmit=function(e){e.preventDefault();const amt=parseFloat($('trAmt').value),from=$('trFrom').value,to=$('trTo').value,dsc=$('trDsc').value.trim();if(!amt||amt<=0){alert('Введите сумму');return}if(from===to){alert('Откуда и Куда должны быть разными');return}const ci=tx.filter(t=>t.t==='income'&&t.p==='cash').reduce((s,t)=>s+t.a,0),ce=tx.filter(t=>t.t==='expense'&&t.p==='cash').reduce((s,t)=>s+t.a,0),di=tx.filter(t=>t.t==='income'&&t.p==='card').reduce((s,t)=>s+t.a,0),de=tx.filter(t=>t.t==='expense'&&t.p==='card').reduce((s,t)=>s+t.a,0),cb=bud.c+ci-ce,db2=bud.d+di-de,av=from==='cash'?cb:db2;if(amt>av){alert('Недостаточно средств в '+walletName(from));return}if(from==='cash'){bud.c-=amt;bud.d+=amt}else{bud.d-=amt;bud.c+=amt}const nt={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),t:'transfer',c:'Перевод',a:amt,p:from,pTo:to,d:$('dI').value||new Date().toISOString().split('T')[0],dsc:dsc||(walletName(from)+' → '+walletName(to))};tx.push(nt);fbAddTx(nt);fbSave({bud});$('trAmt').value='';$('trDsc').value='';sh(e.target.querySelector('.bA'));rn();rb()};
 
-document.addEventListener('focusout',function(){
-  setTimeout(function(){
-    window.scrollTo(0,0);
-    document.body.scrollTop=0;
-    document.documentElement.scrollTop=0;
-  },100);
-});
-
-camelliaInterval=setInterval(emitCamelliaParticles,500);
-
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('./service-worker.js').then(registration => {
-    // ПРИНУДИТЕЛЬНАЯ ПРОВЕРКА ОБНОВЛЕНИЙ
-    // При каждом запуске проверяем, есть ли новая версия
-    registration.update();
-    
-    // Если найден новый Service Worker — активируем его
-    registration.addEventListener('updatefound', () => {
-      const newWorker = registration.installing;
-      newWorker.addEventListener('statechange', () => {
-        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-          // Новая версия готова — перезагружаем страницу
-          if (confirm('Доступно обновление приложения. Перезагрузить?')) {
-            window.location.reload();
-          }
-        }
-      });
-    });
-    
-    // Если Service Worker изменился во время работы — перезагружаем
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      window.location.reload();
-    });
-  }).catch(err => {
-    console.log('SW registration failed:', err);
-  });
-}
-
-window.toggleTodo = toggleTodo;
-window.toggleAb = toggleAb;
-window.addTodo = addTodo;
-window.toggleCheck = toggleCheck;
-window.deleteTodo = deleteTodo;
-window.setResMode = setResMode;
-window.applyRes = applyRes;
-
-const cachedInfo = localStorage.getItem('budget_user_info');
-if(cachedInfo) {
-    const info = JSON.parse(cachedInfo);
-    nm = info.nm;
-    gen = info.gen;
-}
-
-(async ()=>{
-  await ld();
-  if(nm && gen) {
-      op();
-      rolloverTodos();
-      renderTodos('day');
-      renderTodos('month');
-      renderTodos('year');
-  } else {
-      $('R').style.display = 'flex';
-      $('A').style.display = 'none';
-  }
-})();
-</script>
-</body>
-</html>
+window.createBackup=async function(){try{await setDoc(backupRef,{nm,gen,bud,tx,todos,goals,updatedAt:new Date().toISOString()},{merge:true});alert('✅ Резервная копия создана!')}catch(e){alert('Ошибка создания копии. Проверьте интернет.')}};
+window.restoreBackup=async function(){if(!confirm('Восстановить данные из последней резервной копии? Текущие данные будут заменены.'))return;try{const snap=await getDoc(backupRef);if(!snap.exists()){alert('Резервная копия не найдена.');return}const d=snap.data();nm=d.nm;gen=d.gen;bud=d.bud;tx=d.tx||[];todos=d.todos||[];goals=d.goals||[];fbSave({nm,gen,bud,tx,todos,goals});localStora
