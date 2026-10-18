@@ -8,6 +8,25 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Budget">
 <meta name="theme-color" content="#0a0a0a">
+<script>
+// УБИВАЕМ СТАРЫЕ SERVICE WORKERS И КЭШИ ДО ЗАГРУЗКИ ВСЕГО ОСТАЛЬНОГО
+(async function killOldSW(){
+  if('serviceWorker' in navigator){
+    try{
+      const regs = await navigator.serviceWorker.getRegistrations();
+      for(const reg of regs){ await reg.unregister(); }
+    }catch(e){}
+  }
+  if('caches' in caches){
+    try{
+      const keys = await caches.keys();
+      for(const k of keys){ await caches.delete(k); }
+    }catch(e){}
+  }
+  // Также чистим localStorage от старого кэша
+  try{ localStorage.removeItem('budget_sw_cached'); }catch(e){}
+})();
+</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 button,input,select,a{-webkit-appearance:none;border-radius:0;font-family:Georgia,serif}
@@ -247,7 +266,7 @@ body.arm .deleteModalBox{background:#3a322a!important;color:#fff!important;borde
 
 <div id="repScr" style="display:none"><header><div style="width:80px"></div><div class="logo">ОТЧЕТ</div><div style="width:80px"></div></header><div class="bud"><div class="repHead"><button class="repArrow" id="prevM"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button><div class="repMonth" id="repMonth"></div><button class="repArrow" id="nextM"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button></div><div class="repGrid"><div class="repCard"><div class="repCL">Доходы</div><div class="repCV" id="rInc">0 ₽</div></div><div class="repCard"><div class="repCL">Расходы</div><div class="repCV" id="rExp">0 ₽</div></div><div class="repCard"><div class="repCL">Баланс</div><div class="repCV" id="rBal">0 ₽</div></div><div class="repCard"><div class="repCL">В день</div><div class="repCV" id="rDay">0 ₽</div></div></div><div class="topCat"><div class="topCatT">Топ расходов по категориям</div><div id="topCats"></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
-<div id="listScr" style="display:none"><header><div style="width:80px"></div><div class="logo">СПИСОК</div><div style="width:80px"></div></header><div class="bud"><div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div><div class="todoAdd"><input type="text" id="todoInputDay" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('day')}"><button onclick="addTodo('day')">+</button></div></div><div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div><div class="todoAdd"><input type="text" id="todoInputMonth" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('month')}"><button onclick="addTodo('month')">+</button></div></div><div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div><div class="todoAdd"><input type="text" id="todoInputYear" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('year')}"><button onclick="addTodo('year')">+</button></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
+<div id="listScr" style="display:none"><header><div style="width:80px"></div><div class="logo">СПИСОК</div><div style="width:80px"></div></header><div class="bud"><div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div><div class="todoAdd"><input type="text" id="todoInputDay" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('day')}"><button onclick="addTodo('day')">+</button></div></div><div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div><div class="todoAdd"><input type="text" id="todoInputMonth" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('month')}"><button onclick="addTodo('month')">+</button></div></div><div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div><div class="todoAdd"><input type="text" id="todoInputYear" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('year')}"><button onclick="addTodo('year')">+</button></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания </a></div>
 
 <div id="goalsScr" style="display:none"><header><div style="width:80px"></div><div class="logo">ЦЕЛИ</div><div style="width:80px"></div></header><div class="bud" id="goalsContainer"><div class="goalsEmpty" id="goalsEmpty">Нет целей. Нажмите + чтобы добавить!</div><div id="goalsList"></div><button class="addGoalBtn" onclick="addGoal()">+</button></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
@@ -400,17 +419,7 @@ window.restoreBackup=async function(){if(!confirm('Восстановить да
 document.addEventListener('focusout',()=>{setTimeout(()=>{window.scrollTo(0,0);document.body.scrollTop=0;document.documentElement.scrollTop=0},100)});
 camelliaInterval=setInterval(emitCamelliaParticles,500);
 
-// Простой офлайн-режим через кэширование
-if('serviceWorker' in navigator){
-  const swCode = `
-    const CACHE = 'budget-v4';
-    self.addEventListener('install', e => {
-      e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./', './index.html'])));
-      self.skipWaiting();
-    });
-    self.addEventListener('fetch', e => {
-      e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
-    });
-  `;
-  const blob = new Blob([swCode], {type: 'application/javascript'});
-  navigator.serviceWorker.register(UR
+window.toggleTodo=toggleTodo;window.toggleAb=toggleAb;window.addTodo=addTodo;window.toggleCheck=toggleCheck;window.deleteTodo=deleteTodo;window.setResMode=setResMode;window.applyRes=applyRes;
+
+const cachedInfo=localStorage.getItem('budget_user_info');
+if(cachedInfo){const info=JSON.parse(cachedInfo);nm=info.nm;gen=
