@@ -248,7 +248,7 @@ body.arm .deleteModalBox{background:#3a322a!important;color:#fff!important;borde
 <div class="frm"><div class="sT">Добавить запись</div><div class="tg"><button class="tB s" id="tE">Расход</button><button class="tB" id="tI">Доход</button><button class="tB" id="tTr">Перевод</button></div><form id="tF"><div class="fG"><div><label>Категория</label><select id="cS" required></select></div><div><label>Сумма (₽)</label><input type="number" id="aI" placeholder="0" min="0" required></div><div><label>Способ оплаты</label><select id="pS"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div><div><label>Дата</label><input type="date" id="dI" required></div><div class="fl"><label>Описание</label><input type="text" id="dS" placeholder="Необязательно"></div></div><button type="submit" class="bA" id="addBtn">Добавить</button></form><form id="trF" style="display:none"><div class="fG"><div><label>Откуда</label><select id="trFrom"><option value="cash">Наличные</option><option value="card">Безналичные</option></select></div><div><label>Куда</label><select id="trTo"><option value="card">Безналичные</option><option value="cash">Наличные</option></select></div><div class="fl"><label>Сумма (₽)</label><input type="number" id="trAmt" placeholder="0" min="0" required></div><div class="fl"><label>Описание (необязательно)</label><input type="text" id="trDsc" placeholder="Например: положила на карту"></div></div><button type="submit" class="bA">Перевести</button></form></div>
 <div class="sT">Мои записи</div><div class="bdT" id="bT"><span>Разбивка по категориям</span><span class="ar">▼</span></div><div class="bdC" id="bC"><div class="bdIn"><div class="bdG"><div class="bdCol"><div class="bdCT">Расходы</div><div id="eC"></div></div><div class="bdCol"><div class="bdCT">Доходы</div><div id="iC2"></div></div></div></div></div><div class="fl2"><button class="fB s" id="fA">Все</button><button class="fB" id="fI">Доходы</button><button class="fB" id="fE">Расходы</button><button class="fB" id="fTr">Переводы</button></div><div class="recordsGrid" id="recordsGrid"><div class="recordsCol" id="expCol"><div class="recordsColTitle">Расходы</div><div id="expList"></div><div class="recordsTotal" id="expTotal" style="display:none"></div></div><div class="recordsCol" id="incCol"><div class="recordsColTitle">Доходы</div><div id="incList"></div><div class="recordsTotal" id="incTotal" style="display:none"></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
-<div id="repScr" style="display:none"><header><div style="width:80px"></div><div class="logo">ОТЧЕТ</div><div style="width:80px"></div></header><div class="bud"><div class="repHead"><button class="repArrow" id="prevM"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button><div class="repMonth" id="repMonth"></div><button class="repArrow" id="nextM"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button></div><div class="repGrid"><div class="repCard"><div class="repCL">Доходы</div><div class="repCV" id="rInc">0 ₽</div></div><div class="repCard"><div class="repCL">Расходы</div><div class="repCV" id="rExp">0 ₽</div></div><div class="repCard"><div class="repCL">Баланс</div><div class="repCV" id="rBal">0 ₽</div></div><div class="repCard"><div class="repCL">В день</div><div class="repCV" id="rDay">0 ₽</div></div></div><div class="topCat"><div class="topCatT">Топ расходов по категориям</div><div id="topCats"></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
+<div id="repScr" style="display:none"><header><div style="width:80px"></div><div class="logo">ОТЧЕТ</div><div style="width:80px"></div></header><div class="bud"><div class="repHead"><button class="repArrow" id="prevM"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button><div class="repMonth" id="repMonth"></div><button class="repArrow" id="nextM"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button></div><div class="repGrid"><div class="repCard"><div class="repCL">Доходы</div><div class="repCV" id="rInc">0 ₽</div></div><div class="repCard"><div class="repCL">Расходы</div><div class="repCV" id="rExp">0 ₽</div></div><div class="repCard"><div class="repCL">Баланс</div><div class="repCV" id="rBal">0 ₽</div></div><div class="repCard"><div class="repCL">В день</div><div class="repCV" id="rDay">0 ₽</div></div></div><div class="topCat"><div class="topCatT">Топ расходов по категориям</div><div id="topCats"></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания </a></div>
 
 <div id="listScr" style="display:none"><header><div style="width:80px"></div><div class="logo">СПИСОК</div><div style="width:80px"></div></header><div class="bud"><div class="todoHead" onclick="toggleTodo('day')"><span>Сегодня</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyDay"><div class="todoIn" id="todoListDay"></div><div class="todoAdd"><input type="text" id="todoInputDay" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('day')}"><button onclick="addTodo('day')">+</button></div></div><div class="todoHead" onclick="toggleTodo('month')"><span>В этом месяце</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyMonth"><div class="todoIn" id="todoListMonth"></div><div class="todoAdd"><input type="text" id="todoInputMonth" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('month')}"><button onclick="addTodo('month')">+</button></div></div><div class="todoHead" onclick="toggleTodo('year')"><span>В этом году</span><span class="ar">▼</span></div><div class="todoBody" id="todoBodyYear"><div class="todoIn" id="todoListYear"></div><div class="todoAdd"><input type="text" id="todoInputYear" placeholder="Что купить..." onkeydown="if(event.key==='Enter'){event.preventDefault();addTodo('year')}"><button onclick="addTodo('year')">+</button></div></div></div><a href="https://pay.cloudtips.ru/p/ba981bd1" target="_blank" class="donateBtn">Мне на кофе за старания ☕</a></div>
 
@@ -294,37 +294,16 @@ let tx=[],bud={c:0,d:0,r:0,s:false},todos=[],goals=[],gen=null,nm='',cT='expense
 let repDate=new Date(),resMode='add',camelliaInterval=null,deleteGoalId=null;
 const $=id=>document.getElementById(id);
 
-// Индикатор сети
-function updateNetDot(){
-  const dot=$('netDot');
-  if(navigator.onLine){dot.className='netDot on';dot.title='Онлайн'}
-  else{dot.className='netDot off';dot.title='Оффлайн'}
-}
+function updateNetDot(){const dot=$('netDot');if(navigator.onLine){dot.className='netDot on'}else{dot.className='netDot off'}}
 window.addEventListener('online',updateNetDot);
 window.addEventListener('offline',updateNetDot);
 updateNetDot();
 
-// Очередь резервных копий при оффлайне
 let backupQueue=[];
-function scheduleBackup(){
-  if(navigator.onLine){
-    doBackup();
-  } else {
-    backupQueue.push(Date.now());
-  }
-}
-window.addEventListener('online',()=>{
-  if(backupQueue.length>0){
-    backupQueue=[];
-    doBackup();
-  }
-});
+function scheduleBackup(){if(navigator.onLine){doBackup()}else{backupQueue.push(Date.now())}}
+window.addEventListener('online',()=>{if(backupQueue.length>0){backupQueue=[];doBackup()}});
 
-async function doBackup(){
-  try{
-    await setDoc(backupRef,{nm,gen,bud,tx,todos,goals,updatedAt:new Date().toISOString()},{merge:true});
-  }catch(e){}
-}
+async function doBackup(){try{await setDoc(backupRef,{nm,gen,bud,tx,todos,goals,updatedAt:new Date().toISOString()},{merge:true})}catch(e){}}
 
 function fbSave(data){setDoc(userRef,data,{merge:true}).catch(()=>{});scheduleBackup()}
 function fbAddTx(d){addDoc(txRef,d).catch(()=>{});scheduleBackup()}
@@ -340,29 +319,7 @@ async function toggleCheck(id,ev){const t=todos.find(x=>x.id===id);if(t){t.check
 function shAt(x,y){if(gen==='female'){for(let i=0;i<40;i++){const p=document.createElement('div');p.className='pearl';const sz=Math.random()*12+8;p.style.cssText=`width:${sz}px;height:${sz}px;left:${x}px;top:${y}px`;const a=(Math.PI*2*i)/40,d=Math.random()*200+100;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2500)}}else{for(let i=0;i<60;i++){const p=document.createElement('div');p.className='bronze';const sz=Math.random()*6+3;p.style.cssText=`width:${sz}px;height:${sz}px;left:${x}px;top:${y}px`;const a=(Math.PI*2*i)/60,d=Math.random()*250+150;p.style.setProperty('--tx',Math.cos(a)*d+'px');p.style.setProperty('--ty',Math.sin(a)*d+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),2000)}}}
 async function deleteTodo(id){const t=todos.find(x=>x.id===id);if(t&&confirm('Удалить?')){todos=todos.filter(x=>x.id!==id);fbSave({todos});renderTodos(t.type)}}
 
-function renderGoals(){
-  const c=$('goalsList'),empty=$('goalsEmpty');
-  if(!goals.length){empty.style.display='block';c.innerHTML='';return}
-  empty.style.display='none';
-  c.innerHTML=goals.map(g=>`
-    <div class="goalCard" id="gc_${g.id}" onclick="toggleGoal('${g.id}')">
-      <span>${g.name||'Без названия'}</span><span class="ar">▼</span>
-    </div>
-    <div class="goalBody" id="gb_${g.id}">
-      <div class="goalIn">
-        <input class="goalNameInput" id="gn_${g.id}" value="${g.name||''}" placeholder="Название цели" onclick="event.stopPropagation()">
-        <div class="goalRow">
-          <input class="goalAmtInput" id="ga_${g.id}" type="number" placeholder="Сумма" min="0" onclick="event.stopPropagation()">
-          <button class="goalBtn" onclick="event.stopPropagation();contributeToGoal('${g.id}')">Пополнить из резерва</button>
-        </div>
-        <div class="goalRow">
-          <button class="goalBtn" onclick="event.stopPropagation();showGoalTotal('${g.id}')">Итог</button>
-          <button class="goalBtn" onclick="event.stopPropagation();saveGoalName('${g.id}')">Сохранить</button>
-          <button class="goalDel" onclick="event.stopPropagation();askDeleteGoal('${g.id}')">Удалить</button>
-        </div>
-      </div>
-    </div>`).join('');
-}
+function renderGoals(){const c=$('goalsList'),empty=$('goalsEmpty');if(!goals.length){empty.style.display='block';c.innerHTML='';return}empty.style.display='none';c.innerHTML=goals.map(g=>`<div class="goalCard" id="gc_${g.id}" onclick="toggleGoal('${g.id}')"><span>${g.name||'Без названия'}</span><span class="ar">▼</span></div><div class="goalBody" id="gb_${g.id}"><div class="goalIn"><input class="goalNameInput" id="gn_${g.id}" value="${g.name||''}" placeholder="Название цели" onclick="event.stopPropagation()"><div class="goalRow"><input class="goalAmtInput" id="ga_${g.id}" type="number" placeholder="Сумма" min="0" onclick="event.stopPropagation()"><button class="goalBtn" onclick="event.stopPropagation();contributeToGoal('${g.id}')">Пополнить из резерва</button></div><div class="goalRow"><button class="goalBtn" onclick="event.stopPropagation();showGoalTotal('${g.id}')">Итог</button><button class="goalBtn" onclick="event.stopPropagation();saveGoalName('${g.id}')">Сохранить</button><button class="goalDel" onclick="event.stopPropagation();askDeleteGoal('${g.id}')">Удалить</button></div></div></div>`).join('')}
 
 window.toggleGoal=function(id){const card=$('gc_'+id),body=$('gb_'+id);card.classList.toggle('o');body.classList.toggle('o')};
 window.addGoal=function(){goals.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:'',saved:0});fbSave({goals});renderGoals();setTimeout(()=>{const cards=document.querySelectorAll('.goalCard');if(cards.length)cards[cards.length-1].click()},100)};
@@ -370,7 +327,7 @@ window.saveGoalName=function(id){const g=goals.find(x=>x.id===id);if(g){g.name=$
 window.contributeToGoal=function(id){const g=goals.find(x=>x.id===id);if(!g)return;const amt=parseFloat($('ga_'+id).value);if(!amt||amt<=0){alert('Введите сумму');return}if(amt>bud.r){alert('Недостаточно средств в резерве ('+fm(bud.r)+')');return}bud.r-=amt;g.saved+=amt;fbSave({bud,goals});$('ga_'+id).value='';alert('✅ Переведено '+fm(amt)+' из резерва!\nНакоплено: '+fm(g.saved));renderGoals();rn()};
 window.showGoalTotal=function(id){const g=goals.find(x=>x.id===id);if(g)alert('💰 Накоплено на "'+(g.name||'Без названия')+'":\n'+fm(g.saved))};
 window.askDeleteGoal=function(id){deleteGoalId=id;const g=goals.find(x=>x.id===id);$('deleteModalText').textContent='Удалить цель "'+(g?.name||'Без названия')+'"?';$('deleteModal').classList.add('show')};
-window.confirmDeleteGoal=function(isSuper){if(deleteGoalId){goals=goals.filter(x=>x.id!==deleteGoalId);fbSave({goals});renderGoals();$('deleteModal').classList.remove('show');if(isSuper)alert(' Поздравляем! Цель достигнута!');else alert('Цель удалена.');deleteGoalId=null}};
+window.confirmDeleteGoal=function(isSuper){if(deleteGoalId){goals=goals.filter(x=>x.id!==deleteGoalId);fbSave({goals});renderGoals();$('deleteModal').classList.remove('show');if(isSuper)alert('🎉 Поздравляем! Цель достигнута!');else alert('Цель удалена.');deleteGoalId=null}};
 
 function toggleTodo(type){event.currentTarget.classList.toggle('o');$('todoBody'+type.charAt(0).toUpperCase()+type.slice(1)).classList.toggle('o')}
 function toggleAb(section){event.currentTarget.classList.toggle('o');$('abBody'+section.charAt(0).toUpperCase()+section.slice(1)).classList.toggle('o')}
@@ -397,10 +354,7 @@ function op(){$('R').style.display='none';$('A').style.display='block';document.
 async function ld(){try{const ud=await getDoc(userRef);if(ud.exists()){const d=ud.data();if(d.nm){nm=d.nm;gen=d.gen;localStorage.setItem('budget_user_info',JSON.stringify({nm,gen}))}if(d.bud)bud=d.bud;if(d.todos&&Array.isArray(d.todos))todos=d.todos;else todos=[];if(d.goals&&Array.isArray(d.goals))goals=d.goals;else goals=[]}const ts=await getDocs(txRef);tx=[];ts.forEach(d=>{tx.push(d.data())})}catch(e){console.error('Load error:',e)}}
 
 $('sB').onclick=function(){bud={c:parseFloat($('iC').value)||0,d:parseFloat($('iD').value)||0,r:parseFloat($('iR').value)||0,s:true};fbSave({bud});sh(this);rn();rb()};
-
-// ИСПРАВЛЕНО: Сброс НЕ трогает резервную копию
 $('rB').onclick=function(){if(!confirm('Сбросить все данные?'))return;tx=[];todos=[];goals=[];bud={c:0,d:0,r:0,s:false};setDoc(userRef,{bud,todos,goals,tx:[]},{merge:true}).catch(()=>{});$('bB').style.display='block';$('iC').value='';$('iD').value='';$('iR').value='';rn();rb();alert('Очищено')};
-
 $('bT').onclick=function(){this.classList.toggle('o');$('bC').classList.toggle('o')};
 $('resT').onclick=function(){this.classList.toggle('o');$('resC').classList.toggle('o')};
 
@@ -438,4 +392,7 @@ window.restoreBackup=async function(){if(!confirm('Восстановить да
 document.addEventListener('focusout',()=>{setTimeout(()=>{window.scrollTo(0,0);document.body.scrollTop=0;document.documentElement.scrollTop=0},100)});
 camelliaInterval=setInterval(emitCamelliaParticles,500);
 
-window.toggleTodo=toggleTodo;window.toggleAb=toggleAb;window.addTodo=addTodo;window.toggleCheck=toggleCheck;window.deleteTodo=deleteTodo;window.setResMode=setResM
+window.toggleTodo=toggleTodo;window.toggleAb=toggleAb;window.addTodo=addTodo;window.toggleCheck=toggleCheck;window.deleteTodo=deleteTodo;window.setResMode=setResMode;window.applyRes=applyRes;
+
+const cachedInfo=localStorage.getItem('budget_user_info');
+if(cachedInfo){const info=JSON.parse(cachedI
