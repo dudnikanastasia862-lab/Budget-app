@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Диагностика</title>
-<style>body{background:#000;color:#fff;font-family:sans-serif;padding:20px}</style>
-</head>
-<body>
-<h1>Проверка кода</h1>
-<div id="result" style="background:#1a1a1a;padding:15px;margin:10px 0;border:1px solid #d4a574">Загрузка...</div>
-<script>
-window.onerror = function(msg, url, line, col, err) {
-  document.getElementById('result').innerHTML = '<div style="color:#ff4444"><b>❌ Ошибка найдена!</b><br><br><b>Сообщение:</b> ' + msg + '<br><br><b>Строка:</b> ' + line + '<br><br><b>Колонка:</b> ' + col + '<br><br><b>Стек:</b><br><pre style="white-space:pre-wrap;font-size:11px;">' + (err ? err.stack : 'нет') + '</pre></div>';
-  return true;
-};
-document.getElementById('result').innerHTML = '<div style="color:#22c55e"><b>✅ Скрипт запустился успешно</b><br><br>Если видишь это сообщение — значит JavaScript работает. Проблема в основном коде приложения.</div>';
-</script>
+<body style="background:red;color:white;font-size:30px;padding:50px">
+ЕСЛИ ТЫ ВИДИШЬ ЭТО — КОД РАБОТАЕТ
 </body>
 </html>
